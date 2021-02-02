@@ -1,6 +1,7 @@
 import { gql, GraphQLClient } from "graphql-request/dist";
 import _ from 'lodash';
 import ALL_ORDERS from './dec2020/sales_2020-01-01_2020-12-06-2.json';
+import PRODUCT_DESIGNERS from './dec2020/productDesigners.json';
 import Web3 from 'web3';
 require('dotenv').config()
 
@@ -102,6 +103,14 @@ const getEthAddressForCustomer = async (customerId: number): Promise<string | nu
 }
 
 
+type DesignerContribution = { name: string, ethAddress: string, contributionShare: number };
+
+const DesignerMap: Record<string, {
+  productId: number,
+  title: string,
+  designers: DesignerContribution[]
+}> = PRODUCT_DESIGNERS;
+
 const calculateDesignerAllocation = () => {
   const products = _(ALL_ORDERS)
     .groupBy('product_id')
@@ -109,23 +118,36 @@ const calculateDesignerAllocation = () => {
       orders => orders.reduce((acc, order) => ({
         totalSales: acc.totalSales + order.net_sales,
         productId: order.product_id,
-        vendor: order.product_vendor,
         title: order.product_title,
-      }), { totalSales: 0, productId: 0, vendor: '', title: '' })
+        designers: DesignerMap[order.product_id]?.designers
+      }), { totalSales: 0, productId: 0, title: '', designers: [] as DesignerContribution[] })
     ).values().value();
 
 
   const tokensToDistribute = products.reduce((sum, { totalSales }) => sum += totalSales, 0) * DESIGNER_ROBOT_PER_DOLLAR
+  let tokensToDistribute2 = 0
 
 
-  const output = products.map(t => `${t.productId},${t.title},${t.totalSales.toFixed(4)},${t.totalSales * DESIGNER_ROBOT_PER_DOLLAR}`)
+  const allocationMap = new Map<string, number>();
+
+  // map buyer purchases to ETH Addresses and token allocation
+  for (const p of products) {
+    const { designers, totalSales } = p;
+    for (const d of designers) {
+      const numTokens = d.contributionShare * totalSales * DESIGNER_ROBOT_PER_DOLLAR;
+      tokensToDistribute2 += numTokens;
+      allocationMap.set(d.ethAddress, (allocationMap.get(d.ethAddress) || 0) + numTokens)
+    }
+  }
+
+
+  const output = [...allocationMap.entries()].map(([ethAddress,tokens]) => `${ethAddress},${numberToWei(tokens)}`).join('\n')
+
   // Output result to console as CSV
-  console.log(`product_id,title,totalSales,tokenAmount\n${output.join('\n')}`);
-  console.log({ tokensToDistribute});
-
+  console.log(`ethAddress,tokenAmount\n${output}`);
+  console.log({ tokensToDistribute, tokensToDistribute2 });
 };
 
-
 calculateDesignerAllocation()
-
-calculateBuyerAllocation();
+//
+// calculateBuyerAllocation();
