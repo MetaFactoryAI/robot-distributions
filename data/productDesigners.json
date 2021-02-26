@@ -1,0 +1,437 @@
+{
+  "VACATION-STATION": {
+    "productId": "VACATION-STATION",
+    "title": "VacationStation",
+    "designers": [
+      {
+        "name": "AATIF",
+        "ethAddress": "0xE6c21d1baCadc972e2874EF5b6cD09F38051d83C",
+        "contributionShare": 0.3
+      }
+    ]
+  },
+  "VAUNKER-KEYCARD": {
+    "productId": "VAUNKER-KEYCARD",
+    "title": "Vaunker Genesis Keycard",
+    "designers": [
+      {
+        "name": "Van",
+        "ethAddress": "0xF91569595BCDAF780c3f1662f204E157949af8b2",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "4675397713966": {
+    "productId": 4675397713966,
+    "title": "The Heart\" Tee",
+    "designers": [
+      {
+        "name": "Eva Beylin",
+        "ethAddress": "0x892857D3A0E6ca504dA54470A0d71593525Ebc22",
+        "contributionShare": 0.5
+      },
+      {
+        "name": "Mike Purvis",
+        "ethAddress": "0x2941022347348828A24a5ff33c775D67691681e9",
+        "contributionShare": 0.5
+      }
+    ]
+  },
+  "4624482598958": {
+    "productId": 4624482598958,
+    "title": "YFI.01 - HOODIE",
+    "designers": [
+      {
+        "name": "METADREAMER",
+        "ethAddress": "0x8F942ECED007bD3976927B7958B50Df126FEeCb5",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "4649782378542": {
+    "productId": 4649782378542,
+    "title": "weesh",
+    "designers": [
+      {
+        "name": "METADREAMER",
+        "ethAddress": "0x8F942ECED007bD3976927B7958B50Df126FEeCb5",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "4630462365742": {
+    "productId": 4630462365742,
+    "title": "GENESIS\" BODY BAG",
+    "designers": [
+      {
+        "name": "METADREAMER",
+        "ethAddress": "0x8F942ECED007bD3976927B7958B50Df126FEeCb5",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "4634672070702": {
+    "productId": 4634672070702,
+    "title": "$BASEDBALL CAP",
+    "designers": [
+      {
+        "name": "METADREAMER",
+        "ethAddress": "0x8F942ECED007bD3976927B7958B50Df126FEeCb5",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "4634655359022": {
+    "productId": 4634655359022,
+    "title": "YAM JAMS",
+    "designers": [
+      {
+        "name": "Felipe Duarte",
+        "ethAddress": "0xce7298E5ef1aE8AF0573eDC2eBd03aB0F837E214",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "4549226889262": {
+    "productId": 4549226889262,
+    "title": "MF MASK - SPACED PAINTER",
+    "designers": [
+      {
+        "name": "SPACED PAINTER",
+        "ethAddress": "0x986ccF030A018f8190e7Cf488Ba9Fec8DF058199",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "4542701436974": {
+    "productId": 4542701436974,
+    "title": "MF MASK - SHORTCUT",
+    "designers": [
+      {
+        "name": "SHORTCUT",
+        "ethAddress": "0xe13d4abEe4B304b67C52A56871141caD1B833aa7",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "4542718574638": {
+    "productId": 4542718574638,
+    "title": "MF MASK - SKEENEE",
+    "designers": [
+      {
+        "name": "SKEENEE",
+        "ethAddress": "0x187dad1e0DD5e599091C2ec88E89aFB4CdE4B7a3",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "4542707138606": {
+    "productId": 4542707138606,
+    "title": "MF MASK - HEXEOSIS",
+    "designers": [
+      {
+        "name": "HEXEOSIS",
+        "ethAddress": "0x3A6E99D804746F7ec5BC2CAfe9ca5670607dfA84",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "4546341240878": {
+    "productId": 4546341240878,
+    "title": "MF MASK - METADREAMER",
+    "designers": [
+      {
+        "name": "METADREAMER",
+        "ethAddress": "0x8F942ECED007bD3976927B7958B50Df126FEeCb5",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "4504463278126": {
+    "productId": 4504463278126,
+    "title": "MF MASK - JAVIER ARRÉS",
+    "designers": [
+      {
+        "name": "JAVIER ARRÉS",
+        "ethAddress": "0x52a75580dA8dBD285fCeAA8D928962E7363accA1",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "4597786378286": {
+    "productId": 4597786378286,
+    "title": "MF MASK - MEEMURBIT",
+    "designers": [
+      {
+        "name": "MEEMURBIT",
+        "ethAddress": "0x8f2Df304FDf70BB480F1B2Acfb7B57830103d8eB",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "4549122457646": {
+    "productId": 4549122457646,
+    "title": "MF MASK - PAJARITAFLORA",
+    "designers": [
+      {
+        "name": "PAJARITAFLORA",
+        "ethAddress": "0xe13d4abEe4B304b67C52A56871141caD1B833aa7",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "4546137358382": {
+    "productId": 4546137358382,
+    "title": "MF MASK - JIVINCI",
+    "designers": [
+      {
+        "name": "JIVINCI",
+        "ethAddress": "0xb7F73311a823FA70059Cf6e22A842C3BD64c53C3",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "4655315943470": {
+    "productId": 4655315943470,
+    "title": "NOT A SHIRT",
+    "designers": [
+      {
+        "name": "METADREAMER",
+        "ethAddress": "0x8F942ECED007bD3976927B7958B50Df126FEeCb5",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "4649464332334": {
+    "productId": 4649464332334,
+    "title": "Chest Crest\" Red Tee",
+    "designers": [
+      {
+        "name": "Felipe Duarte",
+        "ethAddress": "0xce7298E5ef1aE8AF0573eDC2eBd03aB0F837E214",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "4542703140910": {
+    "productId": 4542703140910,
+    "title": "MF MASK - VAUNKER",
+    "designers": [
+      {
+        "name": "Van",
+        "ethAddress": "0xF91569595BCDAF780c3f1662f204E157949af8b2",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "4646728794158": {
+    "productId": 4646728794158,
+    "title": "GRIDLOCK\" Mask",
+    "designers": [
+      {
+        "name": "FLOC",
+        "ethAddress": "0x6Af6d6B3fBa247129c32544b53106AB3bb772902",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "4638001397806": {
+    "productId": 4638001397806,
+    "title": "The Unknown Traveler - Tank Top",
+    "designers": [
+      {
+        "name": "Rare Designer",
+        "ethAddress": "0xc29029DE05bF135a90C19F31F866F8774a39dBB6",
+        "contributionShare": 0.5
+      },
+      {
+        "name": "WhaleShark",
+        "ethAddress": "0xD2Af803ad747ea12Acf5Ae468056703aE48785b5",
+        "contributionShare": 0.5
+      }
+    ]
+  },
+  "4540837462062": {
+    "productId": 4540837462062,
+    "title": "MF MASK - ALOTTA MONEY",
+    "designers": [
+      {
+        "name": "ALOTTA MONEY",
+        "ethAddress": "0xbd9b7373aAc15d9A93c810dF3999343f4Fe1eD88",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "4649457975342": {
+    "productId": 4649457975342,
+    "title": "Fractalized\" Tee",
+    "designers": [
+      {
+        "name": "Felipe Duarte",
+        "ethAddress": "0xce7298E5ef1aE8AF0573eDC2eBd03aB0F837E214",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "4649458401326": {
+    "productId": 4649458401326,
+    "title": "Chest Crest\" Black Tee",
+    "designers": [
+      {
+        "name": "Felipe Duarte",
+        "ethAddress": "0xce7298E5ef1aE8AF0573eDC2eBd03aB0F837E214",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "4546200961070": {
+    "productId": 4546200961070,
+    "title": "MF MASK - MLIBTY",
+    "designers": [
+      {
+        "name": "MLIBTY",
+        "ethAddress": "0x9eEC0B5Bd8A48047f0Dcc61E98B4b92951480F98",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "4546196701230": {
+    "productId": 4546196701230,
+    "title": "MF MASK - URIEL HERNANDEZ",
+    "designers": [
+      {
+        "name": "URIEL HERNANDEZ",
+        "ethAddress": "0x65D472172E4933aa4Ddb995CF4Ca8bef72a46576",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "4638008967214": {
+    "productId": 4638008967214,
+    "title": "The Unknown Traveler - T-Shirt",
+    "designers": [
+      {
+        "name": "Rare Designer",
+        "ethAddress": "0xc29029DE05bF135a90C19F31F866F8774a39dBB6",
+        "contributionShare": 0.5
+      },
+      {
+        "name": "WhaleShark",
+        "ethAddress": "0xD2Af803ad747ea12Acf5Ae468056703aE48785b5",
+        "contributionShare": 0.5
+      }
+    ]
+  },
+  "4549207851054": {
+    "productId": 4549207851054,
+    "title": "MF MASK - TOXSAM",
+    "designers": [
+      {
+        "name": "TOXSAM",
+        "ethAddress": "0xFec33A90737254DCf9Aa33188a11f32797197F93",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "4646369689646": {
+    "productId": 4646369689646,
+    "title": "Twisted Dreaming\" Jogger",
+    "designers": [
+      {
+        "name": "Felipe Duarte",
+        "ethAddress": "0xce7298E5ef1aE8AF0573eDC2eBd03aB0F837E214",
+        "contributionShare": 0.8
+      },
+      {
+        "name": "Twisted Vacancy",
+        "ethAddress": "0x35764fd659509f60c9531f27fdb5305f85a1398b",
+        "contributionShare": 0.2
+      }
+    ]
+  },
+  "4691851673646": {
+    "productId": 4691851673646,
+    "title": "Sky Custom Mask",
+    "designers": []
+  },
+  "4685617397806": {
+    "productId": 4685617397806,
+    "title": "Warm With Prime\" Sweatshirt",
+    "designers": [
+      {
+        "name": "Felipe Duarte",
+        "ethAddress": "0xce7298E5ef1aE8AF0573eDC2eBd03aB0F837E214",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "4697998655534": {
+    "productId": 4697998655534,
+    "title": "GRIDLOCK\" Sweatshirt",
+    "designers": [
+      {
+        "name": "FLOC",
+        "ethAddress": "0x6Af6d6B3fBa247129c32544b53106AB3bb772902",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "4685613826094": {
+    "productId": 4685613826094,
+    "title": "The Pulley\" Sweatshirt",
+    "designers": [
+      {
+        "name": "Felipe Duarte",
+        "ethAddress": "0xce7298E5ef1aE8AF0573eDC2eBd03aB0F837E214",
+        "contributionShare": 0.8
+      },
+      {
+        "name": "Twisted Vacancy",
+        "ethAddress": "0x35764fd659509f60c9531f27fdb5305f85a1398b",
+        "contributionShare": 0.2
+      }
+    ]
+  },
+  "4702342152238": {
+    "productId": 4702342152238,
+    "title": "MF GIFT CARD",
+    "designers": []
+  },
+  "4702722719790": {
+    "productId": 4702722719790,
+    "title": "GRIDLOCK DARK\" Sweatshirt",
+    "designers": [
+      {
+        "name": "FLOC",
+        "ethAddress": "0x6Af6d6B3fBa247129c32544b53106AB3bb772902",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "4711785103406": {
+    "productId": 4711785103406,
+    "title": "WickedSundayClub Genesis Care Package",
+    "designers": []
+  },
+  "4676380000302": {
+    "productId": 4676380000302,
+    "title": "Vegas Baby\" Jogger",
+    "designers": [
+      {
+        "name": "Penguin",
+        "ethAddress": "0xfaCEf700458D4Fc9746F7f3e0d37B462711fF09e",
+        "contributionShare": 0.8
+      },
+      {
+        "name": "Twisted Vacancy",
+        "ethAddress": "0x35764fd659509f60c9531f27fdb5305f85a1398b",
+        "contributionShare": 0.2
+      }
+    ]
+  },
+  "4716042879022": {
+    "productId": 4716042879022,
+    "title": "'This is the GWEI' T-Shirt & Spork Package",
+    "designers": []
+  }
+}

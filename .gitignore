@@ -2,3 +2,5 @@ node_modules
 
 schema.graphql
 .env
+
+customerEthAddresses.json
