@@ -1,153 +1,286 @@
-import { gql, GraphQLClient } from "graphql-request/dist";
 import _ from 'lodash';
-import ALL_ORDERS from './dec2020/sales_2020-01-01_2020-12-06-2.json';
-import PRODUCT_DESIGNERS from './dec2020/productDesigners.json';
-import Web3 from 'web3';
-require('dotenv').config()
+import * as fs from 'fs';
+import { numberToWei, weiToNumber } from './lib/ethHelpers';
+import {
+  DesignerAllocation,
+  DesignerContribution,
+  Order,
+  OrderRewardAllocation,
+} from './lib/types';
 
-const BUYER_ROBOT_PER_DOLLAR = 0.4;
-const DESIGNER_ROBOT_PER_DOLLAR = 0.16;
+import PREVIOUS_AIRDROP from './dec2020/finalTokensDistributed.json';
 
-const ENDPOINT = process.env.GRAPHQL_ENDPOINT;
-const TOKEN = process.env.ACCESS_TOKEN;
+import PRODUCT_DESIGNERS from './data/productDesigners.json';
+import CUSTOMER_ETH_ADDRESSES from './data/customerEthAddresses.json';
+import { ALL_ORDERS } from './data';
 
-if (!ENDPOINT || !TOKEN) {
-  throw new Error('Missing ENV Variables.')
-}
+const SALES_MILESTONES = [100_000, 110_000, 200_000, 400_000, 800_000];
+const BUYER_ROBOT_PER_DOLLAR = [0.4, 0.2, 0.05, 0.025, 0.0125];
+const DESIGNER_ROBOT_PER_DOLLAR = [0.16, 0.12, 0.05, 0.025, 0.0125];
 
-const client = new GraphQLClient(ENDPOINT, { headers: { 'X-Shopify-Access-Token': TOKEN } })
+const INITIAL_REVENUE = 50_000;
 
+const VAUNKER_SALE_ROBOT_PER_ETH = 42;
 
-const web3 = new Web3("http://geth.dappnode:8545")
-
-const numberToWei = (n: number) => web3.utils.toWei(n.toFixed(5), 'ether')
-
-const calculateBuyerAllocation = async () => {
-  const buyers = _(ALL_ORDERS)
-    .groupBy('customer_id')
-    .mapValues(
-      orders => orders.reduce((acc, order) => ({
-        totalSpent: acc.totalSpent + order.net_sales,
-        customerId: order.customer_id,
-      }), { totalSpent: 0, customerId: 0 })
-    ).values().value();
-
-  const recipients: Array<{ ethAddress: string, tokenAmount: number}> = [];
-  let totalSales = 0;
-
-  // map buyer purchases to ETH Addresses and token allocation
-  for (const b of buyers) {
-    totalSales += b.totalSpent;
-    const ethAddress = await getEthAddressForCustomer(b.customerId);
-    if (ethAddress) {
-      recipients.push({ ethAddress, tokenAmount: b.totalSpent * BUYER_ROBOT_PER_DOLLAR })
-    } else {
-      console.warn('Missing ETH Address for customerID: ', b.customerId, '. Total spend: ', b.totalSpent)
-    }
+export const productDesignerMap: Record<
+  string,
+  {
+    productId: number | string;
+    title: string;
+    designers: DesignerContribution[];
   }
+> = PRODUCT_DESIGNERS;
 
+const customerEthAddressMap = _(CUSTOMER_ETH_ADDRESSES)
+  .keyBy('customerId')
+  .mapValues((v) => v.ethAddress.toLowerCase())
+  .value();
 
-  // Merge duplicate ETH address entries
-  const airdropList = _(recipients)
-    .groupBy('ethAddress')
-    .mapValues(
-      receipts => receipts.reduce((acc, r) => ({
-        tokenAmount: acc.tokenAmount + r.tokenAmount,
-        ethAddress: r.ethAddress,
-      }), { tokenAmount: 0, ethAddress: '' })
-    ).values().value();
+const customRewardHandlers: Record<
+  string,
+  (order: Order, milestoneIndex: number) => OrderRewardAllocation
+> = {
+  'VAUNKER-KEYCARD': (order, milestoneIndex: number) => {
+    if (!('ethPaid' in order && order.ethPaid)) {
+      throw new Error('Missing ETH paid for Vaunker purchase');
+    }
 
+    const buyerAllocation = order.ethPaid * VAUNKER_SALE_ROBOT_PER_ETH;
 
-  const tokensToDistribute = airdropList.reduce((sum, { tokenAmount }) => sum += tokenAmount, 0)
+    const designers = productDesignerMap[order.product_id]?.designers || [];
+    const designerAllocation = order.net_sales * DESIGNER_ROBOT_PER_DOLLAR[milestoneIndex];
 
-  const output = airdropList.filter(t => t.tokenAmount > 0).map(t => `${t.ethAddress},${numberToWei(t.tokenAmount)}`)
-  // Output result to console as CSV
-  console.log(output.join('\n'));
-  console.log({ totalSales, totalTokens: totalSales * BUYER_ROBOT_PER_DOLLAR, tokensToDistribute })
+    return {
+      buyer: buyerAllocation,
+      designers: designers.map((d) => ({
+        ethAddress: d.ethAddress,
+        allocation: designerAllocation * d.contributionShare,
+      })),
+    };
+  },
+  // "This is the GWEI" ETHDenver Package to be distributed at later date
+  '4716042879022': (order) => ({ buyer: 0, designers: [] }),
 };
 
-const getEthAddressForCustomer = async (customerId: number): Promise<string | null> => {
-  const QUERY = gql`
-    query getCustomer($customerId: ID!) {
-      customer(id: $customerId) {
-        metafield(key: "ethereum_address", namespace: "cf_app") {
-          value
-        }
+const getTokenReward = (
+  currentRevenue: number,
+  dollarsSpent: number,
+  order: Order,
+): { buyer: number; designers: DesignerAllocation[] } => {
+  let milestoneIndex = 0;
+  if (currentRevenue > SALES_MILESTONES[0]) milestoneIndex = 1;
+  if (currentRevenue > SALES_MILESTONES[1]) milestoneIndex = 2;
+  if (currentRevenue > SALES_MILESTONES[2]) milestoneIndex = 3;
+
+  const nextRevenue = currentRevenue + dollarsSpent;
+
+  if (nextRevenue > SALES_MILESTONES[milestoneIndex]) {
+    console.log('Next Revenue', { order, nextRevenue });
+  }
+
+  const customHandler = customRewardHandlers[order.product_id.toString()];
+  if (customHandler) {
+    return customHandler(order, milestoneIndex);
+  }
+
+  const designers = productDesignerMap[order.product_id]?.designers || [];
+  if (!designers.length) {
+    console.log('product has no designers', {
+      id: order.product_id,
+      title: order.product_title,
+      sale: order.net_sales,
+      orderName: 'order_name' in order ? order.order_name : order.product_title,
+      milestoneIndex,
+    });
+  }
+
+  // Handle the case where a purchase is split across milestones
+  if (nextRevenue > SALES_MILESTONES[milestoneIndex]) {
+    const overMilestoneSpent = nextRevenue - SALES_MILESTONES[milestoneIndex];
+    const underMilestoneSpent = dollarsSpent - overMilestoneSpent;
+
+    const overMilestoneBuyerAllocation =
+      overMilestoneSpent * BUYER_ROBOT_PER_DOLLAR[milestoneIndex + 1];
+    const underMilestoneBuyerAllocation =
+      underMilestoneSpent * BUYER_ROBOT_PER_DOLLAR[milestoneIndex];
+
+    const overMilestoneDesignerAllocation =
+      overMilestoneSpent * DESIGNER_ROBOT_PER_DOLLAR[milestoneIndex + 1];
+    const underMilestoneDesignerAllocation =
+      underMilestoneSpent * DESIGNER_ROBOT_PER_DOLLAR[milestoneIndex];
+
+    const designerAllocation = overMilestoneDesignerAllocation + underMilestoneDesignerAllocation;
+
+    return {
+      buyer: overMilestoneBuyerAllocation + underMilestoneBuyerAllocation,
+      designers: designers.map((d) => ({
+        ethAddress: d.ethAddress,
+        allocation: designerAllocation * d.contributionShare,
+      })),
+    };
+  }
+
+  const designerAllocation = dollarsSpent * DESIGNER_ROBOT_PER_DOLLAR[milestoneIndex];
+
+  return {
+    buyer: dollarsSpent * BUYER_ROBOT_PER_DOLLAR[milestoneIndex],
+    designers: designers.map((d) => ({
+      ethAddress: d.ethAddress,
+      allocation: designerAllocation * d.contributionShare,
+    })),
+  };
+};
+
+const getDollarsSpent = (order: Order) => {
+  if (order.product_title === 'MF GIFT CARD' && 'order_name' in order) return order.product_price;
+  return order.net_sales;
+};
+
+const getEthAddress = (order: Order) => {
+  if ('ethAddress' in order) return order.ethAddress;
+  return customerEthAddressMap[order.customer_id.toString()]?.toLowerCase();
+};
+
+const generateMonthlyAllocation = async () => {
+  let totalRevenue = INITIAL_REVENUE;
+
+  // start with negative balances for tokens that were already airdropped
+  const airdrop = _(PREVIOUS_AIRDROP)
+    .map((v) => ({ ...v, ethAddress: v.ethAddress.toLowerCase() }))
+    .keyBy('ethAddress')
+    .mapValues((v) => -weiToNumber(v.numTokens))
+    .value();
+
+  const sortedOrders = _(ALL_ORDERS).sortBy(['day', 'order_name', 'day']).value();
+
+  const allocations: Record<string, number> = {};
+
+  for (const order of sortedOrders) {
+    const spent = getDollarsSpent(order);
+
+    if (!spent) continue;
+
+    const reward = getTokenReward(totalRevenue, spent, order);
+
+    totalRevenue += spent;
+
+    for (const designer of reward.designers) {
+      const address = designer.ethAddress.toLowerCase();
+      airdrop[address] = (airdrop[address] || 0) + designer.allocation;
+      if (airdrop[address] > 0) {
+        allocations[address] = airdrop[address];
       }
     }
-  `
-  const data = await client.request(QUERY, { customerId: `gid://shopify/Customer/${customerId}` });
-  const value = data.customer.metafield?.value;
 
-  let ethAddress = /0x[a-fA-F0-9]{40}/.exec(value)?.[0];
-  const ensName = /\w+\.eth/.exec(value)?.[0];
+    const buyerEthAddress = getEthAddress(order);
+    if (!buyerEthAddress) {
+      console.log(
+        `No Eth Address for order ${
+          'order_name' in order ? order.order_name : order.product_title
+        }. Day: ${order.day}. ${order.product_title}`,
+      );
+      continue;
+    }
 
-  if (ensName) {
-    console.log(`Fetching ETH address for ENS`, ensName);
-    try {
-      ethAddress = await web3.eth.ens.getAddress(ensName);
-      console.log({ ethAddress, ensName });
-    } catch (e) {
-      console.warn("Unable to resolve ETH address for ENS: ", ensName);
+    airdrop[buyerEthAddress] = (airdrop[buyerEthAddress] || 0) + reward.buyer;
+
+    // Only add tokens to next allocation if there's no previous airdrops left
+    if (airdrop[buyerEthAddress] > 0) {
+      allocations[buyerEthAddress] = airdrop[buyerEthAddress];
     }
   }
 
-  if (!ethAddress) return null;
+  const airdropAmounts: Record<string, number> = {};
+  const csvOutput: string[] = ['ethAddress,numTokens'];
 
-  if (!web3.utils.isAddress(ethAddress)) {
-    console.log("Invalid ETH Address: ", { ethAddress, customerId });
-    return null;
-  }
-
-  return ethAddress;
-}
-
-
-type DesignerContribution = { name: string, ethAddress: string, contributionShare: number };
-
-const DesignerMap: Record<string, {
-  productId: number,
-  title: string,
-  designers: DesignerContribution[]
-}> = PRODUCT_DESIGNERS;
-
-const calculateDesignerAllocation = () => {
-  const products = _(ALL_ORDERS)
-    .groupBy('product_id')
-    .mapValues(
-      orders => orders.reduce((acc, order) => ({
-        totalSales: acc.totalSales + order.net_sales,
-        productId: order.product_id,
-        title: order.product_title,
-        designers: DesignerMap[order.product_id]?.designers
-      }), { totalSales: 0, productId: 0, title: '', designers: [] as DesignerContribution[] })
-    ).values().value();
-
-
-  const tokensToDistribute = products.reduce((sum, { totalSales }) => sum += totalSales, 0) * DESIGNER_ROBOT_PER_DOLLAR
-  let tokensToDistribute2 = 0
-
-
-  const allocationMap = new Map<string, number>();
-
-  // map buyer purchases to ETH Addresses and token allocation
-  for (const p of products) {
-    const { designers, totalSales } = p;
-    for (const d of designers) {
-      const numTokens = d.contributionShare * totalSales * DESIGNER_ROBOT_PER_DOLLAR;
-      tokensToDistribute2 += numTokens;
-      allocationMap.set(d.ethAddress, (allocationMap.get(d.ethAddress) || 0) + numTokens)
+  Object.keys(allocations).forEach((ethAddress) => {
+    const allocation = allocations[ethAddress];
+    if (allocation > 1e-8) {
+      airdropAmounts[ethAddress] = allocation;
+      csvOutput.push(`${ethAddress},${numberToWei(allocation)}`);
     }
-  }
+  });
 
+  const totalTokens = Object.values(airdropAmounts).reduce((total, amount) => (total += amount), 0);
+  console.log({ totalTokens, totalRevenue });
 
-  const output = [...allocationMap.entries()].map(([ethAddress,tokens]) => `${ethAddress},${numberToWei(tokens)}`).join('\n')
-
-  // Output result to console as CSV
-  console.log(`ethAddress,tokenAmount\n${output}`);
-  console.log({ tokensToDistribute, tokensToDistribute2 });
+  fs.writeFileSync('./feb2021/airdrop.json', JSON.stringify(airdropAmounts));
+  fs.writeFileSync('./feb2021/finalTokensDistributed.csv', csvOutput.join('\n'));
 };
 
-calculateDesignerAllocation()
+generateMonthlyAllocation();
+
 //
-// calculateBuyerAllocation();
+
+// const loadAirdrop = async () => {
+//   // Merge duplicate ETH address entries
+//   const airdropList = _(PREVIOUS_AIRDROP)
+//     .groupBy('ethAddress')
+//     .mapValues(
+//       drops => drops.reduce((acc, r) => ({
+//         numTokens: acc.numTokens.add(stringToBn(r.tokenAmount)),
+//         ethAddress: r.ethAddress,
+//       }), { numTokens: stringToBn("0"), ethAddress: '' })
+//     ).values().map(v => ({ ...v, numTokens: v.numTokens.toString() })).value();
+//
+//   fs.writeFileSync('./feb2021/airdrop.json', JSON.stringify(airdropList))
+//   // console.log(airdropList.length, PREVIOUS_AIRDROP.length);
+// }
+//
+// loadAirdrop()
+
+// const calculateBuyerAllocation = async (orders: RawOrder[]) => {
+//   const buyers = _(ordersWithAllocations)
+//     .groupBy('customer_id')
+//     .mapValues((orders) =>
+//       orders.reduce(
+//         (acc, order) => ({
+//           numTokens: acc.numTokens + order.numTokens,
+//           customerId: order.customer_id,
+//         }),
+//         { numTokens: 0, customerId: 0 },
+//       ),
+//     )
+//     .values()
+//     .value();
+//
+//   const recipients: Array<{ ethAddress: string; numTokens: number }> = [];
+//
+//   // map buyer purchases to ETH Addresses and token allocation
+//   for (const b of buyers) {
+//     const ethAddress = await getEthAddressForCustomer(b.customerId);
+//     if (ethAddress) {
+//       recipients.push({ ethAddress, numTokens: b.numTokens });
+//     } else {
+//       console.warn(
+//         'Missing ETH Address for customerID: ',
+//         b.customerId,
+//         '. Num Tokens: ',
+//         b.numTokens,
+//       );
+//     }
+//   }
+//
+//   // Merge duplicate ETH address entries
+//   const airdropList = _(recipients)
+//     .groupBy('ethAddress')
+//     .mapValues((receipts) =>
+//       receipts.reduce(
+//         (acc, r) => ({
+//           numTokens: acc.numTokens + r.numTokens,
+//           ethAddress: r.ethAddress,
+//         }),
+//         { numTokens: 0, ethAddress: '' },
+//       ),
+//     )
+//     .values()
+//     .value();
+//
+//   const tokensToDistribute = airdropList.reduce((sum, { numTokens }) => (sum += numTokens), 0);
+//   const output = airdropList
+//     .filter((t) => t.numTokens > 0)
+//     .map((t) => `${t.ethAddress},${numberToWei(t.numTokens)}`);
+//   // // Output result to console as CSV
+//   console.log(output.join('\n'));
+//   // console.log({ totalSales, totalTokens: totalSales * BUYER_ROBOT_PER_DOLLAR, tokensToDistribute })
+// };
