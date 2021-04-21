@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import * as fs from 'fs';
-import { numberToWei, weiToNumber } from './lib/ethHelpers';
+import { formatAddress, numberToWei, weiToNumber } from './lib/ethHelpers';
 import {
   DesignerAllocation,
   DesignerContribution,
@@ -8,11 +8,12 @@ import {
   OrderRewardAllocation,
 } from './lib/types';
 
-import PREVIOUS_AIRDROP from './dec2020/finalTokensDistributed.json';
+import DEC2020_AIRDROP from './dec2020/finalTokensDistributed.json';
+import FEB2021_AIRDROP from './feb2021/finalTokensDistributed.json';
 
 import PRODUCT_DESIGNERS from './data/productDesigners.json';
-import CUSTOMER_ETH_ADDRESSES from './data/customerEthAddresses.json';
 import { ALL_ORDERS } from './data';
+import { getDollarsSpent, getEthAddress } from './lib/orderHelpers';
 
 const SALES_MILESTONES = [100_000, 110_000, 200_000, 400_000, 800_000];
 const BUYER_ROBOT_PER_DOLLAR = [0.4, 0.2, 0.05, 0.025, 0.0125];
@@ -30,11 +31,6 @@ export const productDesignerMap: Record<
     designers: DesignerContribution[];
   }
 > = PRODUCT_DESIGNERS;
-
-const customerEthAddressMap = _(CUSTOMER_ETH_ADDRESSES)
-  .keyBy('customerId')
-  .mapValues((v) => v.ethAddress.toLowerCase())
-  .value();
 
 const customRewardHandlers: Record<
   string,
@@ -58,8 +54,6 @@ const customRewardHandlers: Record<
       })),
     };
   },
-  // "This is the GWEI" ETHDenver Package to be distributed at later date
-  '4716042879022': (order) => ({ buyer: 0, designers: [] }),
 };
 
 const getTokenReward = (
@@ -71,6 +65,7 @@ const getTokenReward = (
   if (currentRevenue > SALES_MILESTONES[0]) milestoneIndex = 1;
   if (currentRevenue > SALES_MILESTONES[1]) milestoneIndex = 2;
   if (currentRevenue > SALES_MILESTONES[2]) milestoneIndex = 3;
+  if (currentRevenue > SALES_MILESTONES[3]) milestoneIndex = 4;
 
   const nextRevenue = currentRevenue + dollarsSpent;
 
@@ -131,27 +126,23 @@ const getTokenReward = (
   };
 };
 
-const getDollarsSpent = (order: Order) => {
-  if (order.product_title === 'MF GIFT CARD' && 'order_name' in order) return order.product_price;
-  return order.net_sales;
-};
+const getTokensAlreadyAirdropped = () => {
+  const pastAirdrops = [...DEC2020_AIRDROP, ...FEB2021_AIRDROP];
 
-const getEthAddress = (order: Order) => {
-  if ('ethAddress' in order) return order.ethAddress;
-  return customerEthAddressMap[order.customer_id.toString()]?.toLowerCase();
+  return _(pastAirdrops)
+    .map((v) => ({ ...v, ethAddress: v.ethAddress.toLowerCase() }))
+    .groupBy('ethAddress')
+    .mapValues((drops) => drops.reduce((acc, r) => acc - weiToNumber(r.numTokens), 0))
+    .value();
 };
 
 const generateMonthlyAllocation = async () => {
   let totalRevenue = INITIAL_REVENUE;
 
   // start with negative balances for tokens that were already airdropped
-  const airdrop = _(PREVIOUS_AIRDROP)
-    .map((v) => ({ ...v, ethAddress: v.ethAddress.toLowerCase() }))
-    .keyBy('ethAddress')
-    .mapValues((v) => -weiToNumber(v.numTokens))
-    .value();
+  const airdropped = getTokensAlreadyAirdropped();
 
-  const sortedOrders = _(ALL_ORDERS).sortBy(['day', 'order_name', 'day']).value();
+  const sortedOrders = _(ALL_ORDERS).sortBy(['day', 'order_name', 'time']).value();
 
   const allocations: Record<string, number> = {};
 
@@ -166,9 +157,9 @@ const generateMonthlyAllocation = async () => {
 
     for (const designer of reward.designers) {
       const address = designer.ethAddress.toLowerCase();
-      airdrop[address] = (airdrop[address] || 0) + designer.allocation;
-      if (airdrop[address] > 0) {
-        allocations[address] = airdrop[address];
+      airdropped[address] = (airdropped[address] || 0) + designer.allocation;
+      if (airdropped[address] > 0) {
+        allocations[address] = airdropped[address];
       }
     }
 
@@ -182,39 +173,41 @@ const generateMonthlyAllocation = async () => {
       continue;
     }
 
-    airdrop[buyerEthAddress] = (airdrop[buyerEthAddress] || 0) + reward.buyer;
+    airdropped[buyerEthAddress] = (airdropped[buyerEthAddress] || 0) + reward.buyer;
 
     // Only add tokens to next allocation if there's no previous airdrops left
-    if (airdrop[buyerEthAddress] > 0) {
-      allocations[buyerEthAddress] = airdrop[buyerEthAddress];
+    if (airdropped[buyerEthAddress] > 0) {
+      allocations[buyerEthAddress] = airdropped[buyerEthAddress];
     }
   }
 
-  const airdropAmounts: Record<string, number> = {};
+  const airdropAmounts: Record<string, string> = {};
   const csvOutput: string[] = ['ethAddress,numTokens'];
 
   Object.keys(allocations).forEach((ethAddress) => {
     const allocation = allocations[ethAddress];
     if (allocation > 1e-8) {
-      airdropAmounts[ethAddress] = allocation;
-      csvOutput.push(`${ethAddress},${numberToWei(allocation)}`);
+      const checksumAddress = formatAddress(ethAddress);
+      airdropAmounts[checksumAddress] = allocation.toString();
+      csvOutput.push(`${checksumAddress},${numberToWei(allocation)}`);
     }
   });
 
-  const totalTokens = Object.values(airdropAmounts).reduce((total, amount) => (total += amount), 0);
+  const totalTokens = Object.values(airdropAmounts).reduce(
+    (total, amount) => (total += parseFloat(amount)),
+    0,
+  );
   console.log({ totalTokens, totalRevenue });
 
-  fs.writeFileSync('./feb2021/airdrop.json', JSON.stringify(airdropAmounts));
-  fs.writeFileSync('./feb2021/finalTokensDistributed.csv', csvOutput.join('\n'));
+  fs.writeFileSync('./april2021/airdrop.json', JSON.stringify(airdropAmounts));
+  fs.writeFileSync('./april2021/finalTokensDistributed.csv', csvOutput.join('\n'));
 };
 
 generateMonthlyAllocation();
 
-//
-
 // const loadAirdrop = async () => {
 //   // Merge duplicate ETH address entries
-//   const airdropList = _(PREVIOUS_AIRDROP)
+//   const airdropList = _(DEC2020_AIRDROP)
 //     .groupBy('ethAddress')
 //     .mapValues(
 //       drops => drops.reduce((acc, r) => ({
@@ -224,7 +217,7 @@ generateMonthlyAllocation();
 //     ).values().map(v => ({ ...v, numTokens: v.numTokens.toString() })).value();
 //
 //   fs.writeFileSync('./feb2021/airdrop.json', JSON.stringify(airdropList))
-//   // console.log(airdropList.length, PREVIOUS_AIRDROP.length);
+//   // console.log(airdropList.length, DEC2020_AIRDROP.length);
 // }
 //
 // loadAirdrop()

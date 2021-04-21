@@ -17,6 +17,7 @@ const CUSTOMER_QUERY = gql`
       id
       displayName
       email
+      tags
       orders(first: 10) {
         edges {
           node {
@@ -38,9 +39,13 @@ const CUSTOMER_QUERY = gql`
   }
 `;
 
+const MISSING_ETH_ADDRESS_TAG = 'missing_eth_address';
+
 const CUSTOMER_ID_PREFIX = 'gid://shopify/Customer/';
 const ETH_REGEX = /0x[a-fA-F0-9]{40}/;
 const ENS_REGEX = /\w+\.eth/;
+
+type CustomAttribute = { key: string; value: string };
 
 const nodeIdToCustomerId = (nodeId: string) => nodeId.split(CUSTOMER_ID_PREFIX)[1];
 const customerIdToNodeId = (id: string | number) => `${CUSTOMER_ID_PREFIX}${id}`;
@@ -70,6 +75,10 @@ export const resolveEnsToAddress = async (addressOrEnsName: string): Promise<str
   }
 };
 
+const getEthAddressFromCustomAttributes = (attributes: CustomAttribute[]) => {
+  return attributes.find((a: CustomAttribute) => a.key === 'Ethereum Address')?.value;
+};
+
 export const getEthAddressForCustomer = async (customerId: number): Promise<string | null> => {
   const data = await client.request(CUSTOMER_QUERY, { id: customerIdToNodeId(customerId) });
 
@@ -78,10 +87,15 @@ export const getEthAddressForCustomer = async (customerId: number): Promise<stri
   if (address) return resolveEnsToAddress(address);
 
   // Otherwise check if the user gave the ETH address at checkout
-  const ethAddressField = _.findLast(
+  const ethAddressField = _.reduce(
     data.customer.orders.edges,
-    (e) => e.node.customAttributes.length > 0,
-  )?.node.customAttributes[0].value;
+    (ethAddress, order) => {
+      const address = getEthAddressFromCustomAttributes(order.node.customAttributes);
+      return address || ethAddress;
+    },
+    '',
+  );
+
   address = extractEthAddress(ethAddressField);
 
   if (!address) {
@@ -100,14 +114,16 @@ export const getEthAddressForCustomer = async (customerId: number): Promise<stri
     return ethAddress;
   }
 
+  await setMissingEthAddressTagForCustomer(data.customer);
   return null;
 };
 
 const SET_ETH_ADDRESS_MUTATION = gql`
-  mutation setEthAddressForCustomer($id: ID!, $address: String!, $fieldId: ID) {
+  mutation setEthAddressForCustomer($id: ID!, $address: String!, $fieldId: ID, $tags: [String!]) {
     customerUpdate(
       input: {
         id: $id
+        tags: $tags
         metafields: [
           {
             key: "ethereum_address"
@@ -120,11 +136,26 @@ const SET_ETH_ADDRESS_MUTATION = gql`
       }
     ) {
       customer {
+        tags
         metafield(key: "ethereum_address", namespace: "cf_app") {
           id
           key
           value
         }
+      }
+      userErrors {
+        field
+        message
+      }
+    }
+  }
+`;
+
+const SET_MISSING_ETH_ADDRESS_MUTATION = gql`
+  mutation addMissingEthAddressTag($id: ID!, $tags: [String!]!) {
+    tagsAdd(id: $id, tags: $tags) {
+      node {
+        id
       }
       userErrors {
         field
@@ -143,9 +174,25 @@ const updateEthAddressForCustomer = async (c: any, ethAddress: string) => {
     id: c.id,
     address: ethAddress,
     fieldId,
+    tags: c.tags.filter((t: string) => t !== MISSING_ETH_ADDRESS_TAG),
   });
 
   if (res.customerUpdate.userErrors.length) {
     console.log('Error updating ETH address', JSON.stringify(res));
+  }
+};
+
+const setMissingEthAddressTagForCustomer = async (c: any) => {
+  if (c.tags.find((t: string) => t === MISSING_ETH_ADDRESS_TAG)) return;
+
+  console.log('Setting Missing ETH address for customer: ', c.displayName, c.email);
+
+  const res = await client.request(SET_MISSING_ETH_ADDRESS_MUTATION, {
+    id: c.id,
+    tags: [MISSING_ETH_ADDRESS_TAG],
+  });
+
+  if (res.tagsAdd.userErrors.length) {
+    console.log('Error setting missing ETH address tag', JSON.stringify(res));
   }
 };
