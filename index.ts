@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import * as fs from 'fs';
-import { numberToWei, weiToNumber } from './lib/ethHelpers';
+import { formatAddress, weiToNumber } from './lib/ethHelpers';
 import {
   DesignerAllocation,
   DesignerContribution,
@@ -8,11 +8,12 @@ import {
   OrderRewardAllocation,
 } from './lib/types';
 
-import PREVIOUS_AIRDROP from './dec2020/finalTokensDistributed.json';
-
 import PRODUCT_DESIGNERS from './data/productDesigners.json';
-import CUSTOMER_ETH_ADDRESSES from './data/customerEthAddresses.json';
+import BUYER_REWARDS_BY_ORDER from './april2021/buyerRewardsByOrder.json';
+import DESIGNER_REWARDS_BY_ORDER from './april2021/designerRewardsByOrder.json';
+
 import { ALL_ORDERS } from './data';
+import { getDollarsSpent, getEthAddress } from './lib/orderHelpers';
 
 const SALES_MILESTONES = [100_000, 110_000, 200_000, 400_000, 800_000];
 const BUYER_ROBOT_PER_DOLLAR = [0.4, 0.2, 0.05, 0.025, 0.0125];
@@ -30,11 +31,6 @@ export const productDesignerMap: Record<
     designers: DesignerContribution[];
   }
 > = PRODUCT_DESIGNERS;
-
-const customerEthAddressMap = _(CUSTOMER_ETH_ADDRESSES)
-  .keyBy('customerId')
-  .mapValues((v) => v.ethAddress.toLowerCase())
-  .value();
 
 const customRewardHandlers: Record<
   string,
@@ -58,8 +54,6 @@ const customRewardHandlers: Record<
       })),
     };
   },
-  // "This is the GWEI" ETHDenver Package to be distributed at later date
-  '4716042879022': (order) => ({ buyer: 0, designers: [] }),
 };
 
 const getTokenReward = (
@@ -71,6 +65,7 @@ const getTokenReward = (
   if (currentRevenue > SALES_MILESTONES[0]) milestoneIndex = 1;
   if (currentRevenue > SALES_MILESTONES[1]) milestoneIndex = 2;
   if (currentRevenue > SALES_MILESTONES[2]) milestoneIndex = 3;
+  if (currentRevenue > SALES_MILESTONES[3]) milestoneIndex = 4;
 
   const nextRevenue = currentRevenue + dollarsSpent;
 
@@ -131,29 +126,42 @@ const getTokenReward = (
   };
 };
 
-const getDollarsSpent = (order: Order) => {
-  if (order.product_title === 'MF GIFT CARD' && 'order_name' in order) return order.product_price;
-  return order.net_sales;
+// const getTokensAlreadyAirdropped = () => {
+//   const pastAirdrops = [...DEC2020_AIRDROP, ...FEB2021_AIRDROP];
+//
+//   return _(pastAirdrops)
+//     .map((v) => ({ ...v, ethAddress: v.ethAddress.toLowerCase() }))
+//     .groupBy('ethAddress')
+//     .mapValues((drops) => drops.reduce((acc, r) => acc - weiToNumber(r.numTokens), 0))
+//     .value();
+// };
+
+const getBuyerRewardsAlreadyDistributedForOrders = (): Record<
+  string,
+  { address: string; amount: number }
+> => {
+  return _(BUYER_REWARDS_BY_ORDER)
+    .mapValues((v) => ({ ...v, amount: -v.amount }))
+    .value();
 };
 
-const getEthAddress = (order: Order) => {
-  if ('ethAddress' in order) return order.ethAddress;
-  return customerEthAddressMap[order.customer_id.toString()]?.toLowerCase();
+const getDesignerRewardsAlreadyDistributedForOrders = (): Record<
+  string,
+  Record<string, number>
+> => {
+  return _(DESIGNER_REWARDS_BY_ORDER)
+    .mapValues((d) => _.mapValues(d, (v) => -v))
+    .value();
 };
 
 const generateMonthlyAllocation = async () => {
   let totalRevenue = INITIAL_REVENUE;
 
-  // start with negative balances for tokens that were already airdropped
-  const airdrop = _(PREVIOUS_AIRDROP)
-    .map((v) => ({ ...v, ethAddress: v.ethAddress.toLowerCase() }))
-    .keyBy('ethAddress')
-    .mapValues((v) => -weiToNumber(v.numTokens))
-    .value();
+  // start with negative balances for order rewards that were already distributed
+  const buyerDistributed = getBuyerRewardsAlreadyDistributedForOrders();
+  const designerDistributed = getDesignerRewardsAlreadyDistributedForOrders();
 
-  const sortedOrders = _(ALL_ORDERS).sortBy(['day', 'order_name', 'day']).value();
-
-  const allocations: Record<string, number> = {};
+  const sortedOrders = _(ALL_ORDERS).sortBy(['day', 'order_name', 'time']).value();
 
   for (const order of sortedOrders) {
     const spent = getDollarsSpent(order);
@@ -162,14 +170,110 @@ const generateMonthlyAllocation = async () => {
 
     const reward = getTokenReward(totalRevenue, spent, order);
 
+    const orderId = `${order.order_id}`;
+    if (!designerDistributed[orderId]) {
+      designerDistributed[orderId] = {};
+    }
+    if (!buyerDistributed[orderId]) {
+      buyerDistributed[orderId] = { amount: 0, address: '' };
+    }
+
     totalRevenue += spent;
 
     for (const designer of reward.designers) {
       const address = designer.ethAddress.toLowerCase();
-      airdrop[address] = (airdrop[address] || 0) + designer.allocation;
-      if (airdrop[address] > 0) {
-        allocations[address] = airdrop[address];
+      designerDistributed[orderId][address] =
+        (designerDistributed[orderId][address] || 0) + designer.allocation;
+    }
+
+    const buyerEthAddress = getEthAddress(order);
+    if ('customer_id' in order && order.customer_id === 3576951177262) {
+      console.log('HELLOA', { buyerEthAddress, reward });
+    }
+
+    if (!buyerEthAddress) {
+      console.log(
+        `No Eth Address for order ${
+          'order_name' in order ? order.order_name : order.product_title
+        }. Day: ${order.day}. ${order.product_title}`,
+      );
+      continue;
+    }
+
+    buyerDistributed[orderId] = {
+      address: buyerEthAddress,
+      amount: (buyerDistributed[orderId]?.amount || 0) + reward.buyer,
+    };
+  }
+
+  const airdropAmounts: Record<string, number> = {};
+
+  const buyerRewards = _.values(buyerDistributed);
+  const designerRewards = _.values(designerDistributed);
+
+  for (const reward of buyerRewards) {
+    if (reward.amount > 1e-8) {
+      const checksumAddress = formatAddress(reward.address);
+      airdropAmounts[checksumAddress] = (airdropAmounts[checksumAddress] || 0) + reward.amount;
+    } else if (reward.amount < -1e-8) {
+      console.log('Negative buyer reward', reward);
+    }
+  }
+
+  for (const reward of designerRewards) {
+    for (const address in reward) {
+      if (reward[address] > 1e-8) {
+        const checksumAddress = formatAddress(address);
+        airdropAmounts[checksumAddress] = (airdropAmounts[checksumAddress] || 0) + reward[address];
+      } else if (reward[address] < -1e-8) {
+        console.log('Negative designer reward', { reward, address });
       }
+    }
+  }
+
+  const airdropOutput = _.mapValues(airdropAmounts, (v) => v.toString());
+
+  // Object.keys(airdropAmounts).forEach((ethAddress) => {
+  //   const amount = airdropAmounts[ethAddress];
+  //   if (amount > 1e-8) {
+  //     const checksumAddress = formatAddress(ethAddress);
+  //     airdropAmounts[checksumAddress] = allocation.toString();
+  //     csvOutput.push(`${checksumAddress},${numberToWei(allocation)}`);
+  //   }
+  // });
+
+  const totalTokens = Object.values(airdropAmounts).reduce((total, amount) => (total += amount), 0);
+  console.log({ totalTokens, totalRevenue });
+
+  fs.writeFileSync('./april2021/airdrop2.json', JSON.stringify(airdropOutput));
+};
+
+const generateDistributedOrders = async () => {
+  let totalRevenue = INITIAL_REVENUE;
+
+  const sortedOrders = _(ALL_ORDERS).sortBy(['day', 'order_name', 'time']).value();
+
+  const buyerOrdersDistributed: Record<string, { address: string; amount: number }> = {};
+  const designerOrdersDistributed: Record<string, Record<string, number>> = {};
+
+  for (const order of sortedOrders) {
+    const spent = getDollarsSpent(order);
+
+    if (!spent) continue;
+
+    const orderId = `${order.order_id}`;
+
+    if (!designerOrdersDistributed[orderId]) {
+      designerOrdersDistributed[orderId] = {};
+    }
+    const reward = getTokenReward(totalRevenue, spent, order);
+
+    totalRevenue += spent;
+
+    for (const designer of reward.designers) {
+      const address = designer.ethAddress.toLowerCase();
+      designerOrdersDistributed[orderId][address] =
+        (designerOrdersDistributed[orderId][address] || 0) + designer.allocation;
     }
 
     const buyerEthAddress = getEthAddress(order);
@@ -182,39 +286,23 @@ const generateMonthlyAllocation = async () => {
       continue;
     }
 
-    airdrop[buyerEthAddress] = (airdrop[buyerEthAddress] || 0) + reward.buyer;
-
-    // Only add tokens to next allocation if there's no previous airdrops left
-    if (airdrop[buyerEthAddress] > 0) {
-      allocations[buyerEthAddress] = airdrop[buyerEthAddress];
-    }
+    buyerOrdersDistributed[`${order.order_id}`] = {
+      address: buyerEthAddress,
+      amount: (buyerOrdersDistributed[`${order.order_id}`]?.amount || 0) + reward.buyer,
+    };
   }
 
-  const airdropAmounts: Record<string, number> = {};
-  const csvOutput: string[] = ['ethAddress,numTokens'];
-
-  Object.keys(allocations).forEach((ethAddress) => {
-    const allocation = allocations[ethAddress];
-    if (allocation > 1e-8) {
-      airdropAmounts[ethAddress] = allocation;
-      csvOutput.push(`${ethAddress},${numberToWei(allocation)}`);
-    }
-  });
-
-  const totalTokens = Object.values(airdropAmounts).reduce((total, amount) => (total += amount), 0);
-  console.log({ totalTokens, totalRevenue });
-
-  fs.writeFileSync('./feb2021/airdrop.json', JSON.stringify(airdropAmounts));
-  fs.writeFileSync('./feb2021/finalTokensDistributed.csv', csvOutput.join('\n'));
+  fs.writeFileSync('./data/buyerRewardsByOrder.json', JSON.stringify(buyerOrdersDistributed));
+  fs.writeFileSync('./data/designerRewardsByOrder.json', JSON.stringify(designerOrdersDistributed));
 };
 
 generateMonthlyAllocation();
-
 //
+// generateDistributedOrders();
 
 // const loadAirdrop = async () => {
 //   // Merge duplicate ETH address entries
-//   const airdropList = _(PREVIOUS_AIRDROP)
+//   const airdropList = _(DEC2020_AIRDROP)
 //     .groupBy('ethAddress')
 //     .mapValues(
 //       drops => drops.reduce((acc, r) => ({
@@ -224,7 +312,7 @@ generateMonthlyAllocation();
 //     ).values().map(v => ({ ...v, numTokens: v.numTokens.toString() })).value();
 //
 //   fs.writeFileSync('./feb2021/airdrop.json', JSON.stringify(airdropList))
-//   // console.log(airdropList.length, PREVIOUS_AIRDROP.length);
+//   // console.log(airdropList.length, DEC2020_AIRDROP.length);
 // }
 //
 // loadAirdrop()

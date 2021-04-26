@@ -17,7 +17,12 @@
       {
         "name": "Van",
         "ethAddress": "0xF91569595BCDAF780c3f1662f204E157949af8b2",
-        "contributionShare": 1
+        "contributionShare": 0.9
+      },
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.1
       }
     ]
   },
@@ -349,11 +354,6 @@
       }
     ]
   },
-  "4691851673646": {
-    "productId": 4691851673646,
-    "title": "Sky Custom Mask",
-    "designers": []
-  },
   "4685617397806": {
     "productId": 4685617397806,
     "title": "Warm With Prime\" Sweatshirt",
@@ -392,11 +392,6 @@
       }
     ]
   },
-  "4702342152238": {
-    "productId": 4702342152238,
-    "title": "MF GIFT CARD",
-    "designers": []
-  },
   "4702722719790": {
     "productId": 4702722719790,
     "title": "GRIDLOCK DARK\" Sweatshirt",
@@ -432,6 +427,215 @@
   "4716042879022": {
     "productId": 4716042879022,
     "title": "'This is the GWEI' T-Shirt & Spork Package",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "ETHDenver",
+        "ethAddress": "0xc8188203Ea1Ea923024b051515CDc6d45910c6d6",
+        "contributionShare": 0.9
+      }
+    ]
+  },
+  "6554611580974": {
+    "productId": 6554611580974,
+    "title": "3EYES\" Tee",
+    "designers": [
+      {
+        "name": "Penguin",
+        "ethAddress": "0xfaCEf700458D4Fc9746F7f3e0d37B462711fF09e",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "MetaFam DAO",
+        "ethAddress": "0xdAb19C416355783011724A9C0e4e1e98C648214F",
+        "contributionShare": 0.2
+      },
+      {
+        "name": "Biuxmaster",
+        "ethAddress": "0xe3fD0c0704A7002056eA10332825CB72094495A8",
+        "contributionShare": 0.65
+      },
+      {
+        "name": "Lucas",
+        "ethAddress": "0x9583648c314CDF666F4F555299dB3B36f5d5b2f9",
+        "contributionShare": 0.05
+      }
+    ]
+  },
+  "4720163192878": {
+    "productId": 4720163192878,
+    "title": "“AirSwap 2021” Zip-up Hoodie",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.1
+      }
+    ]
+  },
+  "6543188557870": {
+    "productId": 6543188557870,
+    "title": "Castle\" Hoodie",
+    "designers": [
+      {
+        "name": "Penguin",
+        "ethAddress": "0xfaCEf700458D4Fc9746F7f3e0d37B462711fF09e",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "Jaqi",
+        "ethAddress": "0x956D5740B3477F0B46daE26753B07EcBd8055908",
+        "contributionShare": 0.8
+      },
+      {
+        "name": "Ven",
+        "ethAddress": "0xd26a3F686D43f2A62BA9eaE2ff77e9f516d945B9",
+        "contributionShare": 0.1
+      }
+    ]
+  },
+  "4676054974510": {
+    "productId": 4676054974510,
+    "title": "XXX\" Tee",
+    "designers": [
+      {
+        "name": "Van",
+        "ethAddress": "0xF91569595BCDAF780c3f1662f204E157949af8b2",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "4676033478702": {
+    "productId": 4676033478702,
+    "title": "RAD\" Athletic Shirt",
+    "designers": [
+      {
+        "name": "Van",
+        "ethAddress": "0xF91569595BCDAF780c3f1662f204E157949af8b2",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "4676031676462": {
+    "productId": 4676031676462,
+    "title": "ONI\" Athletic Shirt",
+    "designers": [
+      {
+        "name": "Van",
+        "ethAddress": "0xF91569595BCDAF780c3f1662f204E157949af8b2",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "6538494574638": {
+    "productId": 6538494574638,
+    "title": "BUIDL OCEAN Tee",
+    "designers": [
+      {
+        "name": "Penguin",
+        "ethAddress": "0xfaCEf700458D4Fc9746F7f3e0d37B462711fF09e",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "kennyboss.crypto (Ocean)",
+        "ethAddress": "0xb058fe01dd09fe8aefa64346892ebb39a0a41adb",
+        "contributionShare": 0.9
+      }
+    ]
+  },
+  "4649562570798": {
+    "productId": 4649562570798,
+    "title": "MF BOMBER REDEMPTION",
     "designers": []
+  },
+  "4712009072686": {
+    "productId": 4712009072686,
+    "title": "ONI\" Face Mask",
+    "designers": [
+      {
+        "name": "Van",
+        "ethAddress": "0xF91569595BCDAF780c3f1662f204E157949af8b2",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "4712009531438": {
+    "productId": 4712009531438,
+    "title": "RAD\" Face Mask",
+    "designers": [
+      {
+        "name": "Van",
+        "ethAddress": "0xF91569595BCDAF780c3f1662f204E157949af8b2",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "6549854453806": {
+    "productId": 6549854453806,
+    "title": "King of DeFi\" Tee",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "diegoprime",
+        "ethAddress": "0xAe8945F496FAc93fAfeDeE95FD9352af03a375fB",
+        "contributionShare": 0.9
+      }
+    ]
+  },
+  "4718422851630": {
+    "productId": 4718422851630,
+    "title": "MANDEM Pro Canvas Hi SE",
+    "designers": [
+      {
+        "name": "afuturemodern",
+        "ethAddress": "0x5ab45FB874701d910140e58EA62518566709c408",
+        "contributionShare": 0.15
+      },
+      {
+        "name": "pixls.eth",
+        "ethAddress": "0xa4EEabBF5e2d8f904AA8B9D02557b4A0ffd5CEa7",
+        "contributionShare": 0.45
+      }
+    ]
+  },
+  "6547611680814": {
+    "productId": 6547611680814,
+    "title": "SUSHI.01 - HOODIE (for SUSHI team)",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "Sushi Team",
+        "ethAddress": "0xe94B5EEC1fA96CEecbD33EF5Baa8d00E4493F4f3",
+        "contributionShare": 0.9
+      }
+    ]
+  },
+  "6540831293486": {
+    "productId": 6540831293486,
+    "title": "SUSHI.01 - HOODIE",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "Sushi Team",
+        "ethAddress": "0xe94B5EEC1fA96CEecbD33EF5Baa8d00E4493F4f3",
+        "contributionShare": 0.9
+      }
+    ]
   }
 }

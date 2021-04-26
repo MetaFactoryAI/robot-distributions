@@ -1,4 +1,4 @@
-import ORDERS1 from '../data/sales_2020-01-01_2020-12-06-2.json';
+import ORDERS1 from '../data/all_orders.json';
 
 export type DesignerAllocation = {
   ethAddress: string;
@@ -9,10 +9,11 @@ export type DesignerContribution = {
   ethAddress: string;
   contributionShare: number;
 };
-type ShopifyOrder = typeof ORDERS1[0];
+export type ShopifyOrder = typeof ORDERS1[0];
 type ExternalSale = {
   ethAddress: string;
   product_id: string;
+  order_id: string;
   product_title: string;
   product_vendor: string;
   ethPaid?: number;
