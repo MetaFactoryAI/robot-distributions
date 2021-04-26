@@ -18,7 +18,7 @@ const CUSTOMER_QUERY = gql`
       displayName
       email
       tags
-      orders(first: 10) {
+      orders(first: 20) {
         edges {
           node {
             id
@@ -55,7 +55,7 @@ const extractEthAddress = (s: string | null | undefined) =>
 
 export const resolveEnsToAddress = async (addressOrEnsName: string): Promise<string | null> => {
   // already resolved
-  if (web3.utils.isAddress(addressOrEnsName)) return addressOrEnsName;
+  if (web3.utils.isAddress(addressOrEnsName)) return addressOrEnsName.toLowerCase();
 
   const ensName = addressOrEnsName.match(ENS_REGEX)?.[0];
 
@@ -68,7 +68,7 @@ export const resolveEnsToAddress = async (addressOrEnsName: string): Promise<str
   try {
     const ethAddress = await web3.eth.ens.getAddress(ensName);
     console.log({ ethAddress, ensName });
-    return ethAddress;
+    return ethAddress.toLowerCase();
   } catch (e) {
     console.warn('Unable to resolve ETH address for ENS: ', ensName, e);
     return null;
@@ -87,35 +87,51 @@ export const getEthAddressForCustomer = async (customerId: number): Promise<stri
   if (address) return resolveEnsToAddress(address);
 
   // Otherwise check if the user gave the ETH address at checkout
-  const ethAddressField = _.reduce(
-    data.customer.orders.edges,
-    (ethAddress, order) => {
-      const address = getEthAddressFromCustomAttributes(order.node.customAttributes);
-      return address || ethAddress;
-    },
-    '',
-  );
+  const allAddresses = await getAllAddressesForCustomer(customerId);
 
-  address = extractEthAddress(ethAddressField);
-
-  if (!address) {
-    // Otherwise check if the user gave the ETH address in order notes
-    const orderNoteWithEthAddress = _.findLast(data.customer.orders.edges, (e) =>
-      extractEthAddress(e.node.note),
-    )?.node.note;
-    address = extractEthAddress(orderNoteWithEthAddress);
-  }
-
-  const ethAddress = address && (await resolveEnsToAddress(address));
+  const latestAddress = _.last(allAddresses);
 
   // Set the address in the metafield for the customer
-  if (ethAddress) {
-    await updateEthAddressForCustomer(data.customer, ethAddress);
-    return ethAddress;
+  if (latestAddress) {
+    await updateEthAddressForCustomer(data.customer, latestAddress);
+    return latestAddress;
   }
 
   await setMissingEthAddressTagForCustomer(data.customer);
   return null;
+};
+
+export const getAllAddressesForCustomer = async (customerId: number): Promise<string[]> => {
+  const data = await client.request(CUSTOMER_QUERY, { id: customerIdToNodeId(customerId) });
+
+  const addresses = new Set<string>();
+
+  // Check if the user gave the ETH address at checkout in past orders
+  const ethAddressFields = _.reduce(
+    data.customer.orders.edges,
+    (ethAddresses, order) => {
+      const address = getEthAddressFromCustomAttributes(order.node.customAttributes);
+      if (address) {
+        ethAddresses.push(address);
+      }
+      const notesAddress = extractEthAddress(order.node.note);
+      if (notesAddress) {
+        ethAddresses.push(notesAddress);
+      }
+      return ethAddresses;
+    },
+    [] as string[],
+  );
+
+  for (const address of ethAddressFields) {
+    const extracted = extractEthAddress(address);
+    const resolved = extracted && (await resolveEnsToAddress(extracted));
+    if (resolved) {
+      addresses.add(resolved);
+    }
+  }
+
+  return Array.from(addresses);
 };
 
 const SET_ETH_ADDRESS_MUTATION = gql`

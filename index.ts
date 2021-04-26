@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import * as fs from 'fs';
-import { formatAddress, numberToWei, weiToNumber } from './lib/ethHelpers';
+import { formatAddress, weiToNumber } from './lib/ethHelpers';
 import {
   DesignerAllocation,
   DesignerContribution,
@@ -8,10 +8,10 @@ import {
   OrderRewardAllocation,
 } from './lib/types';
 
-import DEC2020_AIRDROP from './dec2020/finalTokensDistributed.json';
-import FEB2021_AIRDROP from './feb2021/finalTokensDistributed.json';
-
 import PRODUCT_DESIGNERS from './data/productDesigners.json';
+import BUYER_REWARDS_BY_ORDER from './april2021/buyerRewardsByOrder.json';
+import DESIGNER_REWARDS_BY_ORDER from './april2021/designerRewardsByOrder.json';
+
 import { ALL_ORDERS } from './data';
 import { getDollarsSpent, getEthAddress } from './lib/orderHelpers';
 
@@ -126,25 +126,42 @@ const getTokenReward = (
   };
 };
 
-const getTokensAlreadyAirdropped = () => {
-  const pastAirdrops = [...DEC2020_AIRDROP, ...FEB2021_AIRDROP];
+// const getTokensAlreadyAirdropped = () => {
+//   const pastAirdrops = [...DEC2020_AIRDROP, ...FEB2021_AIRDROP];
+//
+//   return _(pastAirdrops)
+//     .map((v) => ({ ...v, ethAddress: v.ethAddress.toLowerCase() }))
+//     .groupBy('ethAddress')
+//     .mapValues((drops) => drops.reduce((acc, r) => acc - weiToNumber(r.numTokens), 0))
+//     .value();
+// };
 
-  return _(pastAirdrops)
-    .map((v) => ({ ...v, ethAddress: v.ethAddress.toLowerCase() }))
-    .groupBy('ethAddress')
-    .mapValues((drops) => drops.reduce((acc, r) => acc - weiToNumber(r.numTokens), 0))
+const getBuyerRewardsAlreadyDistributedForOrders = (): Record<
+  string,
+  { address: string; amount: number }
+> => {
+  return _(BUYER_REWARDS_BY_ORDER)
+    .mapValues((v) => ({ ...v, amount: -v.amount }))
+    .value();
+};
+
+const getDesignerRewardsAlreadyDistributedForOrders = (): Record<
+  string,
+  Record<string, number>
+> => {
+  return _(DESIGNER_REWARDS_BY_ORDER)
+    .mapValues((d) => _.mapValues(d, (v) => -v))
     .value();
 };
 
 const generateMonthlyAllocation = async () => {
   let totalRevenue = INITIAL_REVENUE;
 
-  // start with negative balances for tokens that were already airdropped
-  const airdropped = getTokensAlreadyAirdropped();
+  // start with negative balances for order rewards that were already distributed
+  const buyerDistributed = getBuyerRewardsAlreadyDistributedForOrders();
+  const designerDistributed = getDesignerRewardsAlreadyDistributedForOrders();
 
   const sortedOrders = _(ALL_ORDERS).sortBy(['day', 'order_name', 'time']).value();
-
-  const allocations: Record<string, number> = {};
 
   for (const order of sortedOrders) {
     const spent = getDollarsSpent(order);
@@ -153,14 +170,110 @@ const generateMonthlyAllocation = async () => {
 
     const reward = getTokenReward(totalRevenue, spent, order);
 
+    const orderId = `${order.order_id}`;
+    if (!designerDistributed[orderId]) {
+      designerDistributed[orderId] = {};
+    }
+    if (!buyerDistributed[orderId]) {
+      buyerDistributed[orderId] = { amount: 0, address: '' };
+    }
+
     totalRevenue += spent;
 
     for (const designer of reward.designers) {
       const address = designer.ethAddress.toLowerCase();
-      airdropped[address] = (airdropped[address] || 0) + designer.allocation;
-      if (airdropped[address] > 0) {
-        allocations[address] = airdropped[address];
+      designerDistributed[orderId][address] =
+        (designerDistributed[orderId][address] || 0) + designer.allocation;
+    }
+
+    const buyerEthAddress = getEthAddress(order);
+    if ('customer_id' in order && order.customer_id === 3576951177262) {
+      console.log('HELLOA', { buyerEthAddress, reward });
+    }
+
+    if (!buyerEthAddress) {
+      console.log(
+        `No Eth Address for order ${
+          'order_name' in order ? order.order_name : order.product_title
+        }. Day: ${order.day}. ${order.product_title}`,
+      );
+      continue;
+    }
+
+    buyerDistributed[orderId] = {
+      address: buyerEthAddress,
+      amount: (buyerDistributed[orderId]?.amount || 0) + reward.buyer,
+    };
+  }
+
+  const airdropAmounts: Record<string, number> = {};
+
+  const buyerRewards = _.values(buyerDistributed);
+  const designerRewards = _.values(designerDistributed);
+
+  for (const reward of buyerRewards) {
+    if (reward.amount > 1e-8) {
+      const checksumAddress = formatAddress(reward.address);
+      airdropAmounts[checksumAddress] = (airdropAmounts[checksumAddress] || 0) + reward.amount;
+    } else if (reward.amount < -1e-8) {
+      console.log('Negative buyer reward', reward);
+    }
+  }
+
+  for (const reward of designerRewards) {
+    for (const address in reward) {
+      if (reward[address] > 1e-8) {
+        const checksumAddress = formatAddress(address);
+        airdropAmounts[checksumAddress] = (airdropAmounts[checksumAddress] || 0) + reward[address];
+      } else if (reward[address] < -1e-8) {
+        console.log('Negative designer reward', { reward, address });
       }
+    }
+  }
+
+  const airdropOutput = _.mapValues(airdropAmounts, (v) => v.toString());
+
+  // Object.keys(airdropAmounts).forEach((ethAddress) => {
+  //   const amount = airdropAmounts[ethAddress];
+  //   if (amount > 1e-8) {
+  //     const checksumAddress = formatAddress(ethAddress);
+  //     airdropAmounts[checksumAddress] = allocation.toString();
+  //     csvOutput.push(`${checksumAddress},${numberToWei(allocation)}`);
+  //   }
+  // });
+
+  const totalTokens = Object.values(airdropAmounts).reduce((total, amount) => (total += amount), 0);
+  console.log({ totalTokens, totalRevenue });
+
+  fs.writeFileSync('./april2021/airdrop2.json', JSON.stringify(airdropOutput));
+};
+
+const generateDistributedOrders = async () => {
+  let totalRevenue = INITIAL_REVENUE;
+
+  const sortedOrders = _(ALL_ORDERS).sortBy(['day', 'order_name', 'time']).value();
+
+  const buyerOrdersDistributed: Record<string, { address: string; amount: number }> = {};
+  const designerOrdersDistributed: Record<string, Record<string, number>> = {};
+
+  for (const order of sortedOrders) {
+    const spent = getDollarsSpent(order);
+
+    if (!spent) continue;
+
+    const orderId = `${order.order_id}`;
+
+    if (!designerOrdersDistributed[orderId]) {
+      designerOrdersDistributed[orderId] = {};
+    }
+    const reward = getTokenReward(totalRevenue, spent, order);
+
+    totalRevenue += spent;
+
+    for (const designer of reward.designers) {
+      const address = designer.ethAddress.toLowerCase();
+      designerOrdersDistributed[orderId][address] =
+        (designerOrdersDistributed[orderId][address] || 0) + designer.allocation;
     }
 
     const buyerEthAddress = getEthAddress(order);
@@ -173,37 +286,19 @@ const generateMonthlyAllocation = async () => {
       continue;
     }
 
-    airdropped[buyerEthAddress] = (airdropped[buyerEthAddress] || 0) + reward.buyer;
-
-    // Only add tokens to next allocation if there's no previous airdrops left
-    if (airdropped[buyerEthAddress] > 0) {
-      allocations[buyerEthAddress] = airdropped[buyerEthAddress];
-    }
+    buyerOrdersDistributed[`${order.order_id}`] = {
+      address: buyerEthAddress,
+      amount: (buyerOrdersDistributed[`${order.order_id}`]?.amount || 0) + reward.buyer,
+    };
   }
 
-  const airdropAmounts: Record<string, string> = {};
-  const csvOutput: string[] = ['ethAddress,numTokens'];
-
-  Object.keys(allocations).forEach((ethAddress) => {
-    const allocation = allocations[ethAddress];
-    if (allocation > 1e-8) {
-      const checksumAddress = formatAddress(ethAddress);
-      airdropAmounts[checksumAddress] = allocation.toString();
-      csvOutput.push(`${checksumAddress},${numberToWei(allocation)}`);
-    }
-  });
-
-  const totalTokens = Object.values(airdropAmounts).reduce(
-    (total, amount) => (total += parseFloat(amount)),
-    0,
-  );
-  console.log({ totalTokens, totalRevenue });
-
-  fs.writeFileSync('./april2021/airdrop.json', JSON.stringify(airdropAmounts));
-  fs.writeFileSync('./april2021/finalTokensDistributed.csv', csvOutput.join('\n'));
+  fs.writeFileSync('./data/buyerRewardsByOrder.json', JSON.stringify(buyerOrdersDistributed));
+  fs.writeFileSync('./data/designerRewardsByOrder.json', JSON.stringify(designerOrdersDistributed));
 };
 
 generateMonthlyAllocation();
+//
+// generateDistributedOrders();
 
 // const loadAirdrop = async () => {
 //   // Merge duplicate ETH address entries

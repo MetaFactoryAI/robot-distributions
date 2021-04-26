@@ -11330,7 +11330,7 @@
     "customer_id": 3576951177262,
     "product_price": 140,
     "variant_title": "L",
-    "net_sales": 0,
+    "net_sales": 140,
     "cancelled": "No",
     "order_number": 1339,
     "payment_method": "express",

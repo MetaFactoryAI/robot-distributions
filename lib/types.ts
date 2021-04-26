@@ -13,6 +13,7 @@ export type ShopifyOrder = typeof ORDERS1[0];
 type ExternalSale = {
   ethAddress: string;
   product_id: string;
+  order_id: string;
   product_title: string;
   product_vendor: string;
   ethPaid?: number;
