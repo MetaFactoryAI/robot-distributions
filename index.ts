@@ -347,13 +347,16 @@ const generateDistributedOrders = async () => {
     };
   }
 
-  fs.writeFileSync('./data/buyerRewardsByOrder.json', JSON.stringify(buyerOrdersDistributed));
-  fs.writeFileSync('./data/designerRewardsByOrder.json', JSON.stringify(designerOrdersDistributed));
+  fs.writeFileSync('./june2021/buyerRewardsByOrder.json', JSON.stringify(buyerOrdersDistributed));
+  fs.writeFileSync(
+    './june2021/designerRewardsByOrder.json',
+    JSON.stringify(designerOrdersDistributed),
+  );
 };
 
-generateMonthlyAllocation();
-//
-// generateDistributedOrders();
+// generateMonthlyAllocation();
+
+generateDistributedOrders();
 
 // const loadAirdrop = async () => {
 //   // Merge duplicate ETH address entries

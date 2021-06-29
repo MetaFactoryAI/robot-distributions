@@ -693,6 +693,21 @@
         "name": "weseeclearly",
         "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
         "contributionShare": 0.1
+      },
+      {
+        "name": "Pravekha",
+        "ethAddress": "0x708eb4755ef95291b4A955421b0CdA4aCA0456Fd",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "Dinesh",
+        "ethAddress": "0x1B17F0537C916C3EDE75809932868e751818EF6E",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "metapurse",
+        "ethAddress": "0x51Cd54fb353Cb29CA02876F79d5AA31Cef92E264",
+        "contributionShare": 0.7
       }
     ]
   },
@@ -720,6 +735,21 @@
         "name": "weseeclearly",
         "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
         "contributionShare": 0.1
+      },
+      {
+        "name": "Pravekha",
+        "ethAddress": "0x708eb4755ef95291b4A955421b0CdA4aCA0456Fd",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "Dinesh",
+        "ethAddress": "0x1B17F0537C916C3EDE75809932868e751818EF6E",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "metapurse",
+        "ethAddress": "0x51Cd54fb353Cb29CA02876F79d5AA31Cef92E264",
+        "contributionShare": 0.7
       }
     ]
   },
@@ -869,6 +899,11 @@
         "name": "weseeclearly",
         "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
         "contributionShare": 0.1
+      },
+      {
+        "name": "SporkDAO",
+        "ethAddress": "0x73275915Dc3df6d24812F6E8815d83FfECf69643",
+        "contributionShare": 0.9
       }
     ]
   },
@@ -896,7 +931,18 @@
   "6588027371566": {
     "productId": 6588027371566,
     "title": "SporkΞ\" Poker Set + Chip Protector Medallion",
-    "designers": []
+    "designers": [
+      {
+        "name": "mmjustin",
+        "ethAddress": "0x63729548cc3F51128B4693E8C9dCB1bFe786adF4",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "SporkDAO",
+        "ethAddress": "0x73275915Dc3df6d24812F6E8815d83FfECf69643",
+        "contributionShare": 0.9
+      }
+    ]
   },
   "6600904146990": {
     "productId": 6600904146990,
@@ -959,13 +1005,29 @@
         "name": "weseeclearly",
         "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
         "contributionShare": 0.1
+      },
+      {
+        "name": "SporkDAO",
+        "ethAddress": "0x73275915Dc3df6d24812F6E8815d83FfECf69643",
+        "contributionShare": 0.9
       }
     ]
   },
   "6602248749102": {
     "productId": 6602248749102,
     "title": "SporkDAO & ETHDenver Mystery Box - Premium",
-    "designers": []
+    "designers": [
+      {
+        "name": "mmjustin",
+        "ethAddress": "0x63729548cc3F51128B4693E8C9dCB1bFe786adF4",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "SporkDAO",
+        "ethAddress": "0x73275915Dc3df6d24812F6E8815d83FfECf69643",
+        "contributionShare": 0.9
+      }
+    ]
   },
   "6593663860782": {
     "productId": 6593663860782,
