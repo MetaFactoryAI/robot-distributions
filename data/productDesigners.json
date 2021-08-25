@@ -474,6 +474,11 @@
         "name": "weseeclearly",
         "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
         "contributionShare": 0.1
+      },
+      {
+        "name": "Airswap Team",
+        "ethAddress": "0x1FF808E34E4DF60326a3fc4c2b0F80748A3D60c2",
+        "contributionShare": 0.9
       }
     ]
   },
@@ -634,6 +639,408 @@
       {
         "name": "Sushi Team",
         "ethAddress": "0xe94B5EEC1fA96CEecbD33EF5Baa8d00E4493F4f3",
+        "contributionShare": 0.9
+      }
+    ]
+  },
+  "6554864189486": {
+    "productId": 6554864189486,
+    "title": "Self Sovereign\" Tee",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "diegoprime",
+        "ethAddress": "0xAe8945F496FAc93fAfeDeE95FD9352af03a375fB",
+        "contributionShare": 0.9
+      }
+    ]
+  },
+  "6555400011822": {
+    "productId": 6555400011822,
+    "title": "SUSHI.02 - DARK HOODIE",
+    "designers": [
+      {
+        "name": "wloka",
+        "ethAddress": "0x01b9369cf8624E1f9960864c18411B4b07Eb91AC",
+        "contributionShare": 0.65
+      },
+      {
+        "name": "Sushi Team",
+        "ethAddress": "0xe94B5EEC1fA96CEecbD33EF5Baa8d00E4493F4f3",
+        "contributionShare": 0.2
+      },
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "METADREAMER",
+        "ethAddress": "0x8F942ECED007bD3976927B7958B50Df126FEeCb5",
+        "contributionShare": 0.05
+      }
+    ]
+  },
+  "6560114704430": {
+    "productId": 6560114704430,
+    "title": "Rich MF B.20\" Bomber Jacket",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "Pravekha",
+        "ethAddress": "0x708eb4755ef95291b4A955421b0CdA4aCA0456Fd",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "Dinesh",
+        "ethAddress": "0x1B17F0537C916C3EDE75809932868e751818EF6E",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "metapurse",
+        "ethAddress": "0x51Cd54fb353Cb29CA02876F79d5AA31Cef92E264",
+        "contributionShare": 0.7
+      }
+    ]
+  },
+  "6558507401262": {
+    "productId": 6558507401262,
+    "title": "“Hashmasks Tribe\" Tee",
+    "designers": [
+      {
+        "name": "Hashionista",
+        "ethAddress": "0x2a2e7a30251c8e75b99005ae15b72404e55637c5",
+        "contributionShare": 0.9
+      },
+      {
+        "name": "Penguin",
+        "ethAddress": "0xfaCEf700458D4Fc9746F7f3e0d37B462711fF09e",
+        "contributionShare": 0.1
+      }
+    ]
+  },
+  "6560114966574": {
+    "productId": 6560114966574,
+    "title": "B.Twen\" Tee",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "Pravekha",
+        "ethAddress": "0x708eb4755ef95291b4A955421b0CdA4aCA0456Fd",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "Dinesh",
+        "ethAddress": "0x1B17F0537C916C3EDE75809932868e751818EF6E",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "metapurse",
+        "ethAddress": "0x51Cd54fb353Cb29CA02876F79d5AA31Cef92E264",
+        "contributionShare": 0.7
+      }
+    ]
+  },
+  "6561185562670": {
+    "productId": 6561185562670,
+    "title": "Bankless Box Logo Tee",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "Bankless DAO",
+        "ethAddress": "0xf26d1Bb347a59F6C283C53156519cC1B1ABacA51",
+        "contributionShare": 0.9
+      }
+    ]
+  },
+  "6564355670062": {
+    "productId": 6564355670062,
+    "title": "FOREFRONT GENESIS DROP - LONG SLEEVE",
+    "designers": [
+      {
+        "name": "Forefront DAO",
+        "ethAddress": "0x2fb9f0ef424b24a8d293999298f392a33fe6a8b5",
+        "contributionShare": 0.9
+      },
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.1
+      }
+    ]
+  },
+  "6565970116654": {
+    "productId": 6565970116654,
+    "title": "Quadratic Lands\" Jogger",
+    "designers": [
+      {
+        "name": "Biuxmaster",
+        "ethAddress": "0xe3fD0c0704A7002056eA10332825CB72094495A8",
+        "contributionShare": 0.2
+      },
+      {
+        "name": "Gitcoin DAO",
+        "ethAddress": "0x57a8865cfb1ecef7253c27da6b4bc3daee5be518",
+        "contributionShare": 0.7
+      },
+      {
+        "name": "METADREAMER",
+        "ethAddress": "0x8F942ECED007bD3976927B7958B50Df126FEeCb5",
+        "contributionShare": 0.1
+      }
+    ]
+  },
+  "6566448234542": {
+    "productId": 6566448234542,
+    "title": "Cooper\" Hoodie",
+    "designers": [
+      {
+        "name": "bnsntst",
+        "ethAddress": "0x0DfB5A924668b91E9BcdcaBc0aFce3D300589448",
+        "contributionShare": 0.2
+      },
+      {
+        "name": "Index Coop",
+        "ethAddress": "0x9467cfADC9DE245010dF95Ec6a585A506A8ad5FC",
+        "contributionShare": 0.7
+      },
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.1
+      }
+    ]
+  },
+  "6566416875566": {
+    "productId": 6566416875566,
+    "title": "Minimalist Buffalo Skull\" Tee",
+    "designers": [
+      {
+        "name": "SKEENEE",
+        "ethAddress": "0x187dad1e0DD5e599091C2ec88E89aFB4CdE4B7a3",
+        "contributionShare": 0.9
+      },
+      {
+        "name": "Penguin",
+        "ethAddress": "0xfaCEf700458D4Fc9746F7f3e0d37B462711fF09e",
+        "contributionShare": 0.1
+      }
+    ]
+  },
+  "6573222723630": {
+    "productId": 6573222723630,
+    "title": "Immutable Skull\" Sleeveless Hoodie",
+    "designers": [
+      {
+        "name": "Cybersage",
+        "ethAddress": "0x92b406851390541F445B7C697014133d4B5BfcE3",
+        "contributionShare": 0.9
+      },
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.1
+      }
+    ]
+  },
+  "6570087350318": {
+    "productId": 6570087350318,
+    "title": "Maple Dot Matrix\" Hoodie",
+    "designers": [
+      {
+        "name": "Penguin",
+        "ethAddress": "0xfaCEf700458D4Fc9746F7f3e0d37B462711fF09e",
+        "contributionShare": 0.3
+      },
+      {
+        "name": "Maple Finance",
+        "ethAddress": "0x914c52992c9dc247FDa2BED5d4cf181C28325913",
+        "contributionShare": 0.7
+      }
+    ]
+  },
+  "6573296812078": {
+    "productId": 6573296812078,
+    "title": "MoonWalkers\" Hoodie",
+    "designers": [
+      {
+        "name": "woody",
+        "ethAddress": "0xB95570716EE42316B32c838DEC6cDeCf63649DcE",
+        "contributionShare": 0.9
+      },
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.1
+      }
+    ]
+  },
+  "6585295274030": {
+    "productId": 6585295274030,
+    "title": "Pink SporkΞ Coin\" Tee",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "SporkDAO",
+        "ethAddress": "0x73275915Dc3df6d24812F6E8815d83FfECf69643",
+        "contributionShare": 0.9
+      }
+    ]
+  },
+  "6578415763502": {
+    "productId": 6578415763502,
+    "title": "Excessively Good Shirt\" Tee",
+    "designers": [
+      {
+        "name": "88mph Team",
+        "ethAddress": "0xfecbad5d60725eb6fd10f8936e02fa203fd27e4b",
+        "contributionShare": 0.7
+      },
+      {
+        "name": "Biuxmaster",
+        "ethAddress": "0xe3fD0c0704A7002056eA10332825CB72094495A8",
+        "contributionShare": 0.2
+      },
+      {
+        "name": "Penguin",
+        "ethAddress": "0xfaCEf700458D4Fc9746F7f3e0d37B462711fF09e",
+        "contributionShare": 0.1
+      }
+    ]
+  },
+  "6588027371566": {
+    "productId": 6588027371566,
+    "title": "SporkΞ\" Poker Set + Chip Protector Medallion",
+    "designers": [
+      {
+        "name": "mmjustin",
+        "ethAddress": "0x63729548cc3F51128B4693E8C9dCB1bFe786adF4",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "SporkDAO",
+        "ethAddress": "0x73275915Dc3df6d24812F6E8815d83FfECf69643",
+        "contributionShare": 0.9
+      }
+    ]
+  },
+  "6600904146990": {
+    "productId": 6600904146990,
+    "title": "Cypherpunks\" Tee",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "Bankless DAO",
+        "ethAddress": "0xf26d1Bb347a59F6C283C53156519cC1B1ABacA51",
+        "contributionShare": 0.9
+      }
+    ]
+  },
+  "6600867676206": {
+    "productId": 6600867676206,
+    "title": "⚡🏛 Tattoo\" L/S Tee",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.3
+      },
+      {
+        "name": "Bankless DAO",
+        "ethAddress": "0xf26d1Bb347a59F6C283C53156519cC1B1ABacA51",
+        "contributionShare": 0.7
+      }
+    ]
+  },
+  "6600877932590": {
+    "productId": 6600877932590,
+    "title": "In Bankless We Trust\" Velvet Wall Tapestry",
+    "designers": [
+      {
+        "name": "METADREAMER",
+        "ethAddress": "0x8F942ECED007bD3976927B7958B50Df126FEeCb5",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "Twisted Vacancy",
+        "ethAddress": "0x35764fd659509f60c9531f27fdb5305f85a1398b",
+        "contributionShare": 0.2
+      },
+      {
+        "name": "Bankless DAO",
+        "ethAddress": "0xf26d1Bb347a59F6C283C53156519cC1B1ABacA51",
+        "contributionShare": 0.7
+      }
+    ]
+  },
+  "6597915148334": {
+    "productId": 6597915148334,
+    "title": "Holo SporkΞ Coin\" Tee",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "SporkDAO",
+        "ethAddress": "0x73275915Dc3df6d24812F6E8815d83FfECf69643",
+        "contributionShare": 0.9
+      }
+    ]
+  },
+  "6602248749102": {
+    "productId": 6602248749102,
+    "title": "SporkDAO & ETHDenver Mystery Box - Premium",
+    "designers": [
+      {
+        "name": "mmjustin",
+        "ethAddress": "0x63729548cc3F51128B4693E8C9dCB1bFe786adF4",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "SporkDAO",
+        "ethAddress": "0x73275915Dc3df6d24812F6E8815d83FfECf69643",
+        "contributionShare": 0.9
+      }
+    ]
+  },
+  "6593663860782": {
+    "productId": 6593663860782,
+    "title": "Don’t Drink Meme-Cola\" Hoodie",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "diegoprime",
+        "ethAddress": "0xAe8945F496FAc93fAfeDeE95FD9352af03a375fB",
         "contributionShare": 0.9
       }
     ]
