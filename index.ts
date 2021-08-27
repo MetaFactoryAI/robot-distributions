@@ -10,8 +10,8 @@ import {
 
 import PRODUCT_DESIGNERS from './data/productDesigners.json';
 import ROBOT_MA from './data/robotMovingAverage.json';
-import BUYER_REWARDS_BY_ORDER from './april2021/buyerRewardsByOrder.json';
-import DESIGNER_REWARDS_BY_ORDER from './april2021/designerRewardsByOrder.json';
+import BUYER_REWARDS_BY_ORDER from './june2021/buyerRewardsByOrder.json';
+import DESIGNER_REWARDS_BY_ORDER from './june2021/designerRewardsByOrder.json';
 
 import { ALL_ORDERS } from './data';
 import { getDollarsSpent, getEthAddress } from './lib/orderHelpers';
@@ -300,7 +300,7 @@ const generateMonthlyAllocation = async () => {
   const totalTokens = Object.values(airdropAmounts).reduce((total, amount) => (total += amount), 0);
   console.log({ totalTokens, totalRevenue });
 
-  fs.writeFileSync('./june2021/airdrop.json', JSON.stringify(airdropOutput));
+  fs.writeFileSync('./aug2021/airdrop.json', JSON.stringify(airdropOutput));
 };
 
 const generateDistributedOrders = async () => {
@@ -347,86 +347,13 @@ const generateDistributedOrders = async () => {
     };
   }
 
-  fs.writeFileSync('./june2021/buyerRewardsByOrder.json', JSON.stringify(buyerOrdersDistributed));
+  fs.writeFileSync('./aug2021/buyerRewardsByOrder.json', JSON.stringify(buyerOrdersDistributed));
   fs.writeFileSync(
-    './june2021/designerRewardsByOrder.json',
+    './aug2021/designerRewardsByOrder.json',
     JSON.stringify(designerOrdersDistributed),
   );
 };
 
-// generateMonthlyAllocation();
-
+generateMonthlyAllocation();
+//
 generateDistributedOrders();
-
-// const loadAirdrop = async () => {
-//   // Merge duplicate ETH address entries
-//   const airdropList = _(DEC2020_AIRDROP)
-//     .groupBy('ethAddress')
-//     .mapValues(
-//       drops => drops.reduce((acc, r) => ({
-//         numTokens: acc.numTokens.add(stringToBn(r.tokenAmount)),
-//         ethAddress: r.ethAddress,
-//       }), { numTokens: stringToBn("0"), ethAddress: '' })
-//     ).values().map(v => ({ ...v, numTokens: v.numTokens.toString() })).value();
-//
-//   fs.writeFileSync('./feb2021/airdrop.json', JSON.stringify(airdropList))
-//   // console.log(airdropList.length, DEC2020_AIRDROP.length);
-// }
-//
-// loadAirdrop()
-
-// const calculateBuyerAllocation = async (orders: RawOrder[]) => {
-//   const buyers = _(ordersWithAllocations)
-//     .groupBy('customer_id')
-//     .mapValues((orders) =>
-//       orders.reduce(
-//         (acc, order) => ({
-//           numTokens: acc.numTokens + order.numTokens,
-//           customerId: order.customer_id,
-//         }),
-//         { numTokens: 0, customerId: 0 },
-//       ),
-//     )
-//     .values()
-//     .value();
-//
-//   const recipients: Array<{ ethAddress: string; numTokens: number }> = [];
-//
-//   // map buyer purchases to ETH Addresses and token allocation
-//   for (const b of buyers) {
-//     const ethAddress = await getEthAddressForCustomer(b.customerId);
-//     if (ethAddress) {
-//       recipients.push({ ethAddress, numTokens: b.numTokens });
-//     } else {
-//       console.warn(
-//         'Missing ETH Address for customerID: ',
-//         b.customerId,
-//         '. Num Tokens: ',
-//         b.numTokens,
-//       );
-//     }
-//   }
-//
-//   // Merge duplicate ETH address entries
-//   const airdropList = _(recipients)
-//     .groupBy('ethAddress')
-//     .mapValues((receipts) =>
-//       receipts.reduce(
-//         (acc, r) => ({
-//           numTokens: acc.numTokens + r.numTokens,
-//           ethAddress: r.ethAddress,
-//         }),
-//         { numTokens: 0, ethAddress: '' },
-//       ),
-//     )
-//     .values()
-//     .value();
-//
-//   const tokensToDistribute = airdropList.reduce((sum, { numTokens }) => (sum += numTokens), 0);
-//   const output = airdropList
-//     .filter((t) => t.numTokens > 0)
-//     .map((t) => `${t.ethAddress},${numberToWei(t.numTokens)}`);
-//   // // Output result to console as CSV
-//   console.log(output.join('\n'));
-//   // console.log({ totalSales, totalTokens: totalSales * BUYER_ROBOT_PER_DOLLAR, tokensToDistribute })
-// };

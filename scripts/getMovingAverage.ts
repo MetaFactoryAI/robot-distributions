@@ -1,6 +1,7 @@
 import * as fs from 'fs';
 import { SMA } from 'technicalindicators';
 import fetch from 'node-fetch';
+import ROBOT_MA from '../data/robotMovingAverage.json'
 
 const getMovingAverage = async () => {
   const data = await (
@@ -21,9 +22,14 @@ const getMovingAverage = async () => {
     return [dayString, price];
   });
 
+  const movingAvgOutput = {
+    ...Object.fromEntries(maWithTimestamp),
+    ...ROBOT_MA,
+  }
+
   fs.writeFileSync(
     './data/robotMovingAverage.json',
-    JSON.stringify(Object.fromEntries(maWithTimestamp)),
+    JSON.stringify(movingAvgOutput),
   );
 };
 
