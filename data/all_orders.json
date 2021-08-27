@@ -84536,7 +84536,7 @@
     "customer_id": 5215919407150,
     "is_gift_card": "FALSE",
     "day": "2021-07-30",
-    "net_sales": -7.678,
+    "net_sales": 0,
     "total_refunded": 78.128
   },
   {
@@ -84555,7 +84555,7 @@
     "customer_id": 5215919407150,
     "is_gift_card": "FALSE",
     "day": "2021-07-30",
-    "net_sales": -9.312,
+    "net_sales": 0,
     "total_refunded": 94.762
   },
   {
@@ -95727,7 +95727,7 @@
     "customer_id": 5110278127662,
     "is_gift_card": "FALSE",
     "day": "2021-08-14",
-    "net_sales": -4.9,
+    "net_sales": 0,
     "total_refunded": 294.9
   },
   {
@@ -95974,7 +95974,7 @@
     "customer_id": 5110278127662,
     "is_gift_card": "FALSE",
     "day": "2021-08-14",
-    "net_sales": -4.9,
+    "net_sales": 0,
     "total_refunded": 294.9
   },
   {
@@ -96145,7 +96145,7 @@
     "customer_id": 5231521431598,
     "is_gift_card": "FALSE",
     "day": "2021-08-14",
-    "net_sales": -4.9,
+    "net_sales": 0,
     "total_refunded": 294.9
   },
   {
