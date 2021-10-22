@@ -403,11 +403,6 @@
       }
     ]
   },
-  "4711785103406": {
-    "productId": 4711785103406,
-    "title": "WickedSundayClub Genesis Care Package",
-    "designers": []
-  },
   "4676380000302": {
     "productId": 4676380000302,
     "title": "Vegas Baby\" Jogger",
@@ -551,11 +546,6 @@
         "contributionShare": 0.9
       }
     ]
-  },
-  "4649562570798": {
-    "productId": 4649562570798,
-    "title": "MF BOMBER REDEMPTION",
-    "designers": []
   },
   "4712009072686": {
     "productId": 4712009072686,
@@ -1346,6 +1336,280 @@
         "name": "codyelmos",
         "ethAddress": "0x8e65890d4129EEF69e44087AeBDB69ddF38D1FBe",
         "contributionShare": 0.05
+      }
+    ]
+  },
+  "6635422416942": {
+    "productId": 6635422416942,
+    "title": "MetaFactory Snapback Cap",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.3
+      },
+      {
+        "name": "Sergio",
+        "ethAddress": "0x3Cc1A943B27c2AF7c6dcF3Be0137f66c2f22E712",
+        "contributionShare": 0.7
+      }
+    ]
+  },
+  "6591413649454": {
+    "productId": 6591413649454,
+    "title": "$SPORK Whale\" Ultra Ultra Ultra Rare t-shirt bundle",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "SporkDAO",
+        "ethAddress": "0x73275915Dc3df6d24812F6E8815d83FfECf69643",
+        "contributionShare": 0.9
+      }
+    ]
+  },
+  "6690032320558": {
+    "productId": 6690032320558,
+    "title": "Fill 'em All\" Hoodie",
+    "designers": [
+      {
+        "name": "CPTNskeletor",
+        "ethAddress": "0x9bcDc7db2f57B0f960A737ccC29373a9bc760134",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "Perp.fi",
+        "ethAddress": "0xE28fbE83B3AC5Ba34cB636Ca8eF89e54a4c97259",
+        "contributionShare": 0.9
+      }
+    ]
+  },
+  "6692474028078": {
+    "productId": 6692474028078,
+    "title": "Collegiate Arc\" Hoodie",
+    "designers": [
+      {
+        "name": "CPTNskeletor",
+        "ethAddress": "0x9bcDc7db2f57B0f960A737ccC29373a9bc760134",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "Sinjun",
+        "ethAddress": "0x6F3924E9158c74D344BF578a251Bcc2ef41F8F50",
+        "contributionShare": 0.2
+      },
+      {
+        "name": "Bankless DAO",
+        "ethAddress": "0xf26d1Bb347a59F6C283C53156519cC1B1ABacA51",
+        "contributionShare": 0.7
+      }
+    ]
+  },
+  "6692496539694": {
+    "productId": 6692496539694,
+    "title": "The Alumni\" Cap",
+    "designers": [
+      {
+        "name": "CPTNskeletor",
+        "ethAddress": "0x9bcDc7db2f57B0f960A737ccC29373a9bc760134",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "Sinjun",
+        "ethAddress": "0x6F3924E9158c74D344BF578a251Bcc2ef41F8F50",
+        "contributionShare": 0.2
+      },
+      {
+        "name": "Bankless DAO",
+        "ethAddress": "0xf26d1Bb347a59F6C283C53156519cC1B1ABacA51",
+        "contributionShare": 0.7
+      }
+    ]
+  },
+  "6697523642414": {
+    "productId": 6697523642414,
+    "title": "Tribes: Pimp Gang\" Hoodie",
+    "designers": [
+      {
+        "name": "wero",
+        "ethAddress": "0x1A3C469A422EcfEEc7258C701cd5cdDe9b5e9322",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "CryptoAccord",
+        "ethAddress": "0x4cCa9821c246acd39a42F34e6ae4E520A8224565",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "fraemwerk",
+        "ethAddress": "0xBED32b83dd0851E655ADcEf79105Ca7a469cf9F0",
+        "contributionShare": 0.05
+      },
+      {
+        "name": "Apesthetics",
+        "ethAddress": "0x76f91DCf2aA8F542A5Baf8AC9B06B074d80D4015",
+        "contributionShare": 0.75
+      }
+    ]
+  },
+  "6696596799534": {
+    "productId": 6696596799534,
+    "title": "Metaverse Island\" Tee",
+    "designers": [
+      {
+        "name": "Esteve",
+        "ethAddress": "0x20b9973103b65D4EA8D0591634e5e757AaCD3030",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "Static121",
+        "ethAddress": "0xb01E34A8437eA430DD250202E84E41c9DE85ac94",
+        "contributionShare": 0.45
+      },
+      {
+        "name": "caf",
+        "ethAddress": "0xaB8131FE3C0cB081630502ED26C89C51103E37ce",
+        "contributionShare": 0.45
+      }
+    ]
+  },
+  "6664927412270": {
+    "productId": 6664927412270,
+    "title": "Phuture Finance - Tee",
+    "designers": [
+      {
+        "name": "wero",
+        "ethAddress": "0x1A3C469A422EcfEEc7258C701cd5cdDe9b5e9322",
+        "contributionShare": 0.3
+      },
+      {
+        "name": "PhutureFinance",
+        "ethAddress": "0x237a4d2166Eb65cB3f9fabBe55ef2eb5ed56bdb9",
+        "contributionShare": 0.7
+      }
+    ]
+  },
+  "6664927543342": {
+    "productId": 6664927543342,
+    "title": "Phuture Finance - Hoodie",
+    "designers": [
+      {
+        "name": "wero",
+        "ethAddress": "0x1A3C469A422EcfEEc7258C701cd5cdDe9b5e9322",
+        "contributionShare": 0.3
+      },
+      {
+        "name": "PhutureFinance",
+        "ethAddress": "0x237a4d2166Eb65cB3f9fabBe55ef2eb5ed56bdb9",
+        "contributionShare": 0.7
+      }
+    ]
+  },
+  "6664940355630": {
+    "productId": 6664940355630,
+    "title": "Light Origin\" Tee",
+    "designers": [
+      {
+        "name": "Sergio",
+        "ethAddress": "0x3Cc1A943B27c2AF7c6dcF3Be0137f66c2f22E712",
+        "contributionShare": 0.2
+      },
+      {
+        "name": "FLOC",
+        "ethAddress": "0x6af6d6b3fba247129c32544b53106ab3bb772902",
+        "contributionShare": 0.7
+      },
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.05
+      },
+      {
+        "name": "Esteve",
+        "ethAddress": "0x20b9973103b65D4EA8D0591634e5e757AaCD3030",
+        "contributionShare": 0.05
+      }
+    ]
+  },
+  "6664941862958": {
+    "productId": 6664941862958,
+    "title": "Dark Origin\" Tee",
+    "designers": [
+      {
+        "name": "Sergio",
+        "ethAddress": "0x3Cc1A943B27c2AF7c6dcF3Be0137f66c2f22E712",
+        "contributionShare": 0.2
+      },
+      {
+        "name": "FLOC",
+        "ethAddress": "0x6af6d6b3fba247129c32544b53106ab3bb772902",
+        "contributionShare": 0.7
+      },
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.05
+      },
+      {
+        "name": "Esteve",
+        "ethAddress": "0x20b9973103b65D4EA8D0591634e5e757AaCD3030",
+        "contributionShare": 0.05
+      }
+    ]
+  },
+  "6700415549486": {
+    "productId": 6700415549486,
+    "title": "THE \"FUCK-IT\" HAT",
+    "designers": [
+      {
+        "name": "CPTNskeletor",
+        "ethAddress": "0x9bcDc7db2f57B0f960A737ccC29373a9bc760134",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "MOCA",
+        "ethAddress": "0xd9ff1fbd68e910392dc404f8df0fcd23a64921c3",
+        "contributionShare": 0.7
+      },
+      {
+        "name": "MOCA Designer",
+        "ethAddress": "0x5A3439ee9b6D9Db06fF542CDf2e97e85B93D9906",
+        "contributionShare": 0.2
+      }
+    ]
+  },
+  "6702621786158": {
+    "productId": 6702621786158,
+    "title": "SOFT BLANKET",
+    "designers": [
+      {
+        "name": "CPTNskeletor",
+        "ethAddress": "0x9bcDc7db2f57B0f960A737ccC29373a9bc760134",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "MOCA",
+        "ethAddress": "0xd9ff1fbd68e910392dc404f8df0fcd23a64921c3",
+        "contributionShare": 0.7
+      },
+      {
+        "name": "MOCA Designer",
+        "ethAddress": "0x5A3439ee9b6D9Db06fF542CDf2e97e85B93D9906",
+        "contributionShare": 0.2
+      }
+    ]
+  },
+  "mcon-sale": {
+    "productId": "mcon-sale",
+    "title": "MCON SALE",
+    "designers": [
+      {
+        "name": "MCON DISTRIBUTOR",
+        "ethAddress": "MCON-DISTRIBUTOR-PLACEHOLDER-ADDRESS",
+        "contributionShare": 1
       }
     ]
   }

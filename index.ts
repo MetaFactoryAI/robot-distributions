@@ -1,32 +1,38 @@
 import _ from 'lodash';
 import * as fs from 'fs';
-import { formatAddress, weiToNumber } from './lib/ethHelpers';
-import {
-  DesignerAllocation,
-  DesignerContribution,
-  Order,
-  OrderRewardAllocation,
-} from './lib/types';
+import { formatAddress } from './lib/ethHelpers';
+import { DesignerContribution, Order, OrderRewardAllocation } from './lib/types';
 
 import PRODUCT_DESIGNERS from './data/productDesigners.json';
 import ROBOT_MA from './data/robotMovingAverage.json';
-import BUYER_REWARDS_BY_ORDER from './june2021/buyerRewardsByOrder.json';
-import DESIGNER_REWARDS_BY_ORDER from './june2021/designerRewardsByOrder.json';
+import BUYER_REWARDS_BY_ORDER from './aug2021/buyerRewardsByOrder.json';
+import DESIGNER_REWARDS_BY_ORDER from './aug2021/designerRewardsByOrder.json';
 
 import { ALL_ORDERS } from './data';
-import { getDollarsSpent, getEthAddress } from './lib/orderHelpers';
+import { getBuyerDollarsSpent, getDesignerDollarsEarned, getEthAddress } from './lib/orderHelpers';
+import { getMconDesignerRewards } from './lib/formatMconSalesData';
 
-const SALES_MILESTONES = [100_000, 110_000, 200_000, 400_000, 800_000, 1_600_000];
-const BUYER_ROBOT_PER_DOLLAR = [0.4, 0.2, 0.05, 0.025];
-const DESIGNER_ROBOT_PER_DOLLAR = [0.16, 0.12, 0.05, 0.025, 0.0125, 0.00625];
-
-const BUYER_ROBOT_PERCENT_BACK = 0.42;
-
-const SWITCH_TO_PERCENT_MILESTONE_INDEX = 4;
+const SALES_MILESTONES = [
+  100_000,
+  110_000,
+  200_000,
+  400_000,
+  800_000,
+  1_600_000,
+  3_200_000,
+  6_400_000,
+];
+const BUYER_ROBOT_PER_DOLLAR = [0.4, 0.2, 0.05, 0.025, '42%', '42%', '42%', '42%'];
+const DESIGNER_ROBOT_PER_DOLLAR = [0.16, 0.12, 0.05, 0.025, 0.0125, 0.0125, 0.00625, '42%'];
 
 const INITIAL_REVENUE = 50_000;
 
 const VAUNKER_SALE_ROBOT_PER_ETH = 42;
+
+// min # of ROBOT needed to be included in distro
+const REWARD_DISTRO_THRESHOLD = 1e-8;
+
+const CURRENT_DISTRO_MONTH = 'oct2021';
 
 export const productDesignerMap: Record<
   string,
@@ -39,7 +45,7 @@ export const productDesignerMap: Record<
 
 const customRewardHandlers: Record<
   string,
-  (order: Order, milestoneIndex: number, usePercentBuyerRewards?: boolean) => OrderRewardAllocation
+  (order: Order, milestoneIndex: number) => OrderRewardAllocation
 > = {
   'VAUNKER-KEYCARD': (order, milestoneIndex) => {
     if (!('ethPaid' in order && order.ethPaid)) {
@@ -49,9 +55,15 @@ const customRewardHandlers: Record<
     const buyerAllocation = order.ethPaid * VAUNKER_SALE_ROBOT_PER_ETH;
 
     const designers = productDesignerMap[order.product_id]?.designers || [];
-    const designerAllocation = order.net_sales * DESIGNER_ROBOT_PER_DOLLAR[milestoneIndex];
+    const designerRatio = DESIGNER_ROBOT_PER_DOLLAR[milestoneIndex];
+    if (typeof designerRatio !== 'number') {
+      throw new Error('Invalid designer reward emount for VAUNKER KEYCARD');
+    }
+    const designerAllocation = order.net_sales * designerRatio;
 
     return {
+      buyerSpent: order.net_sales,
+      designerEarned: order.net_sales,
       buyer: buyerAllocation,
       designers: designers.map((d) => ({
         ethAddress: d.ethAddress,
@@ -61,44 +73,50 @@ const customRewardHandlers: Record<
   },
 };
 
-const getBuyerTokenReward = (
-  milestoneIndex: number,
+const calculateRobotToReward = (
+  rewardRatio: string | number,
   order: Order,
   dollarsSpent: number,
-): number => {
-  if (milestoneIndex >= SWITCH_TO_PERCENT_MILESTONE_INDEX) {
-    // use 42% back reward based on moving avg ROBOT price
-    const robotPrice = ROBOT_MA[order.day as keyof typeof ROBOT_MA];
-    if (!robotPrice) {
-      console.error('Unable to get ROBOT price for order: ', order);
-    }
-
-    const dollarReward = dollarsSpent * BUYER_ROBOT_PERCENT_BACK;
-    return dollarReward / robotPrice;
+) => {
+  if (typeof rewardRatio === 'number') {
+    // Robot per dollar spent reward
+    return dollarsSpent * rewardRatio;
   }
 
-  return dollarsSpent * BUYER_ROBOT_PER_DOLLAR[milestoneIndex];
+  // Percent back reward
+  const robotPrice = ROBOT_MA[order.day as keyof typeof ROBOT_MA];
+  if (!robotPrice) {
+    throw new Error(`Unable to get ROBOT price for order: ${order}`);
+  }
+
+  const percentReward = parseFloat(rewardRatio) / 100;
+  const dollarReward = dollarsSpent * percentReward;
+  return dollarReward / robotPrice;
 };
 
-const getDesignerTokenReward = (milestoneIndex: number, dollarsSpent: number): number => {
-  return dollarsSpent * DESIGNER_ROBOT_PER_DOLLAR[milestoneIndex];
-};
-
-const getTokenReward = (
-  currentRevenue: number,
-  dollarsSpent: number,
-  order: Order,
-): { buyer: number; designers: DesignerAllocation[] } => {
+const getTokenReward = (currentRevenue: number, order: Order): OrderRewardAllocation => {
   let milestoneIndex = 0;
   if (currentRevenue > SALES_MILESTONES[0]) milestoneIndex = 1;
   if (currentRevenue > SALES_MILESTONES[1]) milestoneIndex = 2;
   if (currentRevenue > SALES_MILESTONES[2]) milestoneIndex = 3;
   if (currentRevenue > SALES_MILESTONES[3]) milestoneIndex = 4;
   if (currentRevenue > SALES_MILESTONES[4]) milestoneIndex = 5;
+  if (currentRevenue > SALES_MILESTONES[5]) milestoneIndex = 6;
 
-  const usePercentBuyerRewards = milestoneIndex >= 4;
+  const buyerSpent = getBuyerDollarsSpent(order);
+  const designerEarned = getDesignerDollarsEarned(order);
 
-  const nextRevenue = currentRevenue + dollarsSpent;
+  if (!buyerSpent && !designerEarned) {
+    return {
+      buyerSpent: 0,
+      designerEarned: 0,
+      buyer: 0,
+      designers: [],
+    };
+  }
+
+  const nextRevenue = currentRevenue + buyerSpent;
+  const nextRevenueDesigner = currentRevenue + designerEarned;
 
   if (nextRevenue > SALES_MILESTONES[milestoneIndex]) {
     console.log('Next Revenue', { order, nextRevenue });
@@ -106,7 +124,7 @@ const getTokenReward = (
 
   const customHandler = customRewardHandlers[order.product_id.toString()];
   if (customHandler) {
-    return customHandler(order, milestoneIndex, usePercentBuyerRewards);
+    return customHandler(order, milestoneIndex);
   }
 
   const designers = productDesignerMap[order.product_id]?.designers || [];
@@ -120,35 +138,23 @@ const getTokenReward = (
     });
   }
 
-  // Handle the case where a purchase is split across milestones
-  if (nextRevenue > SALES_MILESTONES[milestoneIndex]) {
-    const overMilestoneSpent = nextRevenue - SALES_MILESTONES[milestoneIndex];
-    const underMilestoneSpent = dollarsSpent - overMilestoneSpent;
-
-    const overMilestoneBuyerAllocation = getBuyerTokenReward(
-      milestoneIndex + 1,
+  // Simple case where we havent hit the next milestone yet
+  if (nextRevenue <= SALES_MILESTONES[milestoneIndex]) {
+    const buyerAllocation = calculateRobotToReward(
+      BUYER_ROBOT_PER_DOLLAR[milestoneIndex],
       order,
-      overMilestoneSpent,
+      buyerSpent,
     );
-    const underMilestoneBuyerAllocation = getBuyerTokenReward(
-      milestoneIndex,
+    const designerAllocation = calculateRobotToReward(
+      DESIGNER_ROBOT_PER_DOLLAR[milestoneIndex],
       order,
-      underMilestoneSpent,
+      designerEarned,
     );
-
-    const overMilestoneDesignerAllocation = getDesignerTokenReward(
-      milestoneIndex + 1,
-      overMilestoneSpent,
-    );
-    const underMilestoneDesignerAllocation = getDesignerTokenReward(
-      milestoneIndex,
-      underMilestoneSpent,
-    );
-
-    const designerAllocation = overMilestoneDesignerAllocation + underMilestoneDesignerAllocation;
 
     return {
-      buyer: overMilestoneBuyerAllocation + underMilestoneBuyerAllocation,
+      buyerSpent,
+      designerEarned,
+      buyer: buyerAllocation,
       designers: designers.map((d) => ({
         ethAddress: d.ethAddress,
         allocation: designerAllocation * d.contributionShare,
@@ -156,26 +162,48 @@ const getTokenReward = (
     };
   }
 
-  const designerAllocation = getDesignerTokenReward(milestoneIndex, dollarsSpent);
+  // Handle the case where a purchase is split across milestones
+  const overMilestoneSpent = nextRevenue - SALES_MILESTONES[milestoneIndex];
+  const underMilestoneSpent = buyerSpent - overMilestoneSpent;
+
+  const overMilestoneBuyerAllocation = calculateRobotToReward(
+    BUYER_ROBOT_PER_DOLLAR[milestoneIndex + 1],
+    order,
+    overMilestoneSpent,
+  );
+  const underMilestoneBuyerAllocation = calculateRobotToReward(
+    BUYER_ROBOT_PER_DOLLAR[milestoneIndex],
+    order,
+    underMilestoneSpent,
+  );
+
+  const overMilestoneEarnedDesigner = nextRevenueDesigner - SALES_MILESTONES[milestoneIndex];
+  const underMilestoneEarnedDesigner = designerEarned - overMilestoneEarnedDesigner;
+
+  const overMilestoneDesignerAllocation = calculateRobotToReward(
+    DESIGNER_ROBOT_PER_DOLLAR[milestoneIndex + 1],
+    order,
+    overMilestoneEarnedDesigner,
+  );
+  const underMilestoneDesignerAllocation = calculateRobotToReward(
+    DESIGNER_ROBOT_PER_DOLLAR[milestoneIndex],
+    order,
+    underMilestoneEarnedDesigner,
+  );
+
+  const buyerAllocation = overMilestoneBuyerAllocation + underMilestoneBuyerAllocation;
+  const designerAllocation = overMilestoneDesignerAllocation + underMilestoneDesignerAllocation;
 
   return {
-    buyer: getBuyerTokenReward(milestoneIndex, order, dollarsSpent),
+    buyerSpent,
+    designerEarned,
+    buyer: buyerSpent ? buyerAllocation : 0,
     designers: designers.map((d) => ({
       ethAddress: d.ethAddress,
       allocation: designerAllocation * d.contributionShare,
     })),
   };
 };
-
-// const getTokensAlreadyAirdropped = () => {
-//   const pastAirdrops = [...DEC2020_AIRDROP, ...FEB2021_AIRDROP];
-//
-//   return _(pastAirdrops)
-//     .map((v) => ({ ...v, ethAddress: v.ethAddress.toLowerCase() }))
-//     .groupBy('ethAddress')
-//     .mapValues((drops) => drops.reduce((acc, r) => acc - weiToNumber(r.numTokens), 0))
-//     .value();
-// };
 
 const getBuyerRewardsAlreadyDistributedForOrders = (): Record<
   string,
@@ -205,11 +233,10 @@ const generateMonthlyAllocation = async () => {
   const sortedOrders = _(ALL_ORDERS).sortBy(['day', 'order_name', 'time']).value();
 
   for (const order of sortedOrders) {
-    const spent = getDollarsSpent(order);
+    const reward = getTokenReward(totalRevenue, order);
 
-    if (!spent) continue;
-
-    const reward = getTokenReward(totalRevenue, spent, order);
+    // Nothing to distribute
+    if (!reward.buyerSpent && (!reward.designers.length || !reward.designerEarned)) continue;
 
     const orderId = `${order.order_id}`;
     if (!designerDistributed[orderId]) {
@@ -219,7 +246,11 @@ const generateMonthlyAllocation = async () => {
       buyerDistributed[orderId] = { amount: 0, address: '' };
     }
 
-    totalRevenue += spent;
+    if (typeof reward.buyerSpent === 'string') {
+      throw new Error(`Buyer order string: ${JSON.stringify(order, null, 2)}`);
+    }
+
+    totalRevenue += reward.buyerSpent;
 
     for (const designer of reward.designers) {
       const address = designer.ethAddress.toLowerCase();
@@ -245,40 +276,53 @@ const generateMonthlyAllocation = async () => {
   }
 
   const airdropAmounts: Record<string, number> = {};
+  const buyerAirdropAmounts: Record<string, number> = {};
+  const designerAirdropAmounts: Record<string, number> = {};
 
-  const buyerRewards = _.values(buyerDistributed);
-  const designerRewards = _.values(designerDistributed);
+  const buyerRewards = _.values<{ address: string; amount: number }>(buyerDistributed);
+  const designerRewards = _.values<Record<string, number>>(designerDistributed);
 
   for (const reward of buyerRewards) {
-    if (reward.amount > 1e-8) {
+    if (reward.amount > REWARD_DISTRO_THRESHOLD) {
       const checksumAddress = formatAddress(reward.address);
+      buyerAirdropAmounts[checksumAddress] =
+        (buyerAirdropAmounts[checksumAddress] || 0) + reward.amount;
       airdropAmounts[checksumAddress] = (airdropAmounts[checksumAddress] || 0) + reward.amount;
-    } else if (reward.amount < -1e-8) {
+    } else if (reward.amount < -REWARD_DISTRO_THRESHOLD) {
       console.log('Negative buyer reward', reward);
     }
   }
 
   for (const reward of designerRewards) {
     for (const address in reward) {
-      if (reward[address] > 1e-8) {
-        const checksumAddress = formatAddress(address);
-        airdropAmounts[checksumAddress] = (airdropAmounts[checksumAddress] || 0) + reward[address];
-      } else if (reward[address] < -1e-8) {
+      const rewardAmount = reward[address];
+
+      if (rewardAmount < -REWARD_DISTRO_THRESHOLD)
         console.log('Negative designer reward', { reward, address });
+
+      if (rewardAmount <= REWARD_DISTRO_THRESHOLD) continue;
+
+      // Dont actually distribute to this, handled separately because we dont know what order had what items
+      if (address === 'mcon-distributor-placeholder-address') {
+        const mconDesignerRewards = getMconDesignerRewards(rewardAmount);
+        for (const designerAddress in mconDesignerRewards) {
+          const amount = mconDesignerRewards[designerAddress];
+          const checksumAddress = formatAddress(designerAddress);
+
+          designerAirdropAmounts[checksumAddress] =
+            (designerAirdropAmounts[checksumAddress] || 0) + amount;
+          airdropAmounts[checksumAddress] = (airdropAmounts[checksumAddress] || 0) + amount;
+        }
+      } else {
+        const checksumAddress = formatAddress(address);
+        designerAirdropAmounts[checksumAddress] =
+          (designerAirdropAmounts[checksumAddress] || 0) + rewardAmount;
+        airdropAmounts[checksumAddress] = (airdropAmounts[checksumAddress] || 0) + rewardAmount;
       }
     }
   }
 
   const airdropOutput = _.mapValues(airdropAmounts, (v) => v.toString());
-
-  // Object.keys(airdropAmounts).forEach((ethAddress) => {
-  //   const amount = airdropAmounts[ethAddress];
-  //   if (amount > 1e-8) {
-  //     const checksumAddress = formatAddress(ethAddress);
-  //     airdropAmounts[checksumAddress] = allocation.toString();
-  //     csvOutput.push(`${checksumAddress},${numberToWei(allocation)}`);
-  //   }
-  // });
 
   // Check that designers map is configured properly
   Object.values(productDesignerMap).forEach((product) => {
@@ -298,9 +342,29 @@ const generateMonthlyAllocation = async () => {
   });
 
   const totalTokens = Object.values(airdropAmounts).reduce((total, amount) => (total += amount), 0);
-  console.log({ totalTokens, totalRevenue });
+  const totalBuyerTokens = Object.values(buyerAirdropAmounts).reduce(
+    (total, amount) => (total += amount),
+    0,
+  );
+  const totalDesignerTokens = Object.values(designerAirdropAmounts).reduce(
+    (total, amount) => (total += amount),
+    0,
+  );
+  console.log({
+    totalBuyerTokens,
+    totalDesignerTokens,
+    total: totalBuyerTokens + totalDesignerTokens,
+    totalTokens,
+    totalRevenue,
+  });
 
-  fs.writeFileSync('./aug2021/airdrop.json', JSON.stringify(airdropOutput));
+  fs.writeFileSync(`./${CURRENT_DISTRO_MONTH}/airdrop.json`, JSON.stringify(airdropOutput));
+  fs.writeFileSync(
+    `./${CURRENT_DISTRO_MONTH}/airdrop.csv`,
+    `address,amount\n${Object.entries(airdropOutput)
+      .map((e) => e.join(','))
+      .join('\n')}`,
+  );
 };
 
 const generateDistributedOrders = async () => {
@@ -312,18 +376,14 @@ const generateDistributedOrders = async () => {
   const designerOrdersDistributed: Record<string, Record<string, number>> = {};
 
   for (const order of sortedOrders) {
-    const spent = getDollarsSpent(order);
-
-    if (!spent) continue;
-
     const orderId = `${order.order_id}`;
 
     if (!designerOrdersDistributed[orderId]) {
       designerOrdersDistributed[orderId] = {};
     }
-    const reward = getTokenReward(totalRevenue, spent, order);
+    const reward = getTokenReward(totalRevenue, order);
 
-    totalRevenue += spent;
+    totalRevenue += reward.buyerSpent;
 
     for (const designer of reward.designers) {
       const address = designer.ethAddress.toLowerCase();
@@ -333,11 +393,6 @@ const generateDistributedOrders = async () => {
 
     const buyerEthAddress = getEthAddress(order);
     if (!buyerEthAddress) {
-      console.log(
-        `No Eth Address for order ${
-          'order_name' in order ? order.order_name : order.product_title
-        }. Day: ${order.day}. ${order.product_title}`,
-      );
       continue;
     }
 
@@ -347,13 +402,18 @@ const generateDistributedOrders = async () => {
     };
   }
 
-  fs.writeFileSync('./aug2021/buyerRewardsByOrder.json', JSON.stringify(buyerOrdersDistributed));
   fs.writeFileSync(
-    './aug2021/designerRewardsByOrder.json',
+    `./${CURRENT_DISTRO_MONTH}/buyerRewardsByOrder.json`,
+    JSON.stringify(buyerOrdersDistributed),
+  );
+  fs.writeFileSync(
+    `./${CURRENT_DISTRO_MONTH}/designerRewardsByOrder.json`,
     JSON.stringify(designerOrdersDistributed),
   );
 };
 
-generateMonthlyAllocation();
-//
-generateDistributedOrders();
+generateMonthlyAllocation().then(() => {
+  generateDistributedOrders().then(() => {
+    console.log('Done!');
+  });
+});

@@ -7,16 +7,26 @@ const customerEthAddressMap = _(CUSTOMER_ETH_ADDRESSES)
   .mapValues((v) => v.ethAddress.toLowerCase())
   .value();
 
-export const getDollarsSpent = (order: Order): number => {
+export const getBuyerDollarsSpent = (order: Order): number => {
   if ('payment_method' in order && order.payment_method === 'gift_cards_only') return 0;
+  if ('payment_method' in order && order.payment_method === 'gift_card') return 0;
   if ('order_name' in order && order.product_title === 'MF GIFT CARD') return order.product_price;
 
+  return getDesignerDollarsEarned(order)
+};
+
+export const getDesignerDollarsEarned = (order: Order): number => {
   if ('net_quantity' in order) {
     // Index COOP Hoodie where it was paid for by the DAO
     if (order.product_id === 6566448234542 && order.net_quantity > 0 && order.net_sales === 0) {
       return order.product_price * order.net_quantity;
     }
+    // Refunds shouldnt deduct shipping from net_sales
+    if (order.total_refunded && (order.total_refunded + order.net_sales) === order.product_price) {
+      return 0
+    }
   }
+
   return order.net_sales;
 };
 

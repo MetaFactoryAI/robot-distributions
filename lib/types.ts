@@ -49,7 +49,7 @@ const shopOrder2 = {
 };
 type ShopOrder = typeof shopOrder1 | typeof shopOrder2;
 
-type ExternalSale = {
+export type ExternalSale = {
   ethAddress: string;
   product_id: string;
   order_id: string;
@@ -58,6 +58,12 @@ type ExternalSale = {
   ethPaid?: number;
   net_sales: number;
   day: string;
+  time?: string;
 };
 export type Order = ShopOrder | ExternalSale;
-export type OrderRewardAllocation = { buyer: number; designers: DesignerAllocation[] };
+export type OrderRewardAllocation = {
+  buyer: number;
+  designers: DesignerAllocation[];
+  buyerSpent: number;
+  designerEarned: number;
+};

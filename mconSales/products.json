@@ -1,0 +1,153 @@
+[
+  {
+    "product_title": "MF Snapback Cap",
+    "rewardShare": 0.03292,
+    "designers": [
+      {
+        "name": "Sergio",
+        "contributionShare": 0.7,
+        "ethAddress": "0x3Cc1A943B27c2AF7c6dcF3Be0137f66c2f22E712"
+      },
+      {
+        "name": "weseeclearly",
+        "contributionShare": 0.3,
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70"
+      }
+    ]
+  },
+  {
+    "product_title": "MF Socks",
+    "rewardShare": 0.00823,
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "contributionShare": 1,
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70"
+      }
+    ]
+  },
+  {
+    "product_title": "Patch Tees - Blue",
+    "rewardShare": 0.05531,
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "contributionShare": 0.4,
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70"
+      },
+      {
+        "name": "METADREAMER",
+        "contributionShare": 0.6,
+        "ethAddress": "0x8F942ECED007bD3976927B7958B50Df126FEeCb5"
+      }
+    ]
+  },
+  {
+    "product_title": "Patch Tees - Black",
+    "rewardShare": 0.04148,
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "contributionShare": 0.4,
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70"
+      },
+      {
+        "name": "METADREAMER",
+        "contributionShare": 0.6,
+        "ethAddress": "0x8F942ECED007bD3976927B7958B50Df126FEeCb5"
+      }
+    ]
+  },
+  {
+    "product_title": "WSC Shirt - Genesis",
+    "rewardShare": 0.13827,
+    "designers": [
+      {
+        "name": "Drew Harding",
+        "ethAddress": "0xf8049C8425f9eAb4E2AE9E1D950f9D3F71481882",
+        "contributionShare": 0.3
+      },
+      {
+        "name": "Twisted Vacancy",
+        "ethAddress": "0x35764fd659509f60c9531f27fdb5305f85a1398b",
+        "contributionShare": 0.7
+      }
+    ]
+  },
+  {
+    "product_title": "New Horizons Jacket",
+    "rewardShare": 0.28622,
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "contributionShare": 1,
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70"
+      }
+    ]
+  },
+  {
+    "product_title": "Vaunker Hoodie",
+    "rewardShare": 0.18436,
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "contributionShare": 0.3,
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70"
+      },
+      {
+        "name": "Van",
+        "ethAddress": "0xF91569595BCDAF780c3f1662f204E157949af8b2",
+        "contributionShare": 0.7
+      }
+    ]
+  },
+  {
+    "product_title": "MF Slides",
+    "rewardShare": 0.06172,
+    "designers": [
+      {
+        "name": "Francesco",
+        "contributionShare": 1,
+        "ethAddress": "0xB6734B4E01D1cD9A626efD6c86F031cBbF9B4936"
+      }
+    ]
+  },
+  {
+    "product_title": "Tie-Dye Tee - Mens",
+    "rewardShare": 0.02881,
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "contributionShare": 1,
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70"
+      }
+    ]
+  },
+  {
+    "product_title": "Tie-Dye Tee - Womens",
+    "rewardShare": 0.00576,
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "contributionShare": 1,
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70"
+      }
+    ]
+  },
+  {
+    "product_title": "MCON Long Sleeve",
+    "rewardShare": 0.15692,
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "contributionShare": 0.3,
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70"
+      },
+      {
+        "name": "METADREAMER",
+        "contributionShare": 0.7,
+        "ethAddress": "0x8F942ECED007bD3976927B7958B50Df126FEeCb5"
+      }
+    ]
+  }
+]
