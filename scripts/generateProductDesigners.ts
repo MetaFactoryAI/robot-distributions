@@ -15,6 +15,13 @@ export const productDesignerMap: Record<string, ProductDesignerInfo> = CURRENT_P
 
 const generateProductDesignersMap = () => {
   const products = _(ALL_ORDERS)
+    .filter(order => {
+      if (!order.product_id) {
+        console.warn('Missing product ID for order: ', order)
+      }
+
+      return Boolean(order.product_id)
+    })
     .groupBy('product_id')
     .mapValues((orders) =>
       orders.reduce(
