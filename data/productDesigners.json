@@ -1010,7 +1010,12 @@
       {
         "name": "mmjustin",
         "ethAddress": "0x63729548cc3F51128B4693E8C9dCB1bFe786adF4",
-        "contributionShare": 0.1
+        "contributionShare": 0.05
+      },
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.05
       },
       {
         "name": "SporkDAO",

@@ -47,7 +47,28 @@ const shopOrder2 = {
   net_sales: 150,
   total_refunded: 0,
 };
-type ShopOrder = typeof shopOrder1 | typeof shopOrder2;
+
+const shopOrder3 = {
+  order_number: 6192,
+  month: '11-2021',
+  order_name: '#6192',
+  order_id: 3992418123822,
+  product_title: 'Axie Navy 9 Face Tee',
+  quantity: 1,
+  product_id: 6707335397422,
+  product_vendor: 'Axie Infinity',
+  product_price: 0,
+  net_quantity: 0,
+  payment_method: 'direct',
+  gift_card_amount: 0,
+  customer_id: 5366057271342,
+  is_gift_card: 'FALSE',
+  day: '2021-11-13',
+  net_sales: 'NaN',
+  total_refunded: 'NaN',
+};
+
+type ShopOrder = typeof shopOrder1 | typeof shopOrder2 | typeof shopOrder3;
 
 export type ExternalSale = {
   ethAddress: string;
