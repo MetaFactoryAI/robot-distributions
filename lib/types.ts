@@ -1,5 +1,3 @@
-import ORDERS1 from '../data/all_orders.json';
-
 export type DesignerAllocation = {
   ethAddress: string;
   allocation: number;
@@ -9,7 +7,6 @@ export type DesignerContribution = {
   ethAddress: string;
   contributionShare: number;
 };
-export type ShopifyOrder = typeof ORDERS1[0];
 
 const shopOrder1 = {
   product_title: 'MF MASK - METADREAMER',
@@ -56,7 +53,6 @@ const shopOrder3 = {
   product_title: 'Axie Navy 9 Face Tee',
   quantity: 1,
   product_id: 6707335397422,
-  product_vendor: 'Axie Infinity',
   product_price: 0,
   net_quantity: 0,
   payment_method: 'direct',
@@ -66,9 +62,10 @@ const shopOrder3 = {
   day: '2021-11-13',
   net_sales: 'NaN',
   total_refunded: 'NaN',
+  order_cancelled_date: '2021-11-15',
 };
 
-type ShopOrder = typeof shopOrder1 | typeof shopOrder2 | typeof shopOrder3;
+export type ShopOrder = typeof shopOrder1 | typeof shopOrder2 | typeof shopOrder3;
 
 export type ExternalSale = {
   ethAddress: string;
@@ -87,4 +84,5 @@ export type OrderRewardAllocation = {
   designers: DesignerAllocation[];
   buyerSpent: number;
   designerEarned: number;
+  season: number;
 };
