@@ -5,11 +5,16 @@ import { DesignerContribution, Order, OrderRewardAllocation } from './lib/types'
 
 import PRODUCT_DESIGNERS from './data/productDesigners.json';
 import ROBOT_MA from './data/robotMovingAverage.json';
-import BUYER_REWARDS_BY_ORDER from './aug2021/buyerRewardsByOrder.json';
-import DESIGNER_REWARDS_BY_ORDER from './aug2021/designerRewardsByOrder.json';
+import BUYER_REWARDS_BY_ORDER from './oct2021/buyerRewardsByOrder.json';
+import DESIGNER_REWARDS_BY_ORDER from './oct2021/designerRewardsByOrder.json';
 
 import { ALL_ORDERS } from './data';
-import { getBuyerDollarsSpent, getDesignerDollarsEarned, getEthAddress } from './lib/orderHelpers';
+import {
+  getBuyerDollarsSpent,
+  getDesignerDollarsEarned,
+  getEthAddress,
+  isShopOrder,
+} from './lib/orderHelpers';
 import { getMconDesignerRewards } from './lib/formatMconSalesData';
 
 const SALES_MILESTONES = [
@@ -22,6 +27,7 @@ const SALES_MILESTONES = [
   3_200_000,
   6_400_000,
 ];
+
 const BUYER_ROBOT_PER_DOLLAR = [0.4, 0.2, 0.05, 0.025, '42%', '42%', '42%', '42%'];
 const DESIGNER_ROBOT_PER_DOLLAR = [0.16, 0.12, 0.05, 0.025, 0.0125, 0.0125, 0.00625, '42%'];
 
@@ -32,7 +38,7 @@ const VAUNKER_SALE_ROBOT_PER_ETH = 42;
 // min # of ROBOT needed to be included in distro
 const REWARD_DISTRO_THRESHOLD = 1e-8;
 
-const CURRENT_DISTRO_MONTH = 'oct2021';
+const CURRENT_DISTRO_MONTH = 'dec2021';
 
 export const productDesignerMap: Record<
   string,
@@ -47,6 +53,61 @@ const customRewardHandlers: Record<
   string,
   (order: Order, milestoneIndex: number) => OrderRewardAllocation
 > = {
+  // MetaLoot
+  '6690001944622': (order, milestoneIndex) => {
+    if (!isShopOrder(order)) throw new Error('Invalid Order');
+    // Ignore test orders
+    if (order.order_number < 6603) {
+      return {
+        season: milestoneIndex,
+        buyerSpent: 0,
+        designerEarned: 0,
+        buyer: 0,
+        designers: [],
+      };
+    }
+
+    const designers = productDesignerMap[order.product_id]?.designers || [];
+    const designerRatio = DESIGNER_ROBOT_PER_DOLLAR[milestoneIndex];
+    if (typeof designerRatio !== 'number') {
+      throw new Error('Invalid designer reward amount for METALOOT');
+    }
+    const designerAllocation = 420 * designerRatio;
+
+    return {
+      season: milestoneIndex,
+      buyerSpent: 0,
+      designerEarned: 0,
+      buyer: 6.9,
+      designers: designers.map((d) => ({
+        ethAddress: d.ethAddress,
+        allocation: designerAllocation * d.contributionShare,
+      })),
+    };
+  },
+  // Balancer Hoodie
+  '6720895942702': (order, milestoneIndex) => {
+    if (!isShopOrder(order)) throw new Error('Invalid Order');
+
+    const designers = productDesignerMap[order.product_id]?.designers || [];
+    const designerRatio = DESIGNER_ROBOT_PER_DOLLAR[milestoneIndex];
+    if (typeof designerRatio !== 'number') {
+      throw new Error('Invalid designer reward amount for Balancer Hoodie');
+    }
+    const netSales = order.quantity * 70;
+    const designerAllocation = netSales * designerRatio;
+
+    return {
+      season: milestoneIndex,
+      buyerSpent: netSales,
+      designerEarned: netSales,
+      buyer: 0,
+      designers: designers.map((d) => ({
+        ethAddress: d.ethAddress,
+        allocation: designerAllocation * d.contributionShare,
+      })),
+    };
+  },
   'VAUNKER-KEYCARD': (order, milestoneIndex) => {
     if (!('ethPaid' in order && order.ethPaid)) {
       throw new Error('Missing ETH paid for Vaunker purchase');
@@ -62,6 +123,7 @@ const customRewardHandlers: Record<
     const designerAllocation = order.net_sales * designerRatio;
 
     return {
+      season: milestoneIndex,
       buyerSpent: order.net_sales,
       designerEarned: order.net_sales,
       buyer: buyerAllocation,
@@ -103,6 +165,11 @@ const getTokenReward = (currentRevenue: number, order: Order): OrderRewardAlloca
   if (currentRevenue > SALES_MILESTONES[4]) milestoneIndex = 5;
   if (currentRevenue > SALES_MILESTONES[5]) milestoneIndex = 6;
 
+  const customHandler = customRewardHandlers[order.product_id.toString()];
+  if (customHandler) {
+    return customHandler(order, milestoneIndex);
+  }
+
   const buyerSpent = getBuyerDollarsSpent(order);
   const designerEarned = getDesignerDollarsEarned(order);
 
@@ -112,6 +179,7 @@ const getTokenReward = (currentRevenue: number, order: Order): OrderRewardAlloca
       designerEarned: 0,
       buyer: 0,
       designers: [],
+      season: milestoneIndex,
     };
   }
 
@@ -120,11 +188,6 @@ const getTokenReward = (currentRevenue: number, order: Order): OrderRewardAlloca
 
   if (nextRevenue > SALES_MILESTONES[milestoneIndex]) {
     console.log('Next Revenue', { order, nextRevenue });
-  }
-
-  const customHandler = customRewardHandlers[order.product_id.toString()];
-  if (customHandler) {
-    return customHandler(order, milestoneIndex);
   }
 
   const designers = productDesignerMap[order.product_id]?.designers || [];
@@ -152,6 +215,7 @@ const getTokenReward = (currentRevenue: number, order: Order): OrderRewardAlloca
     );
 
     return {
+      season: milestoneIndex,
       buyerSpent,
       designerEarned,
       buyer: buyerAllocation,
@@ -195,6 +259,7 @@ const getTokenReward = (currentRevenue: number, order: Order): OrderRewardAlloca
   const designerAllocation = overMilestoneDesignerAllocation + underMilestoneDesignerAllocation;
 
   return {
+    season: milestoneIndex,
     buyerSpent,
     designerEarned,
     buyer: buyerSpent ? buyerAllocation : 0,
@@ -367,28 +432,73 @@ const generateMonthlyAllocation = async () => {
   );
 };
 
+type OrderData = {
+  buyer_address: string;
+  order_id: string;
+  buyer_reward: number;
+  dollars_spent: number;
+  season: number;
+  date: string;
+};
+
+type DesignerData = {
+  eth_address: string;
+  contribution_share: number;
+  robot_reward: number;
+};
+type ProductData = {
+  shopify_id: string | null;
+  id: string;
+  title: string;
+  designers: Record<string, DesignerData>;
+};
+
 const generateDistributedOrders = async () => {
   let totalRevenue = INITIAL_REVENUE;
 
-  const sortedOrders = _(ALL_ORDERS).sortBy(['day', 'order_name', 'time']).value();
+  const sortedOrders: Order[] = _(ALL_ORDERS).sortBy(['day', 'order_name', 'time']).value();
 
-  const buyerOrdersDistributed: Record<string, { address: string; amount: number }> = {};
+  // const buyerOrdersDistributed: Record<string, { address: string; amount: number }> = [];
   const designerOrdersDistributed: Record<string, Record<string, number>> = {};
+
+  const orderData: Record<string, OrderData> = {};
+  const productData: Record<string, ProductData> = {};
 
   for (const order of sortedOrders) {
     const orderId = `${order.order_id}`;
+    const productId = `${order.product_id}`;
+
+    const { season, buyer, buyerSpent, designers } = getTokenReward(totalRevenue, order);
 
     if (!designerOrdersDistributed[orderId]) {
       designerOrdersDistributed[orderId] = {};
     }
-    const reward = getTokenReward(totalRevenue, order);
 
-    totalRevenue += reward.buyerSpent;
+    if (!productData[productId]) {
+      productData[productId] = {
+        title: order.product_title,
+        id: productId,
+        shopify_id: isShopOrder(order) ? productId : null,
+        designers: {},
+      };
+    }
 
-    for (const designer of reward.designers) {
+    totalRevenue += buyerSpent;
+
+    for (const designer of designers) {
       const address = designer.ethAddress.toLowerCase();
       designerOrdersDistributed[orderId][address] =
         (designerOrdersDistributed[orderId][address] || 0) + designer.allocation;
+
+      const designerConfig = productDesignerMap[productId]?.designers.find(
+        (d) => d.ethAddress.toLowerCase() === address,
+      );
+      const currentReward = productData[productId].designers[address]?.robot_reward || 0;
+      productData[productId].designers[address] = {
+        eth_address: address,
+        contribution_share: designerConfig?.contributionShare || 0,
+        robot_reward: currentReward + designer.allocation,
+      };
     }
 
     const buyerEthAddress = getEthAddress(order);
@@ -396,15 +506,44 @@ const generateDistributedOrders = async () => {
       continue;
     }
 
-    buyerOrdersDistributed[`${order.order_id}`] = {
-      address: buyerEthAddress,
-      amount: (buyerOrdersDistributed[`${order.order_id}`]?.amount || 0) + reward.buyer,
+    const buyerReward = (orderData[orderId]?.buyer_reward || 0) + buyer;
+    const dollarsSpent = (orderData[orderId]?.dollars_spent || 0) + buyerSpent;
+
+    orderData[orderId] = {
+      order_id: orderId,
+      buyer_address: buyerEthAddress,
+      date: order.day,
+      dollars_spent: dollarsSpent,
+      buyer_reward: buyerReward,
+      season,
     };
   }
 
+  const totalMconReward =
+    productData['mcon-sale'].designers['mcon-distributor-placeholder-address'].robot_reward;
+  const mconDesignerRewards = getMconDesignerRewards(totalMconReward);
+  productData['mcon-sale'].designers = {};
+
+  for (const designerAddress in mconDesignerRewards) {
+    const amount = mconDesignerRewards[designerAddress];
+    productData['mcon-sale'].designers[designerAddress] = {
+      eth_address: designerAddress,
+      contribution_share: amount / totalMconReward,
+      robot_reward: amount,
+    };
+  }
+
+  fs.writeFileSync(`./data/buyerRewardData.json`, JSON.stringify(orderData));
+  fs.writeFileSync(`./data/designerRewardData.json`, JSON.stringify(productData));
+
   fs.writeFileSync(
     `./${CURRENT_DISTRO_MONTH}/buyerRewardsByOrder.json`,
-    JSON.stringify(buyerOrdersDistributed),
+    JSON.stringify(
+      _.mapValues(orderData, (o: OrderData) => ({
+        amount: o.buyer_reward,
+        address: o.buyer_address,
+      })),
+    ),
   );
   fs.writeFileSync(
     `./${CURRENT_DISTRO_MONTH}/designerRewardsByOrder.json`,

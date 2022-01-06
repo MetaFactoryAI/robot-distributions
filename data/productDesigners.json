@@ -1010,7 +1010,12 @@
       {
         "name": "mmjustin",
         "ethAddress": "0x63729548cc3F51128B4693E8C9dCB1bFe786adF4",
-        "contributionShare": 0.1
+        "contributionShare": 0.05
+      },
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.05
       },
       {
         "name": "SporkDAO",
@@ -1610,6 +1615,681 @@
         "name": "MCON DISTRIBUTOR",
         "ethAddress": "MCON-DISTRIBUTOR-PLACEHOLDER-ADDRESS",
         "contributionShare": 1
+      }
+    ]
+  },
+  "6675082346542": {
+    "productId": 6675082346542,
+    "title": "GLXY.01 - Genesis Hoodie",
+    "designers": [
+      {
+        "name": "Galaxy Interactive",
+        "ethAddress": "0x80c939F8A66C59B37330f93f1002541fD4E51aa2",
+        "contributionShare": 0.7
+      },
+      {
+        "name": "NiftyFifty",
+        "ethAddress": "0xE75304fE5bb590B6deA3CA13A8aBAb257c12E753",
+        "contributionShare": 0.3
+      }
+    ]
+  },
+  "6691910287406": {
+    "productId": 6691910287406,
+    "title": "Rare Pineapple\" Tee",
+    "designers": [
+      {
+        "name": "NFT Owner",
+        "ethAddress": "0x24380c650014a08fae277d6a8b7f933f80d51dd3",
+        "contributionShare": 0.5
+      },
+      {
+        "name": "Brand",
+        "ethAddress": "0xfE5B7200B2b63Be7Dc7281E7B4AE9955e34d986C",
+        "contributionShare": 0.4
+      },
+      {
+        "name": "penguin",
+        "ethAddress": "0xfaCEf700458D4Fc9746F7f3e0d37B462711fF09e",
+        "contributionShare": 0.05
+      },
+      {
+        "name": "CryptoAccord",
+        "ethAddress": "0x4cCa9821c246acd39a42F34e6ae4E520A8224565",
+        "contributionShare": 0.05
+      }
+    ]
+  },
+  "6691908878382": {
+    "productId": 6691908878382,
+    "title": "Skatenonymous\" Tee",
+    "designers": [
+      {
+        "name": "NFT Owner",
+        "ethAddress": "0x1d5e65a087ebc3d03a294412e46ce5d6882969f4",
+        "contributionShare": 0.5
+      },
+      {
+        "name": "Brand",
+        "ethAddress": "0xfE5B7200B2b63Be7Dc7281E7B4AE9955e34d986C",
+        "contributionShare": 0.4
+      },
+      {
+        "name": "penguin",
+        "ethAddress": "0xfaCEf700458D4Fc9746F7f3e0d37B462711fF09e",
+        "contributionShare": 0.05
+      },
+      {
+        "name": "CryptoAccord",
+        "ethAddress": "0x4cCa9821c246acd39a42F34e6ae4E520A8224565",
+        "contributionShare": 0.05
+      }
+    ]
+  },
+  "6705158979630": {
+    "productId": 6705158979630,
+    "title": "GasNow \"I have known\" L/S Tee",
+    "designers": [
+      {
+        "name": "CryptoAccord",
+        "ethAddress": "0x4cCa9821c246acd39a42F34e6ae4E520A8224565",
+        "contributionShare": 0.7
+      },
+      {
+        "name": "NiftyFifty",
+        "ethAddress": "0xE75304fE5bb590B6deA3CA13A8aBAb257c12E753",
+        "contributionShare": 0.3
+      }
+    ]
+  },
+  "6706759893038": {
+    "productId": 6706759893038,
+    "title": "Game of Cones\" Long Sleeve",
+    "designers": [
+      {
+        "name": "wero",
+        "ethAddress": "0x1A3C469A422EcfEEc7258C701cd5cdDe9b5e9322",
+        "contributionShare": 0.5
+      },
+      {
+        "name": "CryptoAccord",
+        "ethAddress": "0x4cCa9821c246acd39a42F34e6ae4E520A8224565",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "farmerdefi",
+        "ethAddress": "0x81f8CaBe89066d43EB4faFD8E4E5256C102E6E30",
+        "contributionShare": 0.3
+      },
+      {
+        "name": "METADREAMER",
+        "ethAddress": "0x8F942ECED007bD3976927B7958B50Df126FEeCb5",
+        "contributionShare": 0.1
+      }
+    ]
+  },
+  "6685446176814": {
+    "productId": 6685446176814,
+    "title": "#RAISETHECAPS - HAT",
+    "designers": [
+      {
+        "name": "AA8 (thorchain)",
+        "ethAddress": "0xe4774e56f82c9dcb947c13c139947f2782fca542",
+        "contributionShare": 0.7
+      },
+      {
+        "name": "METADREAMER",
+        "ethAddress": "0x8F942ECED007bD3976927B7958B50Df126FEeCb5",
+        "contributionShare": 0.15
+      },
+      {
+        "name": "wero",
+        "ethAddress": "0x1A3C469A422EcfEEc7258C701cd5cdDe9b5e9322",
+        "contributionShare": 0.15
+      }
+    ]
+  },
+  "6697879502894": {
+    "productId": 6697879502894,
+    "title": "MCON \"Pixel Wave\" Tee",
+    "designers": [
+      {
+        "name": "louxuol",
+        "ethAddress": "0xc3DE23dc565df629F1422F7Db0E5504d21f4fD65",
+        "contributionShare": 0.6
+      },
+      {
+        "name": "CryptoAccord",
+        "ethAddress": "0x4cCa9821c246acd39a42F34e6ae4E520A8224565",
+        "contributionShare": 0.15
+      },
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.25
+      }
+    ]
+  },
+  "6695972175918": {
+    "productId": 6695972175918,
+    "title": "MCON \"Streetwear\" L/S Tee",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "contributionShare": 0.3,
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70"
+      },
+      {
+        "name": "METADREAMER",
+        "contributionShare": 0.7,
+        "ethAddress": "0x8F942ECED007bD3976927B7958B50Df126FEeCb5"
+      }
+    ]
+  },
+  "6707130269742": {
+    "productId": 6707130269742,
+    "title": "$WORK\" Vest",
+    "designers": [
+      {
+        "name": "Opolis",
+        "contributionShare": 0.7,
+        "ethAddress": "0x16e46dec73c0D372b461718869Fba264eC08b137"
+      },
+      {
+        "name": "weseeclearly",
+        "contributionShare": 0.2,
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70"
+      },
+      {
+        "name": "0xJoshua",
+        "contributionShare": 0.1,
+        "ethAddress": "0x1dF428833f2C9FB1eF098754e5D710432450d706"
+      }
+    ]
+  },
+  "6707642531886": {
+    "productId": 6707642531886,
+    "title": "MEME.01 \"LIKE A SIR\" Hoodie",
+    "designers": [
+      {
+        "name": "Meme.com",
+        "ethAddress": "0x4E6201F8036f013655394f58b146c537acCc4728",
+        "contributionShare": 0.7
+      },
+      {
+        "name": "Jordanlovesred",
+        "ethAddress": "0xc1a26Fc95765B8969f251Ea6caefd97eb73B2938",
+        "contributionShare": 0.2
+      },
+      {
+        "name": "CPTNskeletor",
+        "ethAddress": "0x9bcDc7db2f57B0f960A737ccC29373a9bc760134",
+        "contributionShare": 0.1
+      }
+    ]
+  },
+  "6709844475950": {
+    "productId": 6709844475950,
+    "title": "MVMF VoxTee - Hawaiian T-Shirt",
+    "designers": [
+      {
+        "name": "Sinkas",
+        "ethAddress": "0xE38d978e500242E5E6DF46BE5dc1Bd47cb06555f",
+        "contributionShare": 0.5
+      },
+      {
+        "name": "penguin",
+        "ethAddress": "0xfaCEf700458D4Fc9746F7f3e0d37B462711fF09e",
+        "contributionShare": 0.25
+      },
+      {
+        "name": "NFT Holder",
+        "ethAddress": "0x0eabffd8ce94ab2387fc44ba32642af0c58af433",
+        "contributionShare": 0.25
+      }
+    ]
+  },
+  "6709851652142": {
+    "productId": 6709851652142,
+    "title": "MVMF VoxTee Alien",
+    "designers": [
+      {
+        "name": "Sinkas",
+        "ethAddress": "0xE38d978e500242E5E6DF46BE5dc1Bd47cb06555f",
+        "contributionShare": 0.5
+      },
+      {
+        "name": "penguin",
+        "ethAddress": "0xfaCEf700458D4Fc9746F7f3e0d37B462711fF09e",
+        "contributionShare": 0.25
+      },
+      {
+        "name": "NFT Holder",
+        "ethAddress": "0xfab9a3d37999e12252b47468d2ffd4be15936012",
+        "contributionShare": 0.25
+      }
+    ]
+  },
+  "6709847293998": {
+    "productId": 6709847293998,
+    "title": "MVMF VoxTee Penguin Punk",
+    "designers": [
+      {
+        "name": "Sinkas",
+        "ethAddress": "0xE38d978e500242E5E6DF46BE5dc1Bd47cb06555f",
+        "contributionShare": 0.25
+      },
+      {
+        "name": "penguin",
+        "ethAddress": "0xfaCEf700458D4Fc9746F7f3e0d37B462711fF09e",
+        "contributionShare": 0.5
+      },
+      {
+        "name": "NFT Holder",
+        "ethAddress": "0x9f7064dfe6ca5856b3afd7a3b3974686a35bdab5",
+        "contributionShare": 0.25
+      }
+    ]
+  },
+  "6711608442926": {
+    "productId": 6711608442926,
+    "title": "Automata\" Sneakers",
+    "designers": [
+      {
+        "name": "dORG",
+        "ethAddress": "0xdb22d2d37db92EA7fa6993C9f6Ead55FBb1eF4EA",
+        "contributionShare": 0.5
+      },
+      {
+        "name": "JohnMillr",
+        "ethAddress": "0x21188C2f2D6C304E705Ad863B2946D81Daf7F7af",
+        "contributionShare": 0.3
+      },
+      {
+        "name": "CryptoAccord",
+        "ethAddress": "0x4cCa9821c246acd39a42F34e6ae4E520A8224565",
+        "contributionShare": 0.2
+      }
+    ]
+  },
+  "6711704551470": {
+    "productId": 6711704551470,
+    "title": "NFT.NYC - MF Socks",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "contributionShare": 1,
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70"
+      }
+    ]
+  },
+  "6712141086766": {
+    "productId": 6712141086766,
+    "title": "NFT.NYC Coloring Book Shirts",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "contributionShare": 1,
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70"
+      }
+    ]
+  },
+  "6711702323246": {
+    "productId": 6711702323246,
+    "title": "NFT.NYC \"Robo Patch\" Tee",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "contributionShare": 0.3,
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70"
+      },
+      {
+        "name": "METADREAMER",
+        "contributionShare": 0.7,
+        "ethAddress": "0x8F942ECED007bD3976927B7958B50Df126FEeCb5"
+      }
+    ]
+  },
+  "6711706255406": {
+    "productId": 6711706255406,
+    "title": "NFT.NYC - \"Wicked Sunday Club\" Button Up",
+    "designers": [
+      {
+        "name": "Twisted Vacancy",
+        "ethAddress": "0x35764fd659509f60c9531f27fdb5305f85a1398b",
+        "contributionShare": 0.7
+      },
+      {
+        "name": "weseeclearly",
+        "contributionShare": 0.3,
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70"
+      }
+    ]
+  },
+  "6711649108014": {
+    "productId": 6711649108014,
+    "title": "NFT.NYC \"Neo\" Vaunker Hoodie",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "contributionShare": 0.3,
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70"
+      },
+      {
+        "name": "Van",
+        "ethAddress": "0xF91569595BCDAF780c3f1662f204E157949af8b2",
+        "contributionShare": 0.7
+      }
+    ]
+  },
+  "6711703568430": {
+    "productId": 6711703568430,
+    "title": "NFT.NYC - MF Snapback Cap",
+    "designers": [
+      {
+        "name": "Sergio",
+        "contributionShare": 0.7,
+        "ethAddress": "0x3Cc1A943B27c2AF7c6dcF3Be0137f66c2f22E712"
+      },
+      {
+        "name": "weseeclearly",
+        "contributionShare": 0.3,
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70"
+      }
+    ]
+  },
+  "6713199984686": {
+    "productId": 6713199984686,
+    "title": "Bankless \"WGMI\" Hoodie",
+    "designers": [
+      {
+        "name": "Bankless",
+        "contributionShare": 0.7,
+        "ethAddress": "0xf26d1Bb347a59F6C283C53156519cC1B1ABacA51"
+      },
+      {
+        "name": "Crypt0xwife",
+        "contributionShare": 0.15,
+        "ethAddress": "0x0F963c3f8cF8Fe3bd448571928D5D2519bbEc6c8"
+      },
+      {
+        "name": "CPTNskeletor",
+        "ethAddress": "0x9bcDc7db2f57B0f960A737ccC29373a9bc760134",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "CryptoAccord",
+        "ethAddress": "0x4cCa9821c246acd39a42F34e6ae4E520A8224565",
+        "contributionShare": 0.05
+      }
+    ]
+  },
+  "6707366821934": {
+    "productId": 6707366821934,
+    "title": "Bankless \"WGMI\" Tee",
+    "designers": [
+      {
+        "name": "Bankless",
+        "contributionShare": 0.7,
+        "ethAddress": "0xf26d1Bb347a59F6C283C53156519cC1B1ABacA51"
+      },
+      {
+        "name": "Crypt0xwife",
+        "contributionShare": 0.2,
+        "ethAddress": "0x0F963c3f8cF8Fe3bd448571928D5D2519bbEc6c8"
+      },
+      {
+        "name": "CPTNskeletor",
+        "ethAddress": "0x9bcDc7db2f57B0f960A737ccC29373a9bc760134",
+        "contributionShare": 0.1
+      }
+    ]
+  },
+  "6707335397422": {
+    "productId": 6707335397422,
+    "title": "Axie Navy 9 Face Tee",
+    "designers": []
+  },
+  "6707335233582": {
+    "productId": 6707335233582,
+    "title": "Axie Red Embroidered Tee",
+    "designers": []
+  },
+  "6707335790638": {
+    "productId": 6707335790638,
+    "title": "Axie Peek-a-boo Tee",
+    "designers": []
+  },
+  "6707336118318": {
+    "productId": 6707336118318,
+    "title": "Axie Hoodie",
+    "designers": []
+  },
+  "6719045009454": {
+    "productId": 6719045009454,
+    "title": "Bor3D\" Tee",
+    "designers": [
+      {
+        "name": "wero",
+        "ethAddress": "0x1A3C469A422EcfEEc7258C701cd5cdDe9b5e9322",
+        "contributionShare": 0.05
+      },
+      {
+        "name": "CryptoAccord",
+        "ethAddress": "0x4cCa9821c246acd39a42F34e6ae4E520A8224565",
+        "contributionShare": 0.15
+      },
+      {
+        "name": "fraemwerk",
+        "ethAddress": "0xBED32b83dd0851E655ADcEf79105Ca7a469cf9F0",
+        "contributionShare": 0.05
+      },
+      {
+        "name": "Apesthetics",
+        "ethAddress": "0x76f91DCf2aA8F542A5Baf8AC9B06B074d80D4015",
+        "contributionShare": 0.75
+      }
+    ]
+  },
+  "6719858638894": {
+    "productId": 6719858638894,
+    "title": "SQUIG 1.0\" HOODIE",
+    "designers": [
+      {
+        "name": "SquiggleDAO",
+        "ethAddress": "0x56fcb471A9DdE74045830439AD6612C9aad53C19",
+        "contributionShare": 0.9
+      },
+      {
+        "name": "NiftyFifty",
+        "ethAddress": "0xE75304fE5bb590B6deA3CA13A8aBAb257c12E753",
+        "contributionShare": 0.1
+      }
+    ]
+  },
+  "6721109721134": {
+    "productId": 6721109721134,
+    "title": "DopeShirt\" - Tee",
+    "designers": [
+      {
+        "name": "Dopex",
+        "ethAddress": "0xfe81459471E54F204878afcA18aFEfe067C8948e",
+        "contributionShare": 0.7
+      },
+      {
+        "name": "SeventeenTigers",
+        "ethAddress": "0x9516B778358F81ea761bA0Aa9Ff77Ad2f40Ea5ec",
+        "contributionShare": 0.2
+      },
+      {
+        "name": "CPTNskeletor",
+        "ethAddress": "0x9bcDc7db2f57B0f960A737ccC29373a9bc760134",
+        "contributionShare": 0.05
+      },
+      {
+        "name": "AlexTretiak",
+        "ethAddress": "0x674Ef87B4FE0bb4418b56F4462234190b26151B0",
+        "contributionShare": 0.05
+      }
+    ]
+  },
+  "6720895942702": {
+    "productId": 6720895942702,
+    "title": "Balancer VIP\" - Hoodie (Locked)",
+    "designers": [
+      {
+        "name": "NiftyFifty",
+        "ethAddress": "0xE75304fE5bb590B6deA3CA13A8aBAb257c12E753",
+        "contributionShare": 0.7
+      },
+      {
+        "name": "CryptoAccord",
+        "ethAddress": "0x4cCa9821c246acd39a42F34e6ae4E520A8224565",
+        "contributionShare": 0.3
+      }
+    ]
+  },
+  "6690001944622": {
+    "productId": 6690001944622,
+    "title": "MetaLoot\" Redemption",
+    "designers": [
+      {
+        "name": "CryptoAccord",
+        "ethAddress": "0x4cCa9821c246acd39a42F34e6ae4E520A8224565",
+        "contributionShare": 0.05
+      },
+      {
+        "name": "fraemwerk",
+        "ethAddress": "0xBED32b83dd0851E655ADcEf79105Ca7a469cf9F0",
+        "contributionShare": 0.05
+      },
+      {
+        "name": "METADREAMER",
+        "ethAddress": "0xC8bD6Ca1845D3E2B0B6630Bfb1712150BE95588a",
+        "contributionShare": 0.4
+      },
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.4
+      },
+      {
+        "name": "Franchesko",
+        "ethAddress": "0xB6734B4E01D1cD9A626efD6c86F031cBbF9B4936",
+        "contributionShare": 0.1
+      }
+    ]
+  },
+  "6718589272110": {
+    "productId": 6718589272110,
+    "title": "The Defiant Friend\" - Mug",
+    "designers": [
+      {
+        "name": "Pab",
+        "ethAddress": "0xFB074ABA249F6a75edA10996c3EFa6d66465B8b3",
+        "contributionShare": 0.2
+      },
+      {
+        "name": "CryptoAccord",
+        "ethAddress": "0x4cCa9821c246acd39a42F34e6ae4E520A8224565",
+        "contributionShare": 0.2
+      },
+      {
+        "name": "fraemwerk",
+        "ethAddress": "0xBED32b83dd0851E655ADcEf79105Ca7a469cf9F0",
+        "contributionShare": 0.15
+      },
+      {
+        "name": "METADREAMER",
+        "ethAddress": "0x8F942ECED007bD3976927B7958B50Df126FEeCb5",
+        "contributionShare": 0.15
+      },
+      {
+        "name": "jomalon",
+        "ethAddress": "0x44319F6fE64987E7C99268F39c6e9E6eB432472f",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "wero",
+        "ethAddress": "0x1A3C469A422EcfEEc7258C701cd5cdDe9b5e9322",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "CPTNskeletor",
+        "ethAddress": "0x9bcDc7db2f57B0f960A737ccC29373a9bc760134",
+        "contributionShare": 0.1
+      }
+    ]
+  },
+  "6718589698094": {
+    "productId": 6718589698094,
+    "title": "The Defiant Ambassador\" Copper - Hat",
+    "designers": [
+      {
+        "name": "Pab",
+        "ethAddress": "0xFB074ABA249F6a75edA10996c3EFa6d66465B8b3",
+        "contributionShare": 0.2
+      },
+      {
+        "name": "CryptoAccord",
+        "ethAddress": "0x4cCa9821c246acd39a42F34e6ae4E520A8224565",
+        "contributionShare": 0.2
+      },
+      {
+        "name": "fraemwerk",
+        "ethAddress": "0xBED32b83dd0851E655ADcEf79105Ca7a469cf9F0",
+        "contributionShare": 0.15
+      },
+      {
+        "name": "METADREAMER",
+        "ethAddress": "0x8F942ECED007bD3976927B7958B50Df126FEeCb5",
+        "contributionShare": 0.15
+      },
+      {
+        "name": "jomalon",
+        "ethAddress": "0x44319F6fE64987E7C99268F39c6e9E6eB432472f",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "wero",
+        "ethAddress": "0x1A3C469A422EcfEEc7258C701cd5cdDe9b5e9322",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "CPTNskeletor",
+        "ethAddress": "0x9bcDc7db2f57B0f960A737ccC29373a9bc760134",
+        "contributionShare": 0.1
+      }
+    ]
+  },
+  "6711699636270": {
+    "productId": 6711699636270,
+    "title": "MetaGEAR\" Jacket + Box Set",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "contributionShare": 0.3,
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70"
+      },
+      {
+        "name": "Danielle",
+        "contributionShare": 0.3,
+        "ethAddress": "0x77a78FE8C1a045a3DD148931D7FC40410302e32c"
+      },
+      {
+        "name": "Franchesko",
+        "contributionShare": 0.25,
+        "ethAddress": "0xB6734B4E01D1cD9A626efD6c86F031cBbF9B4936"
+      },
+      {
+        "name": "Max Ernst",
+        "contributionShare": 0.1,
+        "ethAddress": "0x4c1ef370CB28b24961E061efA742f934cbbd71aF"
+      },
+      {
+        "name": "FWG Vault",
+        "contributionShare": 0.05,
+        "ethAddress": "0x9768c71eAD3aa2C23ee0B53830161F4016bDc21C"
       }
     ]
   }
