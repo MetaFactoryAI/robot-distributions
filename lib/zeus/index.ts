@@ -54,7 +54,6 @@ export type ValueTypes = {
 	/** An object relationship */
 	contribution?:ValueTypes["contributions"],
 	contribution_id?:boolean,
-	created_at?:boolean,
 	rating?:boolean,
 	/** An object relationship */
 	user?:ValueTypes["users"],
@@ -93,7 +92,6 @@ count?: [{	columns?:ValueTypes["contribution_votes_select_column"][],	distinct?:
 	_or?:ValueTypes["contribution_votes_bool_exp"][],
 	contribution?:ValueTypes["contributions_bool_exp"] | null,
 	contribution_id?:ValueTypes["uuid_comparison_exp"] | null,
-	created_at?:ValueTypes["timestamptz_comparison_exp"] | null,
 	rating?:ValueTypes["String_comparison_exp"] | null,
 	user?:ValueTypes["users_bool_exp"] | null,
 	user_id?:ValueTypes["uuid_comparison_exp"] | null
@@ -104,7 +102,6 @@ count?: [{	columns?:ValueTypes["contribution_votes_select_column"][],	distinct?:
 ["contribution_votes_insert_input"]: {
 	contribution?:ValueTypes["contributions_obj_rel_insert_input"] | null,
 	contribution_id?:ValueTypes["uuid"] | null,
-	created_at?:ValueTypes["timestamptz"] | null,
 	rating?:string | null,
 	user?:ValueTypes["users_obj_rel_insert_input"] | null,
 	user_id?:ValueTypes["uuid"] | null
@@ -112,7 +109,6 @@ count?: [{	columns?:ValueTypes["contribution_votes_select_column"][],	distinct?:
 	/** aggregate max on columns */
 ["contribution_votes_max_fields"]: AliasType<{
 	contribution_id?:boolean,
-	created_at?:boolean,
 	rating?:boolean,
 	user_id?:boolean,
 		__typename?: boolean
@@ -120,14 +116,12 @@ count?: [{	columns?:ValueTypes["contribution_votes_select_column"][],	distinct?:
 	/** order by max() on columns of table "contribution_votes" */
 ["contribution_votes_max_order_by"]: {
 	contribution_id?:ValueTypes["order_by"] | null,
-	created_at?:ValueTypes["order_by"] | null,
 	rating?:ValueTypes["order_by"] | null,
 	user_id?:ValueTypes["order_by"] | null
 };
 	/** aggregate min on columns */
 ["contribution_votes_min_fields"]: AliasType<{
 	contribution_id?:boolean,
-	created_at?:boolean,
 	rating?:boolean,
 	user_id?:boolean,
 		__typename?: boolean
@@ -135,7 +129,6 @@ count?: [{	columns?:ValueTypes["contribution_votes_select_column"][],	distinct?:
 	/** order by min() on columns of table "contribution_votes" */
 ["contribution_votes_min_order_by"]: {
 	contribution_id?:ValueTypes["order_by"] | null,
-	created_at?:ValueTypes["order_by"] | null,
 	rating?:ValueTypes["order_by"] | null,
 	user_id?:ValueTypes["order_by"] | null
 };
@@ -157,7 +150,6 @@ count?: [{	columns?:ValueTypes["contribution_votes_select_column"][],	distinct?:
 ["contribution_votes_order_by"]: {
 	contribution?:ValueTypes["contributions_order_by"] | null,
 	contribution_id?:ValueTypes["order_by"] | null,
-	created_at?:ValueTypes["order_by"] | null,
 	rating?:ValueTypes["order_by"] | null,
 	user?:ValueTypes["users_order_by"] | null,
 	user_id?:ValueTypes["order_by"] | null
@@ -172,7 +164,6 @@ count?: [{	columns?:ValueTypes["contribution_votes_select_column"][],	distinct?:
 	/** input type for updating data in table "contribution_votes" */
 ["contribution_votes_set_input"]: {
 	contribution_id?:ValueTypes["uuid"] | null,
-	created_at?:ValueTypes["timestamptz"] | null,
 	rating?:string | null,
 	user_id?:ValueTypes["uuid"] | null
 };
@@ -910,13 +901,17 @@ users_aggregate?: [{	/** distinct select on columns */
 users_by_pk?: [{	id:ValueTypes["uuid"]},ValueTypes["users"]],
 		__typename?: boolean
 }>;
-	/** columns and relationships of "robot.order" */
+	/** Orders for ROBOT rewards
+
+
+columns and relationships of "robot.order" */
 ["robot_order"]: AliasType<{
 	buyer_address?:boolean,
 	buyer_reward?:boolean,
 	date?:boolean,
 	dollars_spent?:boolean,
 	order_id?:boolean,
+	order_number?:boolean,
 	season?:boolean,
 		__typename?: boolean
 }>;
@@ -958,6 +953,7 @@ count?: [{	columns?:ValueTypes["robot_order_select_column"][],	distinct?:boolean
 	date?:ValueTypes["date_comparison_exp"] | null,
 	dollars_spent?:ValueTypes["numeric_comparison_exp"] | null,
 	order_id?:ValueTypes["String_comparison_exp"] | null,
+	order_number?:ValueTypes["String_comparison_exp"] | null,
 	season?:ValueTypes["numeric_comparison_exp"] | null
 };
 	/** unique or primary key constraints on table "robot.order" */
@@ -975,6 +971,7 @@ count?: [{	columns?:ValueTypes["robot_order_select_column"][],	distinct?:boolean
 	date?:ValueTypes["date"] | null,
 	dollars_spent?:ValueTypes["numeric"] | null,
 	order_id?:string | null,
+	order_number?:string | null,
 	season?:ValueTypes["numeric"] | null
 };
 	/** aggregate max on columns */
@@ -984,6 +981,7 @@ count?: [{	columns?:ValueTypes["robot_order_select_column"][],	distinct?:boolean
 	date?:boolean,
 	dollars_spent?:boolean,
 	order_id?:boolean,
+	order_number?:boolean,
 	season?:boolean,
 		__typename?: boolean
 }>;
@@ -994,6 +992,7 @@ count?: [{	columns?:ValueTypes["robot_order_select_column"][],	distinct?:boolean
 	date?:boolean,
 	dollars_spent?:boolean,
 	order_id?:boolean,
+	order_number?:boolean,
 	season?:boolean,
 		__typename?: boolean
 }>;
@@ -1018,6 +1017,7 @@ count?: [{	columns?:ValueTypes["robot_order_select_column"][],	distinct?:boolean
 	date?:ValueTypes["order_by"] | null,
 	dollars_spent?:ValueTypes["order_by"] | null,
 	order_id?:ValueTypes["order_by"] | null,
+	order_number?:ValueTypes["order_by"] | null,
 	season?:ValueTypes["order_by"] | null
 };
 	/** primary key columns input for table: robot_order */
@@ -1033,6 +1033,7 @@ count?: [{	columns?:ValueTypes["robot_order_select_column"][],	distinct?:boolean
 	date?:ValueTypes["date"] | null,
 	dollars_spent?:ValueTypes["numeric"] | null,
 	order_id?:string | null,
+	order_number?:string | null,
 	season?:ValueTypes["numeric"] | null
 };
 	/** aggregate stddev on columns */
@@ -1086,7 +1087,10 @@ count?: [{	columns?:ValueTypes["robot_order_select_column"][],	distinct?:boolean
 	season?:boolean,
 		__typename?: boolean
 }>;
-	/** columns and relationships of "robot.product" */
+	/** Products for ROBOT designer rewards
+
+
+columns and relationships of "robot.product" */
 ["robot_product"]: AliasType<{
 designers?: [{	/** distinct select on columns */
 	distinct_on?:ValueTypes["robot_product_designer_select_column"][],	/** limit the number of rows returned */
@@ -1130,7 +1134,10 @@ count?: [{	columns?:ValueTypes["robot_product_select_column"][],	distinct?:boole
 };
 	/** unique or primary key constraints on table "robot.product" */
 ["robot_product_constraint"]:robot_product_constraint;
-	/** columns and relationships of "robot.product_designer" */
+	/** Designer receiving ROBOT rewards
+
+
+columns and relationships of "robot.product_designer" */
 ["robot_product_designer"]: AliasType<{
 	contribution_share?:boolean,
 	eth_address?:boolean,
@@ -1845,7 +1852,6 @@ export type ModelTypes = {
 		/** An object relationship */
 	contribution:ModelTypes["contributions"],
 	contribution_id:ModelTypes["uuid"],
-	created_at:ModelTypes["timestamptz"],
 	rating:string,
 	/** An object relationship */
 	user:ModelTypes["users"],
@@ -1875,7 +1881,6 @@ export type ModelTypes = {
 	/** aggregate max on columns */
 ["contribution_votes_max_fields"]: {
 		contribution_id?:ModelTypes["uuid"],
-	created_at?:ModelTypes["timestamptz"],
 	rating?:string,
 	user_id?:ModelTypes["uuid"]
 };
@@ -1884,7 +1889,6 @@ export type ModelTypes = {
 	/** aggregate min on columns */
 ["contribution_votes_min_fields"]: {
 		contribution_id?:ModelTypes["uuid"],
-	created_at?:ModelTypes["timestamptz"],
 	rating?:string,
 	user_id?:ModelTypes["uuid"]
 };
@@ -2340,13 +2344,17 @@ export type ModelTypes = {
 	/** fetch data from the table: "users" using primary key columns */
 	users_by_pk?:ModelTypes["users"]
 };
-	/** columns and relationships of "robot.order" */
+	/** Orders for ROBOT rewards
+
+
+columns and relationships of "robot.order" */
 ["robot_order"]: {
 		buyer_address:string,
 	buyer_reward:ModelTypes["numeric"],
 	date:ModelTypes["date"],
 	dollars_spent:ModelTypes["numeric"],
 	order_id:string,
+	order_number:string,
 	season:ModelTypes["numeric"]
 };
 	/** aggregated selection of "robot.order" */
@@ -2389,6 +2397,7 @@ export type ModelTypes = {
 	date?:ModelTypes["date"],
 	dollars_spent?:ModelTypes["numeric"],
 	order_id?:string,
+	order_number?:string,
 	season?:ModelTypes["numeric"]
 };
 	/** aggregate min on columns */
@@ -2398,6 +2407,7 @@ export type ModelTypes = {
 	date?:ModelTypes["date"],
 	dollars_spent?:ModelTypes["numeric"],
 	order_id?:string,
+	order_number?:string,
 	season?:ModelTypes["numeric"]
 };
 	/** response of any mutation on the table "robot.order" */
@@ -2461,7 +2471,10 @@ export type ModelTypes = {
 	dollars_spent?:number,
 	season?:number
 };
-	/** columns and relationships of "robot.product" */
+	/** Products for ROBOT designer rewards
+
+
+columns and relationships of "robot.product" */
 ["robot_product"]: {
 		/** An array relationship */
 	designers:ModelTypes["robot_product_designer"][],
@@ -2486,7 +2499,10 @@ export type ModelTypes = {
 ["robot_product_bool_exp"]: GraphQLTypes["robot_product_bool_exp"];
 	/** unique or primary key constraints on table "robot.product" */
 ["robot_product_constraint"]: GraphQLTypes["robot_product_constraint"];
-	/** columns and relationships of "robot.product_designer" */
+	/** Designer receiving ROBOT rewards
+
+
+columns and relationships of "robot.product_designer" */
 ["robot_product_designer"]: {
 		contribution_share:ModelTypes["numeric"],
 	eth_address:string,
@@ -2933,7 +2949,6 @@ export type GraphQLTypes = {
 	/** An object relationship */
 	contribution: GraphQLTypes["contributions"],
 	contribution_id: GraphQLTypes["uuid"],
-	created_at: GraphQLTypes["timestamptz"],
 	rating: string,
 	/** An object relationship */
 	user: GraphQLTypes["users"],
@@ -2971,7 +2986,6 @@ export type GraphQLTypes = {
 	_or?: Array<GraphQLTypes["contribution_votes_bool_exp"]>,
 	contribution?: GraphQLTypes["contributions_bool_exp"],
 	contribution_id?: GraphQLTypes["uuid_comparison_exp"],
-	created_at?: GraphQLTypes["timestamptz_comparison_exp"],
 	rating?: GraphQLTypes["String_comparison_exp"],
 	user?: GraphQLTypes["users_bool_exp"],
 	user_id?: GraphQLTypes["uuid_comparison_exp"]
@@ -2982,7 +2996,6 @@ export type GraphQLTypes = {
 ["contribution_votes_insert_input"]: {
 		contribution?: GraphQLTypes["contributions_obj_rel_insert_input"],
 	contribution_id?: GraphQLTypes["uuid"],
-	created_at?: GraphQLTypes["timestamptz"],
 	rating?: string,
 	user?: GraphQLTypes["users_obj_rel_insert_input"],
 	user_id?: GraphQLTypes["uuid"]
@@ -2991,14 +3004,12 @@ export type GraphQLTypes = {
 ["contribution_votes_max_fields"]: {
 	__typename: "contribution_votes_max_fields",
 	contribution_id?: GraphQLTypes["uuid"],
-	created_at?: GraphQLTypes["timestamptz"],
 	rating?: string,
 	user_id?: GraphQLTypes["uuid"]
 };
 	/** order by max() on columns of table "contribution_votes" */
 ["contribution_votes_max_order_by"]: {
 		contribution_id?: GraphQLTypes["order_by"],
-	created_at?: GraphQLTypes["order_by"],
 	rating?: GraphQLTypes["order_by"],
 	user_id?: GraphQLTypes["order_by"]
 };
@@ -3006,14 +3017,12 @@ export type GraphQLTypes = {
 ["contribution_votes_min_fields"]: {
 	__typename: "contribution_votes_min_fields",
 	contribution_id?: GraphQLTypes["uuid"],
-	created_at?: GraphQLTypes["timestamptz"],
 	rating?: string,
 	user_id?: GraphQLTypes["uuid"]
 };
 	/** order by min() on columns of table "contribution_votes" */
 ["contribution_votes_min_order_by"]: {
 		contribution_id?: GraphQLTypes["order_by"],
-	created_at?: GraphQLTypes["order_by"],
 	rating?: GraphQLTypes["order_by"],
 	user_id?: GraphQLTypes["order_by"]
 };
@@ -3035,7 +3044,6 @@ export type GraphQLTypes = {
 ["contribution_votes_order_by"]: {
 		contribution?: GraphQLTypes["contributions_order_by"],
 	contribution_id?: GraphQLTypes["order_by"],
-	created_at?: GraphQLTypes["order_by"],
 	rating?: GraphQLTypes["order_by"],
 	user?: GraphQLTypes["users_order_by"],
 	user_id?: GraphQLTypes["order_by"]
@@ -3050,7 +3058,6 @@ export type GraphQLTypes = {
 	/** input type for updating data in table "contribution_votes" */
 ["contribution_votes_set_input"]: {
 		contribution_id?: GraphQLTypes["uuid"],
-	created_at?: GraphQLTypes["timestamptz"],
 	rating?: string,
 	user_id?: GraphQLTypes["uuid"]
 };
@@ -3683,7 +3690,10 @@ export type GraphQLTypes = {
 	/** fetch data from the table: "users" using primary key columns */
 	users_by_pk?: GraphQLTypes["users"]
 };
-	/** columns and relationships of "robot.order" */
+	/** Orders for ROBOT rewards
+
+
+columns and relationships of "robot.order" */
 ["robot_order"]: {
 	__typename: "robot_order",
 	buyer_address: string,
@@ -3691,6 +3701,7 @@ export type GraphQLTypes = {
 	date: GraphQLTypes["date"],
 	dollars_spent: GraphQLTypes["numeric"],
 	order_id: string,
+	order_number: string,
 	season: GraphQLTypes["numeric"]
 };
 	/** aggregated selection of "robot.order" */
@@ -3731,6 +3742,7 @@ export type GraphQLTypes = {
 	date?: GraphQLTypes["date_comparison_exp"],
 	dollars_spent?: GraphQLTypes["numeric_comparison_exp"],
 	order_id?: GraphQLTypes["String_comparison_exp"],
+	order_number?: GraphQLTypes["String_comparison_exp"],
 	season?: GraphQLTypes["numeric_comparison_exp"]
 };
 	/** unique or primary key constraints on table "robot.order" */
@@ -3748,6 +3760,7 @@ export type GraphQLTypes = {
 	date?: GraphQLTypes["date"],
 	dollars_spent?: GraphQLTypes["numeric"],
 	order_id?: string,
+	order_number?: string,
 	season?: GraphQLTypes["numeric"]
 };
 	/** aggregate max on columns */
@@ -3758,6 +3771,7 @@ export type GraphQLTypes = {
 	date?: GraphQLTypes["date"],
 	dollars_spent?: GraphQLTypes["numeric"],
 	order_id?: string,
+	order_number?: string,
 	season?: GraphQLTypes["numeric"]
 };
 	/** aggregate min on columns */
@@ -3768,6 +3782,7 @@ export type GraphQLTypes = {
 	date?: GraphQLTypes["date"],
 	dollars_spent?: GraphQLTypes["numeric"],
 	order_id?: string,
+	order_number?: string,
 	season?: GraphQLTypes["numeric"]
 };
 	/** response of any mutation on the table "robot.order" */
@@ -3791,6 +3806,7 @@ export type GraphQLTypes = {
 	date?: GraphQLTypes["order_by"],
 	dollars_spent?: GraphQLTypes["order_by"],
 	order_id?: GraphQLTypes["order_by"],
+	order_number?: GraphQLTypes["order_by"],
 	season?: GraphQLTypes["order_by"]
 };
 	/** primary key columns input for table: robot_order */
@@ -3806,6 +3822,7 @@ export type GraphQLTypes = {
 	date?: GraphQLTypes["date"],
 	dollars_spent?: GraphQLTypes["numeric"],
 	order_id?: string,
+	order_number?: string,
 	season?: GraphQLTypes["numeric"]
 };
 	/** aggregate stddev on columns */
@@ -3859,7 +3876,10 @@ export type GraphQLTypes = {
 	dollars_spent?: number,
 	season?: number
 };
-	/** columns and relationships of "robot.product" */
+	/** Products for ROBOT designer rewards
+
+
+columns and relationships of "robot.product" */
 ["robot_product"]: {
 	__typename: "robot_product",
 	/** An array relationship */
@@ -3895,7 +3915,10 @@ export type GraphQLTypes = {
 };
 	/** unique or primary key constraints on table "robot.product" */
 ["robot_product_constraint"]: robot_product_constraint;
-	/** columns and relationships of "robot.product_designer" */
+	/** Designer receiving ROBOT rewards
+
+
+columns and relationships of "robot.product_designer" */
 ["robot_product_designer"]: {
 	__typename: "robot_product_designer",
 	contribution_share: GraphQLTypes["numeric"],
@@ -4543,14 +4566,12 @@ export const enum contribution_votes_constraint {
 /** select columns of table "contribution_votes" */
 export const enum contribution_votes_select_column {
 	contribution_id = "contribution_id",
-	created_at = "created_at",
 	rating = "rating",
 	user_id = "user_id"
 }
 /** update columns of table "contribution_votes" */
 export const enum contribution_votes_update_column {
 	contribution_id = "contribution_id",
-	created_at = "created_at",
 	rating = "rating",
 	user_id = "user_id"
 }
@@ -4622,6 +4643,7 @@ export const enum robot_order_select_column {
 	date = "date",
 	dollars_spent = "dollars_spent",
 	order_id = "order_id",
+	order_number = "order_number",
 	season = "season"
 }
 /** update columns of table "robot.order" */
@@ -4631,12 +4653,12 @@ export const enum robot_order_update_column {
 	date = "date",
 	dollars_spent = "dollars_spent",
 	order_id = "order_id",
+	order_number = "order_number",
 	season = "season"
 }
 /** unique or primary key constraints on table "robot.product" */
 export const enum robot_product_constraint {
-	product_pkey = "product_pkey",
-	product_shopify_id_key = "product_shopify_id_key"
+	product_pkey = "product_pkey"
 }
 /** unique or primary key constraints on table "robot.product_designer" */
 export const enum robot_product_designer_constraint {

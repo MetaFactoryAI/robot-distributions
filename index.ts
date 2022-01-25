@@ -435,6 +435,7 @@ const generateMonthlyAllocation = async () => {
 type OrderData = {
   buyer_address: string;
   order_id: string;
+  order_number: string | null;
   buyer_reward: number;
   dollars_spent: number;
   season: number;
@@ -513,6 +514,7 @@ const generateDistributedOrders = async () => {
       order_id: orderId,
       buyer_address: buyerEthAddress,
       date: order.day,
+      order_number: 'order_name' in order ? order.order_name : null,
       dollars_spent: dollarsSpent,
       buyer_reward: buyerReward,
       season,

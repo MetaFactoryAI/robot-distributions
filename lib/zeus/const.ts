@@ -254,12 +254,6 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		created_at:{
-			type:"timestamptz_comparison_exp",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
 		rating:{
 			type:"String_comparison_exp",
 			array:false,
@@ -293,12 +287,6 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		created_at:{
-			type:"timestamptz",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
 		rating:{
 			type:"String",
 			array:false,
@@ -325,12 +313,6 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		created_at:{
-			type:"order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
 		rating:{
 			type:"order_by",
 			array:false,
@@ -346,12 +328,6 @@ export const AllTypesProps: Record<string,any> = {
 	},
 	contribution_votes_min_order_by:{
 		contribution_id:{
-			type:"order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		created_at:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -403,12 +379,6 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
-		created_at:{
-			type:"order_by",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
 		rating:{
 			type:"order_by",
 			array:false,
@@ -446,12 +416,6 @@ export const AllTypesProps: Record<string,any> = {
 	contribution_votes_set_input:{
 		contribution_id:{
 			type:"uuid",
-			array:false,
-			arrayRequired:false,
-			required:false
-		},
-		created_at:{
-			type:"timestamptz",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -2970,6 +2934,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		order_number:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		season:{
 			type:"numeric_comparison_exp",
 			array:false,
@@ -3024,6 +2994,12 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		order_id:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		order_number:{
 			type:"String",
 			array:false,
 			arrayRequired:false,
@@ -3087,6 +3063,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		order_number:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		season:{
 			type:"order_by",
 			array:false,
@@ -3129,6 +3111,12 @@ export const AllTypesProps: Record<string,any> = {
 			required:false
 		},
 		order_id:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		order_number:{
 			type:"String",
 			array:false,
 			arrayRequired:false,
@@ -5091,7 +5079,6 @@ export const ReturnTypes: Record<string,any> = {
 	contribution_votes:{
 		contribution:"contributions",
 		contribution_id:"uuid",
-		created_at:"timestamptz",
 		rating:"String",
 		user:"users",
 		user_id:"uuid"
@@ -5107,13 +5094,11 @@ export const ReturnTypes: Record<string,any> = {
 	},
 	contribution_votes_max_fields:{
 		contribution_id:"uuid",
-		created_at:"timestamptz",
 		rating:"String",
 		user_id:"uuid"
 	},
 	contribution_votes_min_fields:{
 		contribution_id:"uuid",
-		created_at:"timestamptz",
 		rating:"String",
 		user_id:"uuid"
 	},
@@ -5363,6 +5348,7 @@ export const ReturnTypes: Record<string,any> = {
 		date:"date",
 		dollars_spent:"numeric",
 		order_id:"String",
+		order_number:"String",
 		season:"numeric"
 	},
 	robot_order_aggregate:{
@@ -5393,6 +5379,7 @@ export const ReturnTypes: Record<string,any> = {
 		date:"date",
 		dollars_spent:"numeric",
 		order_id:"String",
+		order_number:"String",
 		season:"numeric"
 	},
 	robot_order_min_fields:{
@@ -5401,6 +5388,7 @@ export const ReturnTypes: Record<string,any> = {
 		date:"date",
 		dollars_spent:"numeric",
 		order_id:"String",
+		order_number:"String",
 		season:"numeric"
 	},
 	robot_order_mutation_response:{
