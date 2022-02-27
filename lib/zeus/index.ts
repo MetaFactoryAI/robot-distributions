@@ -1140,6 +1140,7 @@ count?: [{	columns?:ValueTypes["robot_product_select_column"][],	distinct?:boole
 columns and relationships of "robot.product_designer" */
 ["robot_product_designer"]: AliasType<{
 	contribution_share?:boolean,
+	designer_name?:boolean,
 	eth_address?:boolean,
 	/** An object relationship */
 	product?:ValueTypes["robot_product"],
@@ -1205,6 +1206,7 @@ count?: [{	columns?:ValueTypes["robot_product_designer_select_column"][],	distin
 	_not?:ValueTypes["robot_product_designer_bool_exp"] | null,
 	_or?:ValueTypes["robot_product_designer_bool_exp"][],
 	contribution_share?:ValueTypes["numeric_comparison_exp"] | null,
+	designer_name?:ValueTypes["String_comparison_exp"] | null,
 	eth_address?:ValueTypes["String_comparison_exp"] | null,
 	product?:ValueTypes["robot_product_bool_exp"] | null,
 	product_id?:ValueTypes["String_comparison_exp"] | null,
@@ -1220,6 +1222,7 @@ count?: [{	columns?:ValueTypes["robot_product_designer_select_column"][],	distin
 	/** input type for inserting data into table "robot.product_designer" */
 ["robot_product_designer_insert_input"]: {
 	contribution_share?:ValueTypes["numeric"] | null,
+	designer_name?:string | null,
 	eth_address?:string | null,
 	product?:ValueTypes["robot_product_obj_rel_insert_input"] | null,
 	product_id?:string | null,
@@ -1228,6 +1231,7 @@ count?: [{	columns?:ValueTypes["robot_product_designer_select_column"][],	distin
 	/** aggregate max on columns */
 ["robot_product_designer_max_fields"]: AliasType<{
 	contribution_share?:boolean,
+	designer_name?:boolean,
 	eth_address?:boolean,
 	product_id?:boolean,
 	robot_reward?:boolean,
@@ -1236,6 +1240,7 @@ count?: [{	columns?:ValueTypes["robot_product_designer_select_column"][],	distin
 	/** order by max() on columns of table "robot.product_designer" */
 ["robot_product_designer_max_order_by"]: {
 	contribution_share?:ValueTypes["order_by"] | null,
+	designer_name?:ValueTypes["order_by"] | null,
 	eth_address?:ValueTypes["order_by"] | null,
 	product_id?:ValueTypes["order_by"] | null,
 	robot_reward?:ValueTypes["order_by"] | null
@@ -1243,6 +1248,7 @@ count?: [{	columns?:ValueTypes["robot_product_designer_select_column"][],	distin
 	/** aggregate min on columns */
 ["robot_product_designer_min_fields"]: AliasType<{
 	contribution_share?:boolean,
+	designer_name?:boolean,
 	eth_address?:boolean,
 	product_id?:boolean,
 	robot_reward?:boolean,
@@ -1251,6 +1257,7 @@ count?: [{	columns?:ValueTypes["robot_product_designer_select_column"][],	distin
 	/** order by min() on columns of table "robot.product_designer" */
 ["robot_product_designer_min_order_by"]: {
 	contribution_share?:ValueTypes["order_by"] | null,
+	designer_name?:ValueTypes["order_by"] | null,
 	eth_address?:ValueTypes["order_by"] | null,
 	product_id?:ValueTypes["order_by"] | null,
 	robot_reward?:ValueTypes["order_by"] | null
@@ -1272,6 +1279,7 @@ count?: [{	columns?:ValueTypes["robot_product_designer_select_column"][],	distin
 	/** Ordering options when selecting data from "robot.product_designer". */
 ["robot_product_designer_order_by"]: {
 	contribution_share?:ValueTypes["order_by"] | null,
+	designer_name?:ValueTypes["order_by"] | null,
 	eth_address?:ValueTypes["order_by"] | null,
 	product?:ValueTypes["robot_product_order_by"] | null,
 	product_id?:ValueTypes["order_by"] | null,
@@ -1287,6 +1295,7 @@ count?: [{	columns?:ValueTypes["robot_product_designer_select_column"][],	distin
 	/** input type for updating data in table "robot.product_designer" */
 ["robot_product_designer_set_input"]: {
 	contribution_share?:ValueTypes["numeric"] | null,
+	designer_name?:string | null,
 	eth_address?:string | null,
 	product_id?:string | null,
 	robot_reward?:ValueTypes["numeric"] | null
@@ -2354,7 +2363,7 @@ columns and relationships of "robot.order" */
 	date:ModelTypes["date"],
 	dollars_spent:ModelTypes["numeric"],
 	order_id:string,
-	order_number:string,
+	order_number?:string,
 	season:ModelTypes["numeric"]
 };
 	/** aggregated selection of "robot.order" */
@@ -2505,6 +2514,7 @@ columns and relationships of "robot.product" */
 columns and relationships of "robot.product_designer" */
 ["robot_product_designer"]: {
 		contribution_share:ModelTypes["numeric"],
+	designer_name?:string,
 	eth_address:string,
 	/** An object relationship */
 	product:ModelTypes["robot_product"],
@@ -2552,6 +2562,7 @@ columns and relationships of "robot.product_designer" */
 	/** aggregate max on columns */
 ["robot_product_designer_max_fields"]: {
 		contribution_share?:ModelTypes["numeric"],
+	designer_name?:string,
 	eth_address?:string,
 	product_id?:string,
 	robot_reward?:ModelTypes["numeric"]
@@ -2561,6 +2572,7 @@ columns and relationships of "robot.product_designer" */
 	/** aggregate min on columns */
 ["robot_product_designer_min_fields"]: {
 		contribution_share?:ModelTypes["numeric"],
+	designer_name?:string,
 	eth_address?:string,
 	product_id?:string,
 	robot_reward?:ModelTypes["numeric"]
@@ -3701,7 +3713,7 @@ columns and relationships of "robot.order" */
 	date: GraphQLTypes["date"],
 	dollars_spent: GraphQLTypes["numeric"],
 	order_id: string,
-	order_number: string,
+	order_number?: string,
 	season: GraphQLTypes["numeric"]
 };
 	/** aggregated selection of "robot.order" */
@@ -3922,6 +3934,7 @@ columns and relationships of "robot.product_designer" */
 ["robot_product_designer"]: {
 	__typename: "robot_product_designer",
 	contribution_share: GraphQLTypes["numeric"],
+	designer_name?: string,
 	eth_address: string,
 	/** An object relationship */
 	product: GraphQLTypes["robot_product"],
@@ -3986,6 +3999,7 @@ columns and relationships of "robot.product_designer" */
 	_not?: GraphQLTypes["robot_product_designer_bool_exp"],
 	_or?: Array<GraphQLTypes["robot_product_designer_bool_exp"]>,
 	contribution_share?: GraphQLTypes["numeric_comparison_exp"],
+	designer_name?: GraphQLTypes["String_comparison_exp"],
 	eth_address?: GraphQLTypes["String_comparison_exp"],
 	product?: GraphQLTypes["robot_product_bool_exp"],
 	product_id?: GraphQLTypes["String_comparison_exp"],
@@ -4001,6 +4015,7 @@ columns and relationships of "robot.product_designer" */
 	/** input type for inserting data into table "robot.product_designer" */
 ["robot_product_designer_insert_input"]: {
 		contribution_share?: GraphQLTypes["numeric"],
+	designer_name?: string,
 	eth_address?: string,
 	product?: GraphQLTypes["robot_product_obj_rel_insert_input"],
 	product_id?: string,
@@ -4010,6 +4025,7 @@ columns and relationships of "robot.product_designer" */
 ["robot_product_designer_max_fields"]: {
 	__typename: "robot_product_designer_max_fields",
 	contribution_share?: GraphQLTypes["numeric"],
+	designer_name?: string,
 	eth_address?: string,
 	product_id?: string,
 	robot_reward?: GraphQLTypes["numeric"]
@@ -4017,6 +4033,7 @@ columns and relationships of "robot.product_designer" */
 	/** order by max() on columns of table "robot.product_designer" */
 ["robot_product_designer_max_order_by"]: {
 		contribution_share?: GraphQLTypes["order_by"],
+	designer_name?: GraphQLTypes["order_by"],
 	eth_address?: GraphQLTypes["order_by"],
 	product_id?: GraphQLTypes["order_by"],
 	robot_reward?: GraphQLTypes["order_by"]
@@ -4025,6 +4042,7 @@ columns and relationships of "robot.product_designer" */
 ["robot_product_designer_min_fields"]: {
 	__typename: "robot_product_designer_min_fields",
 	contribution_share?: GraphQLTypes["numeric"],
+	designer_name?: string,
 	eth_address?: string,
 	product_id?: string,
 	robot_reward?: GraphQLTypes["numeric"]
@@ -4032,6 +4050,7 @@ columns and relationships of "robot.product_designer" */
 	/** order by min() on columns of table "robot.product_designer" */
 ["robot_product_designer_min_order_by"]: {
 		contribution_share?: GraphQLTypes["order_by"],
+	designer_name?: GraphQLTypes["order_by"],
 	eth_address?: GraphQLTypes["order_by"],
 	product_id?: GraphQLTypes["order_by"],
 	robot_reward?: GraphQLTypes["order_by"]
@@ -4053,6 +4072,7 @@ columns and relationships of "robot.product_designer" */
 	/** Ordering options when selecting data from "robot.product_designer". */
 ["robot_product_designer_order_by"]: {
 		contribution_share?: GraphQLTypes["order_by"],
+	designer_name?: GraphQLTypes["order_by"],
 	eth_address?: GraphQLTypes["order_by"],
 	product?: GraphQLTypes["robot_product_order_by"],
 	product_id?: GraphQLTypes["order_by"],
@@ -4068,6 +4088,7 @@ columns and relationships of "robot.product_designer" */
 	/** input type for updating data in table "robot.product_designer" */
 ["robot_product_designer_set_input"]: {
 		contribution_share?: GraphQLTypes["numeric"],
+	designer_name?: string,
 	eth_address?: string,
 	product_id?: string,
 	robot_reward?: GraphQLTypes["numeric"]
@@ -4667,6 +4688,7 @@ export const enum robot_product_designer_constraint {
 /** select columns of table "robot.product_designer" */
 export const enum robot_product_designer_select_column {
 	contribution_share = "contribution_share",
+	designer_name = "designer_name",
 	eth_address = "eth_address",
 	product_id = "product_id",
 	robot_reward = "robot_reward"
@@ -4674,6 +4696,7 @@ export const enum robot_product_designer_select_column {
 /** update columns of table "robot.product_designer" */
 export const enum robot_product_designer_update_column {
 	contribution_share = "contribution_share",
+	designer_name = "designer_name",
 	eth_address = "eth_address",
 	product_id = "product_id",
 	robot_reward = "robot_reward"

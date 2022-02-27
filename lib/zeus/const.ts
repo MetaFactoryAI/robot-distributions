@@ -3394,6 +3394,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		designer_name:{
+			type:"String_comparison_exp",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		eth_address:{
 			type:"String_comparison_exp",
 			array:false,
@@ -3441,6 +3447,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		designer_name:{
+			type:"String",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		eth_address:{
 			type:"String",
 			array:false,
@@ -3473,6 +3485,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		designer_name:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		eth_address:{
 			type:"order_by",
 			array:false,
@@ -3494,6 +3512,12 @@ export const AllTypesProps: Record<string,any> = {
 	},
 	robot_product_designer_min_order_by:{
 		contribution_share:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		designer_name:{
 			type:"order_by",
 			array:false,
 			arrayRequired:false,
@@ -3545,6 +3569,12 @@ export const AllTypesProps: Record<string,any> = {
 			arrayRequired:false,
 			required:false
 		},
+		designer_name:{
+			type:"order_by",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
 		eth_address:{
 			type:"order_by",
 			array:false,
@@ -3588,6 +3618,12 @@ export const AllTypesProps: Record<string,any> = {
 	robot_product_designer_set_input:{
 		contribution_share:{
 			type:"numeric",
+			array:false,
+			arrayRequired:false,
+			required:false
+		},
+		designer_name:{
+			type:"String",
 			array:false,
 			arrayRequired:false,
 			required:false
@@ -5448,6 +5484,7 @@ export const ReturnTypes: Record<string,any> = {
 	},
 	robot_product_designer:{
 		contribution_share:"numeric",
+		designer_name:"String",
 		eth_address:"String",
 		product:"robot_product",
 		product_id:"String",
@@ -5476,12 +5513,14 @@ export const ReturnTypes: Record<string,any> = {
 	},
 	robot_product_designer_max_fields:{
 		contribution_share:"numeric",
+		designer_name:"String",
 		eth_address:"String",
 		product_id:"String",
 		robot_reward:"numeric"
 	},
 	robot_product_designer_min_fields:{
 		contribution_share:"numeric",
+		designer_name:"String",
 		eth_address:"String",
 		product_id:"String",
 		robot_reward:"numeric"
