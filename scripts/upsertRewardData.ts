@@ -9,6 +9,7 @@ import {
 } from '../lib/zeus';
 import BUYER_REWARD_DATA from '../data/buyerRewardData.json';
 import DESIGNER_REWARD_DATA from '../data/designerRewardData.json';
+import PRODUCT_DESIGNERS from '../data/productDesigners.json';
 
 require('dotenv').config();
 
@@ -46,18 +47,34 @@ export const upsertRewardData = async () => {
 
   const designerData = Object.values(DESIGNER_REWARD_DATA).filter((p) => !_.isEmpty(p.designers));
 
+  const designerNames: Record<string, string> = {};
+  for (const p of Object.values(PRODUCT_DESIGNERS)) {
+    for (const d of p.designers) {
+      designerNames[d.ethAddress.toLowerCase()] = d.name;
+    }
+  }
+
+  for (const p of designerData) {
+    for (const address in p.designers) {
+    }
+  }
+
   const { insert_robot_product } = await chain('mutation')({
     insert_robot_product: [
       {
         objects: designerData.map((p) => ({
           ...p,
           designers: {
-            data: Object.values(p.designers),
+            data: Object.values(p.designers).map((d) => ({
+              ...d,
+              designer_name: designerNames[d.eth_address.toLowerCase()],
+            })),
             on_conflict: {
               constraint: robot_product_designer_constraint.product_designer_pkey,
               update_columns: [
                 robot_product_designer_update_column.robot_reward,
                 robot_product_designer_update_column.contribution_share,
+                robot_product_designer_update_column.designer_name,
               ],
             },
           },
