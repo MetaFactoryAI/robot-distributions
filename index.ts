@@ -148,7 +148,7 @@ const calculateRobotToReward = (
   // Percent back reward
   const robotPrice = ROBOT_MA[order.day as keyof typeof ROBOT_MA];
   if (!robotPrice) {
-    throw new Error(`Unable to get ROBOT price for order: ${order}`);
+    throw new Error(`Unable to get ROBOT price for order: ${JSON.stringify(order)}`);
   }
 
   const percentReward = parseFloat(rewardRatio) / 100;
@@ -369,7 +369,7 @@ const generateMonthlyAllocation = async () => {
 
       // Dont actually distribute to this, handled separately because we dont know what order had what items
       if (address === 'mcon-distributor-placeholder-address') {
-        const mconDesignerRewards = getMconDesignerRewards(rewardAmount);
+        const { mconDesignerRewards } = getMconDesignerRewards(rewardAmount);
         for (const designerAddress in mconDesignerRewards) {
           const amount = mconDesignerRewards[designerAddress];
           const checksumAddress = formatAddress(designerAddress);
@@ -446,12 +446,17 @@ type DesignerData = {
   eth_address: string;
   contribution_share: number;
   robot_reward: number;
+  name: string | undefined;
 };
+
 type ProductData = {
   shopify_id: string | null;
   id: string;
   title: string;
   designers: Record<string, DesignerData>;
+  orderDates?: number[];
+  avgOrderDate: string;
+  avgRobotPrice: number;
 };
 
 const generateDistributedOrders = async () => {
@@ -481,10 +486,15 @@ const generateDistributedOrders = async () => {
         id: productId,
         shopify_id: isShopOrder(order) ? productId : null,
         designers: {},
+        orderDates: [],
+        avgOrderDate: '',
+        avgRobotPrice: 0,
       };
     }
 
     totalRevenue += buyerSpent;
+    const orderTimestamp = new Date(order.day).getTime();
+    productData[productId].orderDates?.push(orderTimestamp);
 
     for (const designer of designers) {
       const address = designer.ethAddress.toLowerCase();
@@ -499,6 +509,7 @@ const generateDistributedOrders = async () => {
         eth_address: address,
         contribution_share: designerConfig?.contributionShare || 0,
         robot_reward: currentReward + designer.allocation,
+        name: designerConfig?.name,
       };
     }
 
@@ -523,7 +534,7 @@ const generateDistributedOrders = async () => {
 
   const totalMconReward =
     productData['mcon-sale'].designers['mcon-distributor-placeholder-address'].robot_reward;
-  const mconDesignerRewards = getMconDesignerRewards(totalMconReward);
+  const { mconDesignerRewards, designerNames } = getMconDesignerRewards(totalMconReward);
   productData['mcon-sale'].designers = {};
 
   for (const designerAddress in mconDesignerRewards) {
@@ -532,11 +543,22 @@ const generateDistributedOrders = async () => {
       eth_address: designerAddress,
       contribution_share: amount / totalMconReward,
       robot_reward: amount,
+      name: designerNames[designerAddress],
     };
   }
 
+  const productDataOutput = _.mapValues(productData, ({ orderDates, ...v }) => {
+    const avgDate = new Date(_.mean(orderDates));
+    const avgDay = new Date(avgDate).toISOString().split('T')[0];
+    return {
+      ...v,
+      avgOrderDate: avgDay,
+      avgRobotPrice: ROBOT_MA[avgDay as keyof typeof ROBOT_MA] || 0,
+    };
+  });
+
   fs.writeFileSync(`./data/buyerRewardData.json`, JSON.stringify(orderData));
-  fs.writeFileSync(`./data/designerRewardData.json`, JSON.stringify(productData));
+  fs.writeFileSync(`./data/designerRewardData.json`, JSON.stringify(productDataOutput));
 
   fs.writeFileSync(
     `./${CURRENT_DISTRO_MONTH}/buyerRewardsByOrder.json`,
