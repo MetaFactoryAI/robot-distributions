@@ -782,51 +782,6 @@
     "buyer_reward": 44,
     "season": 0
   },
-  "2429323378734": {
-    "order_id": "2429323378734",
-    "buyer_address": "0x79926e8bcce923473ec81c047e71b749459c22f7",
-    "date": "2020-09-19",
-    "order_number": "#1121",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 0
-  },
-  "2429365616686": {
-    "order_id": "2429365616686",
-    "buyer_address": "0xd3e9d60e4e4de615124d5239219f32946d10151d",
-    "date": "2020-09-19",
-    "order_number": "#1123",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 0
-  },
-  "2429377675310": {
-    "order_id": "2429377675310",
-    "buyer_address": "0xe5a72771d90fba6f52c3e8ab81398a86738dd05b",
-    "date": "2020-09-19",
-    "order_number": "#1125",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 0
-  },
-  "2429459431470": {
-    "order_id": "2429459431470",
-    "buyer_address": "0xe38d978e500242e5e6df46be5dc1bd47cb06555f",
-    "date": "2020-09-19",
-    "order_number": "#1126",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 0
-  },
-  "2429516546094": {
-    "order_id": "2429516546094",
-    "buyer_address": "0x6a1cf24c645db2e37141fa12e70cb67e56b336f3",
-    "date": "2020-09-19",
-    "order_number": "#1127",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 0
-  },
   "2429757718574": {
     "order_id": "2429757718574",
     "buyer_address": "0x44b01dbdc83e92ef70ed2a6104e29792ea0e0f47",
@@ -843,15 +798,6 @@
     "order_number": "#1129",
     "dollars_spent": 110,
     "buyer_reward": 44,
-    "season": 0
-  },
-  "2429933256750": {
-    "order_id": "2429933256750",
-    "buyer_address": "0x9df712718352d875ab2c294611be974251604061",
-    "date": "2020-09-19",
-    "order_number": "#1130",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 0
   },
   "2430043914286": {
@@ -890,33 +836,6 @@
     "buyer_reward": 44,
     "season": 0
   },
-  "2430521573422": {
-    "order_id": "2430521573422",
-    "buyer_address": "0xe04885c3f1419c6e8495c33bdcf5f8387cd88846",
-    "date": "2020-09-19",
-    "order_number": "#1136",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 0
-  },
-  "2430536089646": {
-    "order_id": "2430536089646",
-    "buyer_address": "0x1a5b3eb121846c9505e271067f6fef7fa7ebb5f1",
-    "date": "2020-09-19",
-    "order_number": "#1138",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 0
-  },
-  "2430549164078": {
-    "order_id": "2430549164078",
-    "buyer_address": "0x08ceb8bba685ee708c9c4c65576837cbe19b9dea",
-    "date": "2020-09-19",
-    "order_number": "#1139",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 0
-  },
   "2430840209454": {
     "order_id": "2430840209454",
     "buyer_address": "0x5e0158553598b40ecc13a3b1f78ee96536e6d0da",
@@ -926,15 +845,6 @@
     "buyer_reward": 27.6,
     "season": 0
   },
-  "2430887690286": {
-    "order_id": "2430887690286",
-    "buyer_address": "0xb1db695a68c46943ca51395d2e7738fecaa4b40f",
-    "date": "2020-09-19",
-    "order_number": "#1141",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 0
-  },
   "2430900371502": {
     "order_id": "2430900371502",
     "buyer_address": "0x3f86f18322a888d9b3adef38f127c941bccc014d",
@@ -942,24 +852,6 @@
     "order_number": "#1142",
     "dollars_spent": 220,
     "buyer_reward": 88,
-    "season": 0
-  },
-  "2430951850030": {
-    "order_id": "2430951850030",
-    "buyer_address": "0xced608aa29bb92185d9b6340adcbfa263dae075b",
-    "date": "2020-09-19",
-    "order_number": "#1143",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 0
-  },
-  "2431038652462": {
-    "order_id": "2431038652462",
-    "buyer_address": "0x52d81d4a8b18d6ba0b2c01dd2f9927eaf755dd0a",
-    "date": "2020-09-19",
-    "order_number": "#1144",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 0
   },
   "2431179817006": {
@@ -978,24 +870,6 @@
     "order_number": "#1146",
     "dollars_spent": 118,
     "buyer_reward": 47.2,
-    "season": 0
-  },
-  "2431445631022": {
-    "order_id": "2431445631022",
-    "buyer_address": "0x442dccee68425828c106a3662014b4f131e3bd9b",
-    "date": "2020-09-20",
-    "order_number": "#1148",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 0
-  },
-  "2432023035950": {
-    "order_id": "2432023035950",
-    "buyer_address": "0x4744cda32be7b3e75b9334001da9ed21789d4c0d",
-    "date": "2020-09-20",
-    "order_number": "#1150",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 0
   },
   "2432073465902": {
@@ -1023,33 +897,6 @@
     "order_number": "#1154",
     "dollars_spent": 59,
     "buyer_reward": 23.6,
-    "season": 0
-  },
-  "2432224329774": {
-    "order_id": "2432224329774",
-    "buyer_address": "0xcb42ac441fcade3935243ea118701f39aa004486",
-    "date": "2020-09-20",
-    "order_number": "#1155",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 0
-  },
-  "2432850624558": {
-    "order_id": "2432850624558",
-    "buyer_address": "0x865c2f85c9fea1c6ac7f53de07554d68cb92ed88",
-    "date": "2020-09-21",
-    "order_number": "#1159",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 0
-  },
-  "2433238794286": {
-    "order_id": "2433238794286",
-    "buyer_address": "0xd5b3988ed0ab5ec375e51bb6fd10e205cec16a2e",
-    "date": "2020-09-21",
-    "order_number": "#1161",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 0
   },
   "2433289682990": {
@@ -1088,15 +935,6 @@
     "buyer_reward": 47.2,
     "season": 0
   },
-  "2435360292910": {
-    "order_id": "2435360292910",
-    "buyer_address": "0xd26a3f686d43f2a62ba9eae2ff77e9f516d945b9",
-    "date": "2020-09-22",
-    "order_number": "#1167",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 0
-  },
   "2435360325678": {
     "order_id": "2435360325678",
     "buyer_address": "0xf600fd970bc2054d81afb1646b50531d7567b22c",
@@ -1133,15 +971,6 @@
     "buyer_reward": 6.795999999999999,
     "season": 0
   },
-  "2435409379374": {
-    "order_id": "2435409379374",
-    "buyer_address": "0x83ab8e31df35aa3281d630529c6f4bf5ac7f7abf",
-    "date": "2020-09-22",
-    "order_number": "#1172",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 0
-  },
   "2435431170094": {
     "order_id": "2435431170094",
     "buyer_address": "0xd5b3988ed0ab5ec375e51bb6fd10e205cec16a2e",
@@ -1160,24 +989,6 @@
     "buyer_reward": 27.876,
     "season": 0
   },
-  "2439307329582": {
-    "order_id": "2439307329582",
-    "buyer_address": "0x5bb3e1774923b75ecb804e2559149bbd2a39a414",
-    "date": "2020-09-24",
-    "order_number": "#1175",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 0
-  },
-  "2439358644270": {
-    "order_id": "2439358644270",
-    "buyer_address": "0x5b93ff82faaf241c15997ea3975419dddd8362c5",
-    "date": "2020-09-24",
-    "order_number": "#1176",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 0
-  },
   "2439507476526": {
     "order_id": "2439507476526",
     "buyer_address": "0xfacef700458d4fc9746f7f3e0d37b462711ff09e",
@@ -1194,15 +1005,6 @@
     "order_number": "#1178",
     "dollars_spent": 69.69,
     "buyer_reward": 27.876,
-    "season": 0
-  },
-  "2439880998958": {
-    "order_id": "2439880998958",
-    "buyer_address": "0x6dc43be93a8b5fd37dc16f24872babc6da5e5e3e",
-    "date": "2020-09-24",
-    "order_number": "#1179",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 0
   },
   "2441048490030": {
@@ -1248,24 +1050,6 @@
     "order_number": "#1184",
     "dollars_spent": 220,
     "buyer_reward": 88,
-    "season": 0
-  },
-  "2443016601646": {
-    "order_id": "2443016601646",
-    "buyer_address": "0xb8dc9d4bbeb6705fdba1f89458a4bc2a2066a6c9",
-    "date": "2020-09-26",
-    "order_number": "#1185",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 0
-  },
-  "2443904057390": {
-    "order_id": "2443904057390",
-    "buyer_address": "0x0ad82809168be581d1e708457b4a45b0bb311632",
-    "date": "2020-09-27",
-    "order_number": "#1186",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 0
   },
   "2444501745710": {
@@ -1338,15 +1122,6 @@
     "order_number": "#1194",
     "dollars_spent": 220,
     "buyer_reward": 88,
-    "season": 0
-  },
-  "2451778699310": {
-    "order_id": "2451778699310",
-    "buyer_address": "0x6f26ce8ccef85afbc944567bd41d63d09d3e3033",
-    "date": "2020-10-01",
-    "order_number": "#1195",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 0
   },
   "2451894632494": {
@@ -1491,15 +1266,6 @@
     "order_number": "#1217",
     "dollars_spent": 59,
     "buyer_reward": 23.6,
-    "season": 0
-  },
-  "2461767106606": {
-    "order_id": "2461767106606",
-    "buyer_address": "0x9384eb57f892cce158c9ad5446d815cc7584d42b",
-    "date": "2020-10-06",
-    "order_number": "#1218",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 0
   },
   "2461906436142": {
@@ -1916,15 +1682,6 @@
     "buyer_reward": 57.6,
     "season": 0
   },
-  "2468687183918": {
-    "order_id": "2468687183918",
-    "buyer_address": "0x8bb37fb0f0462bb3fc8995cf17721f8e4a399629",
-    "date": "2020-10-10",
-    "order_number": "#1266",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 0
-  },
   "2469673467950": {
     "order_id": "2469673467950",
     "buyer_address": "0x8fac841807e21807f511daf3c04a34cd78661f4c",
@@ -1968,24 +1725,6 @@
     "order_number": "#1272",
     "dollars_spent": 33.98,
     "buyer_reward": 13.591999999999999,
-    "season": 0
-  },
-  "2476521848878": {
-    "order_id": "2476521848878",
-    "buyer_address": "0xd2af803ad747ea12acf5ae468056703ae48785b5",
-    "date": "2020-10-15",
-    "order_number": "#1273",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 0
-  },
-  "2481786814510": {
-    "order_id": "2481786814510",
-    "buyer_address": "0x1efed205caede27da1135cd37a4192861a51100e",
-    "date": "2020-10-18",
-    "order_number": "#1274",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 0
   },
   "2483917357102": {
@@ -2087,15 +1826,6 @@
     "buyer_reward": 88,
     "season": 0
   },
-  "2507534565422": {
-    "order_id": "2507534565422",
-    "buyer_address": "0x60c38e6f5735ee81240e3a9857147e9438b01ba0",
-    "date": "2020-11-04",
-    "order_number": "#1286",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 0
-  },
   "2507647352878": {
     "order_id": "2507647352878",
     "buyer_address": "0x5b0d3243c78fb9d4ac035fb2384ffdf7a9ef6396",
@@ -2130,15 +1860,6 @@
     "order_number": "#1290",
     "dollars_spent": 72,
     "buyer_reward": 28.8,
-    "season": 0
-  },
-  "2517296447534": {
-    "order_id": "2517296447534",
-    "buyer_address": "0x8f942eced007bd3976927b7958b50df126feecb5",
-    "date": "2020-11-11",
-    "order_number": "#1291",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 0
   },
   "2521603702830": {
@@ -2186,42 +1907,6 @@
     "buyer_reward": 72.8,
     "season": 0
   },
-  "2529790623790": {
-    "order_id": "2529790623790",
-    "buyer_address": "0x8bb37fb0f0462bb3fc8995cf17721f8e4a399629",
-    "date": "2020-11-20",
-    "order_number": "#1297",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 0
-  },
-  "2529793507374": {
-    "order_id": "2529793507374",
-    "buyer_address": "0xd2af803ad747ea12acf5ae468056703ae48785b5",
-    "date": "2020-11-20",
-    "order_number": "#1298",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 0
-  },
-  "2529794654254": {
-    "order_id": "2529794654254",
-    "buyer_address": "0x1efed205caede27da1135cd37a4192861a51100e",
-    "date": "2020-11-20",
-    "order_number": "#1299",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 0
-  },
-  "2529796325422": {
-    "order_id": "2529796325422",
-    "buyer_address": "0x6a1cf24c645db2e37141fa12e70cb67e56b336f3",
-    "date": "2020-11-20",
-    "order_number": "#1300",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 0
-  },
   "2533535350830": {
     "order_id": "2533535350830",
     "buyer_address": "0xc8cbacc6450f9a4a6b925a54c7b70dde4d14d94f",
@@ -2256,24 +1941,6 @@
     "order_number": "#1305",
     "dollars_spent": 33.98,
     "buyer_reward": 13.591999999999999,
-    "season": 0
-  },
-  "2561239679022": {
-    "order_id": "2561239679022",
-    "buyer_address": "0x892857d3a0e6ca504da54470a0d71593525ebc22",
-    "date": "2020-12-04",
-    "order_number": "#1307",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 0
-  },
-  "2561245970478": {
-    "order_id": "2561245970478",
-    "buyer_address": "0x2941022347348828a24a5ff33c775d67691681e9",
-    "date": "2020-12-04",
-    "order_number": "#1308",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 0
   },
   "2561257537582": {
@@ -2825,60 +2492,6 @@
     "buyer_reward": 7.4,
     "season": 2
   },
-  "2637663797294": {
-    "order_id": "2637663797294",
-    "buyer_address": "0xf22f00d0b95b1b728078066e5f4410f6b2be8fae",
-    "date": "2021-02-01",
-    "order_number": "#1369",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 2
-  },
-  "2637882490926": {
-    "order_id": "2637882490926",
-    "buyer_address": "0x54021e58af1756dc70ce7034d7636de2d2f1fa74",
-    "date": "2021-02-01",
-    "order_number": "#1370",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 2
-  },
-  "2638003372078": {
-    "order_id": "2638003372078",
-    "buyer_address": "0x9df712718352d875ab2c294611be974251604061",
-    "date": "2021-02-01",
-    "order_number": "#1371",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 2
-  },
-  "2638240809006": {
-    "order_id": "2638240809006",
-    "buyer_address": "0x1c5eb68630ccd90c3152fb9dee3a1c2a7201631d",
-    "date": "2021-02-01",
-    "order_number": "#1372",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 2
-  },
-  "2638374797358": {
-    "order_id": "2638374797358",
-    "buyer_address": "0x87e32d4631d728d6ad7ebcd133b11febc9da9b93",
-    "date": "2021-02-01",
-    "order_number": "#1373",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 2
-  },
-  "2639436120110": {
-    "order_id": "2639436120110",
-    "buyer_address": "0xc9c56808d48aa5a22abd8532b350dbd99cda3916",
-    "date": "2021-02-02",
-    "order_number": "#1374",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 2
-  },
   "2648260411438": {
     "order_id": "2648260411438",
     "buyer_address": "0x7136fbddd4dffa2369a9283b6e90a040318011ca",
@@ -2904,15 +2517,6 @@
     "order_number": "#1377",
     "dollars_spent": 69,
     "buyer_reward": 3.45,
-    "season": 2
-  },
-  "2649247842350": {
-    "order_id": "2649247842350",
-    "buyer_address": "0x3cc1a943b27c2af7c6dcf3be0137f66c2f22e712",
-    "date": "2021-02-10",
-    "order_number": "#1378",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 2
   },
   "2652852650030": {
@@ -3041,15 +2645,6 @@
     "buyer_reward": 3.45,
     "season": 2
   },
-  "2661310562350": {
-    "order_id": "2661310562350",
-    "buyer_address": "0xf91569595bcdaf780c3f1662f204e157949af8b2",
-    "date": "2021-02-16",
-    "order_number": "#1397",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 2
-  },
   "2661320228910": {
     "order_id": "2661320228910",
     "buyer_address": "0xb058fe01dd09fe8aefa64346892ebb39a0a41adb",
@@ -3059,15 +2654,6 @@
     "buyer_reward": 0.8494999999999999,
     "season": 2
   },
-  "2661589024814": {
-    "order_id": "2661589024814",
-    "buyer_address": "0xd26a3f686d43f2a62ba9eae2ff77e9f516d945b9",
-    "date": "2021-02-16",
-    "order_number": "#1399",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 2
-  },
   "2661612748846": {
     "order_id": "2661612748846",
     "buyer_address": "0xd26a3f686d43f2a62ba9eae2ff77e9f516d945b9",
@@ -3075,42 +2661,6 @@
     "order_number": "#1400",
     "dollars_spent": 156.99,
     "buyer_reward": 7.8495,
-    "season": 2
-  },
-  "2662471106606": {
-    "order_id": "2662471106606",
-    "buyer_address": "0xd0c877b474cd51959931a7f70d7a6c60f50cdae7",
-    "date": "2021-02-16",
-    "order_number": "#1401",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 2
-  },
-  "2662790889518": {
-    "order_id": "2662790889518",
-    "buyer_address": "0xad1cbe6fcab49120273df0c308f6c1b094fbfb57",
-    "date": "2021-02-17",
-    "order_number": "#1402",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 2
-  },
-  "2663198588974": {
-    "order_id": "2663198588974",
-    "buyer_address": "0x442dccee68425828c106a3662014b4f131e3bd9b",
-    "date": "2021-02-17",
-    "order_number": "#1403",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 2
-  },
-  "2664681439278": {
-    "order_id": "2664681439278",
-    "buyer_address": "0xe04885c3f1419c6e8495c33bdcf5f8387cd88846",
-    "date": "2021-02-17",
-    "order_number": "#1404",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 2
   },
   "2664690516014": {
@@ -3129,15 +2679,6 @@
     "order_number": "#1406",
     "dollars_spent": 1850,
     "buyer_reward": 92.5,
-    "season": 2
-  },
-  "2666105241646": {
-    "order_id": "2666105241646",
-    "buyer_address": "0x68d36dcbdd7bbf206e27134f28103abe7cf972df",
-    "date": "2021-02-18",
-    "order_number": "#1407",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 2
   },
   "2666957176878": {
@@ -3174,15 +2715,6 @@
     "order_number": null,
     "dollars_spent": 1244.828,
     "buyer_reward": 27.3,
-    "season": 2
-  },
-  "2669571342382": {
-    "order_id": "2669571342382",
-    "buyer_address": "0xb14cf9b14db20b0b6a964d0ee7f60894e1f186dd",
-    "date": "2021-02-21",
-    "order_number": "#1411",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 2
   },
   "2669637042222": {
@@ -3300,15 +2832,6 @@
     "order_number": "#1425",
     "dollars_spent": 280,
     "buyer_reward": 14,
-    "season": 2
-  },
-  "2671463825454": {
-    "order_id": "2671463825454",
-    "buyer_address": "0xfacef700458d4fc9746f7f3e0d37b462711ff09e",
-    "date": "2021-02-22",
-    "order_number": "#1426",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 2
   },
   "2671467298862": {
@@ -3563,15 +3086,6 @@
     "buyer_reward": 9,
     "season": 3
   },
-  "3646814486574": {
-    "order_id": "3646814486574",
-    "buyer_address": "0x45fc61a99e47d2df0db946377f2a54c53c47faba",
-    "date": "2021-03-01",
-    "order_number": "#1456",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 3
-  },
   "3646908825646": {
     "order_id": "3646908825646",
     "buyer_address": "0x30db01087febd7b67dc486812b322b4867cb8ca7",
@@ -3579,15 +3093,6 @@
     "order_number": "#1457",
     "dollars_spent": 1102.98,
     "buyer_reward": 27.5745,
-    "season": 3
-  },
-  "3647023579182": {
-    "order_id": "3647023579182",
-    "buyer_address": "0x442dccee68425828c106a3662014b4f131e3bd9b",
-    "date": "2021-03-01",
-    "order_number": "#1459",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 3
   },
   "3647105794094": {
@@ -6038,15 +5543,6 @@
     "buyer_reward": 3.25,
     "season": 3
   },
-  "3686167871534": {
-    "order_id": "3686167871534",
-    "buyer_address": "0x35f115dcb8f52c9fbd8d025cb2ddc1e1e2dc4357",
-    "date": "2021-03-31",
-    "order_number": "#1751",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 3
-  },
   "3686244778030": {
     "order_id": "3686244778030",
     "buyer_address": "0xee03446e9654697685e82bcafee1e3cb0aa6f315",
@@ -8369,15 +7865,6 @@
     "buyer_reward": 4,
     "season": 3
   },
-  "3706938228782": {
-    "order_id": "3706938228782",
-    "buyer_address": "0x5b93ff82faaf241c15997ea3975419dddd8362c5",
-    "date": "2021-04-15",
-    "order_number": "#2037",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 3
-  },
   "3707209416750": {
     "order_id": "3707209416750",
     "buyer_address": "0x470c4462c67a3fab03901b81c0b96909f8330ca6",
@@ -8394,15 +7881,6 @@
     "order_number": "#2039",
     "dollars_spent": 110,
     "buyer_reward": 2.75,
-    "season": 3
-  },
-  "3707905507374": {
-    "order_id": "3707905507374",
-    "buyer_address": "0x47c95c8e4ea818e5b0dd5082b94ce0e5949acec7",
-    "date": "2021-04-16",
-    "order_number": "#2040",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 3
   },
   "3708178890798": {
@@ -8943,15 +8421,6 @@
     "order_number": "#2103",
     "dollars_spent": 60,
     "buyer_reward": 1.5,
-    "season": 3
-  },
-  "3713081442350": {
-    "order_id": "3713081442350",
-    "buyer_address": "0xae8945f496fac93fafedee95fd9352af03a375fb",
-    "date": "2021-04-20",
-    "order_number": "#2104",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 3
   },
   "3713088815150": {
@@ -9555,15 +9024,6 @@
     "order_number": "#2180",
     "dollars_spent": 180,
     "buyer_reward": 4.5,
-    "season": 3
-  },
-  "3718872367150": {
-    "order_id": "3718872367150",
-    "buyer_address": "0x3401ea5a8d91c5e3944962c0148b08ac4a77f153",
-    "date": "2021-04-23",
-    "order_number": "#2181",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 3
   },
   "3718928105518": {
@@ -11328,15 +10788,6 @@
     "order_number": "#2395",
     "dollars_spent": 60,
     "buyer_reward": 0.2703727066559692,
-    "season": 4
-  },
-  "3727957196846": {
-    "order_id": "3727957196846",
-    "buyer_address": "0xc9d60680b0945587f78543ff1ff14b49ec41cf16",
-    "date": "2021-04-30",
-    "order_number": "#2396",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 4
   },
   "3728131031086": {
@@ -16721,15 +16172,6 @@
     "buyer_reward": 0.3370754002354088,
     "season": 4
   },
-  "3754132013102": {
-    "order_id": "3754132013102",
-    "buyer_address": "0x90c56af54c7aad5bae421ffc4ab43d5053fdca3c",
-    "date": "2021-05-18",
-    "order_number": "#3033",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 4
-  },
   "3754132340782": {
     "order_id": "3754132340782",
     "buyer_address": "0x66c7fe6d7e15049d4f432dc7e189ee76e17f8fef",
@@ -16971,15 +16413,6 @@
     "order_number": "#3062",
     "dollars_spent": 90,
     "buyer_reward": 0.3370754002354088,
-    "season": 4
-  },
-  "3754395664430": {
-    "order_id": "3754395664430",
-    "buyer_address": "0xa6e615df1824cc71eb7ae5a823c5808ea2b196fc",
-    "date": "2021-05-18",
-    "order_number": "#3064",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 4
   },
   "3754397532206": {
@@ -21311,15 +20744,6 @@
     "buyer_reward": 0.6551223904704758,
     "season": 4
   },
-  "3786771267630": {
-    "order_id": "3786771267630",
-    "buyer_address": "0xb46d0e74676886d00522692bd1d9eb5a56207659",
-    "date": "2021-06-09",
-    "order_number": "#3587",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 4
-  },
   "3787143053358": {
     "order_id": "3787143053358",
     "buyer_address": "0xb46d0e74676886d00522692bd1d9eb5a56207659",
@@ -21489,15 +20913,6 @@
     "order_number": "#3606",
     "dollars_spent": 90,
     "buyer_reward": 0.668422411860334,
-    "season": 4
-  },
-  "3789229293614": {
-    "order_id": "3789229293614",
-    "buyer_address": "0x5f804b2c13f6c113f655ad7e80fadb810e008040",
-    "date": "2021-06-11",
-    "order_number": "#3607",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 4
   },
   "3789705838638": {
@@ -21696,15 +21111,6 @@
     "order_number": "#3631",
     "dollars_spent": 90,
     "buyer_reward": 0.6699141851512608,
-    "season": 4
-  },
-  "3791595339822": {
-    "order_id": "3791595339822",
-    "buyer_address": "0xc222face875a344846ccd489c57c401046790d98",
-    "date": "2021-06-13",
-    "order_number": "#3632",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 4
   },
   "3791698559022": {
@@ -22398,15 +21804,6 @@
     "order_number": "#3715",
     "dollars_spent": 100,
     "buyer_reward": 0.8490888338822318,
-    "season": 4
-  },
-  "3802168033326": {
-    "order_id": "3802168033326",
-    "buyer_address": "0x4d26bc95c771d1d0a5c5e76297c8f53ffe5f6c19",
-    "date": "2021-06-21",
-    "order_number": "#3716",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 4
   },
   "3802194116654": {
@@ -23831,15 +23228,6 @@
     "buyer_reward": 87.95027961910671,
     "season": 4
   },
-  "3808977518638": {
-    "order_id": "3808977518638",
-    "buyer_address": "0xaacd28478d4a3f0bba4bcc53b33254e11ca78f30",
-    "date": "2021-06-26",
-    "order_number": "#3894",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 4
-  },
   "3808981450798": {
     "order_id": "3808981450798",
     "buyer_address": "0xaacd28478d4a3f0bba4bcc53b33254e11ca78f30",
@@ -25199,15 +24587,6 @@
     "buyer_reward": 0.9943700966673003,
     "season": 4
   },
-  "3830825025582": {
-    "order_id": "3830825025582",
-    "buyer_address": "0xeab5ecc6a488fc6896c5a9b45c5b6a1cdb3aff70",
-    "date": "2021-07-13",
-    "order_number": "#4076",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 4
-  },
   "3831731814446": {
     "order_id": "3831731814446",
     "buyer_address": "0x78e5110039a7a72e817598273f29661fb856fe6d",
@@ -25215,15 +24594,6 @@
     "order_number": "#4078",
     "dollars_spent": 418,
     "buyer_reward": 4.744135380338121,
-    "season": 4
-  },
-  "3832165793838": {
-    "order_id": "3832165793838",
-    "buyer_address": "0xc73160da26a8483c93f0dcc5495d6f074c011d36",
-    "date": "2021-07-14",
-    "order_number": "#4080",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 4
   },
   "3832318066734": {
@@ -27107,15 +26477,6 @@
     "buyer_reward": 1.1150446151703786,
     "season": 4
   },
-  "3852973375534": {
-    "order_id": "3852973375534",
-    "buyer_address": "0x8f942eced007bd3976927b7958b50df126feecb5",
-    "date": "2021-07-30",
-    "order_number": "#4347",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 4
-  },
   "3852991168558": {
     "order_id": "3852991168558",
     "buyer_address": "0x930a7cd60a633128b7c5181307781e6d033ba51a",
@@ -28437,15 +27798,6 @@
     "order_number": "#4529",
     "dollars_spent": 172.89,
     "buyer_reward": 1.9746168255598193,
-    "season": 4
-  },
-  "3859842007086": {
-    "order_id": "3859842007086",
-    "buyer_address": "0xeab5ecc6a488fc6896c5a9b45c5b6a1cdb3aff70",
-    "date": "2021-08-05",
-    "order_number": "#4530",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 4
   },
   "3860117749806": {
@@ -29798,15 +29150,6 @@
     "buyer_reward": 2.6115573803701384,
     "season": 4
   },
-  "3871991070766": {
-    "order_id": "3871991070766",
-    "buyer_address": "0x0e1f66c67c376cb0b84243d662ee2a718c983e32",
-    "date": "2021-08-14",
-    "order_number": "#4715",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 4
-  },
   "3871992840238": {
     "order_id": "3871992840238",
     "buyer_address": "0xf13abd73fbb95effa1064e81951ce8e8b9f85e4e",
@@ -29906,15 +29249,6 @@
     "buyer_reward": 2.6115573803701384,
     "season": 5
   },
-  "3872007520302": {
-    "order_id": "3872007520302",
-    "buyer_address": "0x0e1f66c67c376cb0b84243d662ee2a718c983e32",
-    "date": "2021-08-14",
-    "order_number": "#4727",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
   "3872007585838": {
     "order_id": "3872007585838",
     "buyer_address": "0x2dc55c094ee20b08ea028e56c9dd628aa050ceb8",
@@ -29976,15 +29310,6 @@
     "order_number": "#4734",
     "dollars_spent": 580,
     "buyer_reward": 5.223114760740277,
-    "season": 5
-  },
-  "3872019415086": {
-    "order_id": "3872019415086",
-    "buyer_address": "0xcfc9e5258a8773cea0440077779a17096a045bf2",
-    "date": "2021-08-14",
-    "order_number": "#4735",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 5
   },
   "3872022954030": {
@@ -30293,15 +29618,6 @@
     "buyer_reward": 0.8321948093136899,
     "season": 5
   },
-  "3884701581358": {
-    "order_id": "3884701581358",
-    "buyer_address": "0x3401ea5a8d91c5e3944962c0148b08ac4a77f153",
-    "date": "2021-08-24",
-    "order_number": "#4779",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
   "3884709675054": {
     "order_id": "3884709675054",
     "buyer_address": "0xd0c877b474cd51959931a7f70d7a6c60f50cdae7",
@@ -30491,24 +29807,6 @@
     "buyer_reward": 0.4561683569893296,
     "season": 5
   },
-  "3898766589998": {
-    "order_id": "3898766589998",
-    "buyer_address": "0x8f942eced007bd3976927b7958b50df126feecb5",
-    "date": "2021-09-03",
-    "order_number": "#4804",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
-  "3898794639406": {
-    "order_id": "3898794639406",
-    "buyer_address": "0x8f942eced007bd3976927b7958b50df126feecb5",
-    "date": "2021-09-03",
-    "order_number": "#4805",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
   "3901479026734": {
     "order_id": "3901479026734",
     "buyer_address": "0xe6ee1b79627243ee40ec929fe2573e63d70b10c4",
@@ -30516,15 +29814,6 @@
     "order_number": "#4806",
     "dollars_spent": 50,
     "buyer_reward": 0.3118362206609692,
-    "season": 5
-  },
-  "3902331093038": {
-    "order_id": "3902331093038",
-    "buyer_address": "0x4cca9821c246acd39a42f34e6ae4e520a8224565",
-    "date": "2021-09-06",
-    "order_number": "#4807",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 5
   },
   "3904091258926": {
@@ -33551,15 +32840,6 @@
     "buyer_reward": 5.523082031259157,
     "season": 5
   },
-  "3929311051822": {
-    "order_id": "3929311051822",
-    "buyer_address": "0x1825c96151bcd9b3973fbc03cef32ee072c6ff66",
-    "date": "2021-09-25",
-    "order_number": "#5132",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
   "3929311903790": {
     "order_id": "3929311903790",
     "buyer_address": "0x6ed75e90dc27a1241335bbcac03f052a4bf590c0",
@@ -35234,15 +34514,6 @@
     "buyer_reward": 1.7276357634479529,
     "season": 5
   },
-  "3935827132462": {
-    "order_id": "3935827132462",
-    "buyer_address": "0xe65e0412478e8900e20014d332db0c92736828de",
-    "date": "2021-09-30",
-    "order_number": "#5334",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
   "3935940804654": {
     "order_id": "3935940804654",
     "buyer_address": "0x1aa7e136e6a40baa453847f3d6bd99497a49c05c",
@@ -36611,15 +35882,6 @@
     "buyer_reward": 1.5727641367298573,
     "season": 5
   },
-  "3952252190766": {
-    "order_id": "3952252190766",
-    "buyer_address": "0x8f942eced007bd3976927b7958b50df126feecb5",
-    "date": "2021-10-13",
-    "order_number": "#5497",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
   "3952776544302": {
     "order_id": "3952776544302",
     "buyer_address": "0x26439aeb008d63b6686798b5f08a84c7abefbd80",
@@ -36753,15 +36015,6 @@
     "order_number": "#5514",
     "dollars_spent": 69,
     "buyer_reward": 0.37088670276619073,
-    "season": 5
-  },
-  "3954917539886": {
-    "order_id": "3954917539886",
-    "buyer_address": "0x0d23ea008ac3325a0065e3bab564288411f45cf6",
-    "date": "2021-10-15",
-    "order_number": "#5515",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 5
   },
   "3954924257326": {
@@ -37637,15 +36890,6 @@
     "buyer_reward": 0.7189037890617481,
     "season": 5
   },
-  "3963780857902": {
-    "order_id": "3963780857902",
-    "buyer_address": "0x8e0e95504db4f909324b30ce2b1001120d9153db",
-    "date": "2021-10-22",
-    "order_number": "#5627",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
   "3963890696238": {
     "order_id": "3963890696238",
     "buyer_address": "0x01ffcc7285866e5cee14c8e807cb2e8d5f61079f",
@@ -37815,15 +37059,6 @@
     "order_number": "#5651",
     "dollars_spent": 42,
     "buyer_reward": 0.23963459635391604,
-    "season": 5
-  },
-  "3964543959086": {
-    "order_id": "3964543959086",
-    "buyer_address": "0x8e0e95504db4f909324b30ce2b1001120d9153db",
-    "date": "2021-10-23",
-    "order_number": "#5652",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 5
   },
   "3964919316526": {
@@ -38528,15 +37763,6 @@
     "buyer_reward": 0.43037104273853877,
     "season": 5
   },
-  "3975373586478": {
-    "order_id": "3975373586478",
-    "buyer_address": "0xb9b4f5921dddd83313c5b70fe582f197c0d900a8",
-    "date": "2021-10-31",
-    "order_number": "#5739",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
   "3975503282222": {
     "order_id": "3975503282222",
     "buyer_address": "0x81e5cd19323ce7f6b36c9511fbc98d477a188b13",
@@ -38769,15 +37995,6 @@
     "order_number": "#5766",
     "dollars_spent": 200,
     "buyer_reward": 1.2389816578153798,
-    "season": 5
-  },
-  "3977323479086": {
-    "order_id": "3977323479086",
-    "buyer_address": "0x8ef6da2ccfeed6643ef58cf4446f57fe3498415c",
-    "date": "2021-11-01",
-    "order_number": "#5767",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 5
   },
   "3977453797422": {
@@ -40805,15 +40022,6 @@
     "buyer_reward": 0.5066860974625216,
     "season": 5
   },
-  "3986345066542": {
-    "order_id": "3986345066542",
-    "buyer_address": "0xda573cbbdd5739348b09b1d90503043b94247bd2",
-    "date": "2021-11-08",
-    "order_number": "#6039",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
   "3986386255918": {
     "order_id": "3986386255918",
     "buyer_address": "0xda573cbbdd5739348b09b1d90503043b94247bd2",
@@ -41208,15 +40416,6 @@
     "order_number": "#6092",
     "dollars_spent": 200,
     "buyer_reward": 0.8449834978883609,
-    "season": 5
-  },
-  "3990939041838": {
-    "order_id": "3990939041838",
-    "buyer_address": "0xc35bfadf3df479d9e3526a015638891c2d79fff4",
-    "date": "2021-11-12",
-    "order_number": "#6093",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 5
   },
   "3990944120878": {
@@ -41894,15 +41093,6 @@
     "buyer_reward": 1.6231470303344067,
     "season": 5
   },
-  "3992418123822": {
-    "order_id": "3992418123822",
-    "buyer_address": "0x30c7f4f7504d6366916f669cd8e731ed4df6c702",
-    "date": "2021-11-13",
-    "order_number": "#6192",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
   "3992441258030": {
     "order_id": "3992441258030",
     "buyer_address": "0xca8a166eefa1a2b3cc239b644488b4f46cb29026",
@@ -41946,33 +41136,6 @@
     "order_number": "#6199",
     "dollars_spent": 69,
     "buyer_reward": 0.27999286273268514,
-    "season": 5
-  },
-  "3993015320622": {
-    "order_id": "3993015320622",
-    "buyer_address": "0x5ce87d185c7ea4e7e88eb505adcbe3d5afa61457",
-    "date": "2021-11-13",
-    "order_number": "#6200",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
-  "3993025970222": {
-    "order_id": "3993025970222",
-    "buyer_address": "0x5ce87d185c7ea4e7e88eb505adcbe3d5afa61457",
-    "date": "2021-11-13",
-    "order_number": "#6201",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
-  "3993588006958": {
-    "order_id": "3993588006958",
-    "buyer_address": "0xe521f16854699984b6f6c9a3357cb19ea711d637",
-    "date": "2021-11-14",
-    "order_number": "#6202",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 5
   },
   "3994043514926": {
@@ -42153,15 +41316,6 @@
     "order_number": "#6222",
     "dollars_spent": 69,
     "buyer_reward": 0.2528391322371154,
-    "season": 5
-  },
-  "4000145506350": {
-    "order_id": "4000145506350",
-    "buyer_address": "0x739de826f2157f64ee34d1374cdc494732b6a48b",
-    "date": "2021-11-18",
-    "order_number": "#6223",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 5
   },
   "4000693714990": {
@@ -43856,15 +43010,6 @@
     "buyer_reward": 0.35315236454007487,
     "season": 5
   },
-  "4009205202990": {
-    "order_id": "4009205202990",
-    "buyer_address": "0x80447ddb55ceee04003e7d4b6989055c65b670a5",
-    "date": "2021-11-23",
-    "order_number": "#6435",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
   "4009214345262": {
     "order_id": "4009214345262",
     "buyer_address": "0xe016f917cc4219c19fc62c7bd137b3bfb96562ac",
@@ -44477,15 +43622,6 @@
     "buyer_reward": 0.4320786559319595,
     "season": 5
   },
-  "4011772575790": {
-    "order_id": "4011772575790",
-    "buyer_address": "0x8f942eced007bd3976927b7958b50df126feecb5",
-    "date": "2021-11-24",
-    "order_number": "#6556",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
   "4011790958638": {
     "order_id": "4011790958638",
     "buyer_address": "0x449452718912048b428d6847168bb539107acaeb",
@@ -44612,15 +43748,6 @@
     "buyer_reward": 0.7050529106567213,
     "season": 5
   },
-  "4013547683886": {
-    "order_id": "4013547683886",
-    "buyer_address": "0x8f942eced007bd3976927b7958b50df126feecb5",
-    "date": "2021-11-25",
-    "order_number": "#6571",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
   "4013624688686": {
     "order_id": "4013624688686",
     "buyer_address": "0x82a9be468c5aa907f79f6c018ed8506d3c438b9a",
@@ -44637,15 +43764,6 @@
     "order_number": "#6573",
     "dollars_spent": 387,
     "buyer_reward": 1.3921197776742407,
-    "season": 5
-  },
-  "4014533935150": {
-    "order_id": "4014533935150",
-    "buyer_address": "0x8f942eced007bd3976927b7958b50df126feecb5",
-    "date": "2021-11-25",
-    "order_number": "#6574",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 5
   },
   "4014805975086": {
@@ -44673,78 +43791,6 @@
     "order_number": "#6577",
     "dollars_spent": 49,
     "buyer_reward": 0.17681415217254987,
-    "season": 5
-  },
-  "4017437966382": {
-    "order_id": "4017437966382",
-    "buyer_address": "0x8f942eced007bd3976927b7958b50df126feecb5",
-    "date": "2021-11-26",
-    "order_number": "#6578",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
-  "4018112462894": {
-    "order_id": "4018112462894",
-    "buyer_address": "0x8f942eced007bd3976927b7958b50df126feecb5",
-    "date": "2021-11-26",
-    "order_number": "#6579",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
-  "4018147295278": {
-    "order_id": "4018147295278",
-    "buyer_address": "0x8f942eced007bd3976927b7958b50df126feecb5",
-    "date": "2021-11-26",
-    "order_number": "#6580",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
-  "4018203000878": {
-    "order_id": "4018203000878",
-    "buyer_address": "0x8f942eced007bd3976927b7958b50df126feecb5",
-    "date": "2021-11-26",
-    "order_number": "#6581",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
-  "4018243567662": {
-    "order_id": "4018243567662",
-    "buyer_address": "0x8f942eced007bd3976927b7958b50df126feecb5",
-    "date": "2021-11-26",
-    "order_number": "#6582",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
-  "4018293440558": {
-    "order_id": "4018293440558",
-    "buyer_address": "0x8f942eced007bd3976927b7958b50df126feecb5",
-    "date": "2021-11-26",
-    "order_number": "#6583",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
-  "4018318245934": {
-    "order_id": "4018318245934",
-    "buyer_address": "0x8f942eced007bd3976927b7958b50df126feecb5",
-    "date": "2021-11-26",
-    "order_number": "#6584",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
-  "4018690523182": {
-    "order_id": "4018690523182",
-    "buyer_address": "0x8f942eced007bd3976927b7958b50df126feecb5",
-    "date": "2021-11-26",
-    "order_number": "#6585",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 5
   },
   "4019362168878": {
@@ -45368,15 +44414,6 @@
     "buyer_reward": 0.2653596414819017,
     "season": 5
   },
-  "4036734746670": {
-    "order_id": "4036734746670",
-    "buyer_address": "0x57e116836ee1c5745ef9b57484d3d16a0b24cabe",
-    "date": "2021-12-06",
-    "order_number": "#6669",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
   "4037390073902": {
     "order_id": "4037390073902",
     "buyer_address": "0xa485165168e27d842cf3eb9ceda7b940a8cf764e",
@@ -45384,42 +44421,6 @@
     "order_number": "#6674",
     "dollars_spent": 69,
     "buyer_reward": 0.26595427774893426,
-    "season": 5
-  },
-  "4038060441646": {
-    "order_id": "4038060441646",
-    "buyer_address": "0x60b4f4a50cecef7a3a09270a4585107f7ac8cf16",
-    "date": "2021-12-07",
-    "order_number": "#6675",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
-  "4038090686510": {
-    "order_id": "4038090686510",
-    "buyer_address": "0x57e116836ee1c5745ef9b57484d3d16a0b24cabe",
-    "date": "2021-12-07",
-    "order_number": "#6676",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
-  "4038204031022": {
-    "order_id": "4038204031022",
-    "buyer_address": "0x4cca9821c246acd39a42f34e6ae4e520a8224565",
-    "date": "2021-12-07",
-    "order_number": "#6677",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
-  "4038222872622": {
-    "order_id": "4038222872622",
-    "buyer_address": "0x4cca9821c246acd39a42f34e6ae4e520a8224565",
-    "date": "2021-12-07",
-    "order_number": "#6678",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 5
   },
   "4038435995694": {
@@ -45438,15 +44439,6 @@
     "order_number": "#6680",
     "dollars_spent": 0,
     "buyer_reward": 6.9,
-    "season": 5
-  },
-  "4038805717038": {
-    "order_id": "4038805717038",
-    "buyer_address": "0x6d97d65adff6771b31671443a6b9512104312d3d",
-    "date": "2021-12-08",
-    "order_number": "#6681",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 5
   },
   "4041096069166": {
@@ -45483,15 +44475,6 @@
     "order_number": "#6687",
     "dollars_spent": 69,
     "buyer_reward": 0.27150849368568225,
-    "season": 5
-  },
-  "4042233511982": {
-    "order_id": "4042233511982",
-    "buyer_address": "0x14ae683317d9d27957f56c78e9308e7d54bc3b36",
-    "date": "2021-12-10",
-    "order_number": "#6688",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 5
   },
   "4042382737454": {
@@ -45683,15 +44666,6 @@
     "buyer_reward": 8.894118592012891,
     "season": 5
   },
-  "4052485111854": {
-    "order_id": "4052485111854",
-    "buyer_address": "0x14ae683317d9d27957f56c78e9308e7d54bc3b36",
-    "date": "2021-12-17",
-    "order_number": "#6712",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
   "4053317222446": {
     "order_id": "4053317222446",
     "buyer_address": "0x2b6247079ddd8e81b34093e911284253bd455ef6",
@@ -45782,24 +44756,6 @@
     "buyer_reward": 0.31143316197021176,
     "season": 5
   },
-  "4059845361710": {
-    "order_id": "4059845361710",
-    "buyer_address": "0x57e116836ee1c5745ef9b57484d3d16a0b24cabe",
-    "date": "2021-12-23",
-    "order_number": "#6729",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
-  "4059884781614": {
-    "order_id": "4059884781614",
-    "buyer_address": "0x067c0487d514959342f1dcf84c66ffc360c8f4f0",
-    "date": "2021-12-23",
-    "order_number": "#6730",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
   "4060010217518": {
     "order_id": "4060010217518",
     "buyer_address": "0xeab5ecc6a488fc6896c5a9b45c5b6a1cdb3aff70",
@@ -45809,15 +44765,6 @@
     "buyer_reward": 0.40549692250585595,
     "season": 5
   },
-  "4062374166574": {
-    "order_id": "4062374166574",
-    "buyer_address": "0xbd19a3f0a9cace18513a1e2863d648d13975cb30",
-    "date": "2021-12-26",
-    "order_number": "#6734",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
   "4064289357870": {
     "order_id": "4064289357870",
     "buyer_address": "0xbfc7cae0fad9b346270ae8fde24827d2d779ef07",
@@ -45825,15 +44772,6 @@
     "order_number": "#6737",
     "dollars_spent": 111,
     "buyer_reward": 0.49761580324070037,
-    "season": 5
-  },
-  "4064569229358": {
-    "order_id": "4064569229358",
-    "buyer_address": "0xfbc56be13c23c18b6864d062e413da3c7e0f74fb",
-    "date": "2021-12-27",
-    "order_number": "#6738",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 5
   },
   "4064615006254": {
@@ -45888,15 +44826,6 @@
     "order_number": "#6748",
     "dollars_spent": 180,
     "buyer_reward": 0.7902086254249686,
-    "season": 5
-  },
-  "4068205821998": {
-    "order_id": "4068205821998",
-    "buyer_address": "0xeab5ecc6a488fc6896c5a9b45c5b6a1cdb3aff70",
-    "date": "2021-12-30",
-    "order_number": "#6749",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 5
   },
   "4068249042990": {
@@ -46259,24 +45188,6 @@
     "buyer_reward": 0.7854396331257629,
     "season": 5
   },
-  "4076941901870": {
-    "order_id": "4076941901870",
-    "buyer_address": "0x9311d45341b284900711f9bc155ce2e381248c29",
-    "date": "2022-01-07",
-    "order_number": "#6822",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
-  "4076982370350": {
-    "order_id": "4076982370350",
-    "buyer_address": "0x9311d45341b284900711f9bc155ce2e381248c29",
-    "date": "2022-01-07",
-    "order_number": "#6823",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
   "4077443874862": {
     "order_id": "4077443874862",
     "buyer_address": "0xdde191adeae0953c5fa10b64ec5fb110e0b7f23c",
@@ -46284,15 +45195,6 @@
     "order_number": "#6824",
     "dollars_spent": 28,
     "buyer_reward": 0.12495630527000774,
-    "season": 5
-  },
-  "4078093271086": {
-    "order_id": "4078093271086",
-    "buyer_address": "0xc04afceea0be5a8cece930c4e6208eb03becd066",
-    "date": "2022-01-08",
-    "order_number": "#6825",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 5
   },
   "4081435410478": {
@@ -46338,24 +45240,6 @@
     "order_number": "#6837",
     "dollars_spent": 69,
     "buyer_reward": 0.39282346432980103,
-    "season": 5
-  },
-  "4096047317038": {
-    "order_id": "4096047317038",
-    "buyer_address": "0x4cca9821c246acd39a42f34e6ae4e520a8224565",
-    "date": "2022-01-24",
-    "order_number": "#6839",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
-  "4097384644654": {
-    "order_id": "4097384644654",
-    "buyer_address": "0x8623d21d17d9710308963a1ae721369259997701",
-    "date": "2022-01-25",
-    "order_number": "#6840",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 5
   },
   "4102657343534": {
@@ -47157,15 +46041,6 @@
     "order_number": "#7039",
     "dollars_spent": 180,
     "buyer_reward": 1.8012724844967307,
-    "season": 5
-  },
-  "4110900658222": {
-    "order_id": "4110900658222",
-    "buyer_address": "0x2ce1a66f22a2dc6e410d9021d57aeb8d13d6bfef",
-    "date": "2022-02-06",
-    "order_number": "#7040",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 5
   },
   "4111105130542": {
@@ -48194,51 +47069,6 @@
     "buyer_reward": 0.4108830929961451,
     "season": 5
   },
-  "4129334296622": {
-    "order_id": "4129334296622",
-    "buyer_address": "0xe38d978e500242e5e6df46be5dc1bd47cb06555f",
-    "date": "2022-02-21",
-    "order_number": "#7600",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
-  "4129349599278": {
-    "order_id": "4129349599278",
-    "buyer_address": "0x8f942eced007bd3976927b7958b50df126feecb5",
-    "date": "2022-02-21",
-    "order_number": "#7602",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
-  "4135331790894": {
-    "order_id": "4135331790894",
-    "buyer_address": "0x2ecbb905fe50b0a372d9060187a3c4b98f2d5254",
-    "date": "2022-02-26",
-    "order_number": "#7608",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
-  "4137413050414": {
-    "order_id": "4137413050414",
-    "buyer_address": "0x341eade54df755299850147feec292ec0b2bcca2",
-    "date": "2022-02-28",
-    "order_number": "#7610",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
-  "4137463742510": {
-    "order_id": "4137463742510",
-    "buyer_address": "0x2ecbb905fe50b0a372d9060187a3c4b98f2d5254",
-    "date": "2022-02-28",
-    "order_number": "#7611",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
-    "season": 5
-  },
   "4137585934382": {
     "order_id": "4137585934382",
     "buyer_address": "0x924dcfa6953aed643cff79fdc37031558ae96711",
@@ -48849,15 +47679,6 @@
     "order_number": "#7794",
     "dollars_spent": 125,
     "buyer_reward": 1.3681478668304876,
-    "season": 5
-  },
-  "4165697306670": {
-    "order_id": "4165697306670",
-    "buyer_address": "0x7eb7b9c01bf7c475289c55e9d8c0d3e59d898332",
-    "date": "2022-03-23",
-    "order_number": "#7795",
-    "dollars_spent": 0,
-    "buyer_reward": 0,
     "season": 5
   },
   "4166019678254": {

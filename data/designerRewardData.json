@@ -14,21 +14,6 @@
     "avgOrderDate": "2021-01-07",
     "avgRobotPrice": 0
   },
-  "4546341240878": {
-    "title": "MF MASK - METADREAMER",
-    "id": "4546341240878",
-    "shopify_id": "4546341240878",
-    "designers": {
-      "0x8f942eced007bd3976927b7958b50df126feecb5": {
-        "eth_address": "0x8f942eced007bd3976927b7958b50df126feecb5",
-        "contribution_share": 1,
-        "robot_reward": 49.747050000000016,
-        "name": "METADREAMER"
-      }
-    },
-    "avgOrderDate": "2020-10-19",
-    "avgRobotPrice": 0
-  },
   "4542707138606": {
     "title": "MF MASK - HEXEOSIS",
     "id": "4542707138606",
@@ -41,7 +26,7 @@
         "name": "HEXEOSIS"
       }
     },
-    "avgOrderDate": "2020-10-27",
+    "avgOrderDate": "2020-11-06",
     "avgRobotPrice": 0
   },
   "4549122457646": {
@@ -71,22 +56,22 @@
         "name": "SHORTCUT"
       }
     },
-    "avgOrderDate": "2020-09-28",
+    "avgOrderDate": "2020-10-07",
     "avgRobotPrice": 0
   },
-  "4549226889262": {
-    "title": "MF MASK - SPACED PAINTER",
-    "id": "4549226889262",
-    "shopify_id": "4549226889262",
+  "4546341240878": {
+    "title": "MF MASK - METADREAMER",
+    "id": "4546341240878",
+    "shopify_id": "4546341240878",
     "designers": {
-      "0x986ccf030a018f8190e7cf488ba9fec8df058199": {
-        "eth_address": "0x986ccf030a018f8190e7cf488ba9fec8df058199",
+      "0x8f942eced007bd3976927b7958b50df126feecb5": {
+        "eth_address": "0x8f942eced007bd3976927b7958b50df126feecb5",
         "contribution_share": 1,
-        "robot_reward": 18.858900000000002,
-        "name": "SPACED PAINTER"
+        "robot_reward": 49.747050000000016,
+        "name": "METADREAMER"
       }
     },
-    "avgOrderDate": "2020-11-07",
+    "avgOrderDate": "2020-11-06",
     "avgRobotPrice": 0
   },
   "4546196701230": {
@@ -116,7 +101,7 @@
         "name": "JAVIER ARRÉS"
       }
     },
-    "avgOrderDate": "2020-12-05",
+    "avgOrderDate": "2020-12-09",
     "avgRobotPrice": 0
   },
   "4540837462062": {
@@ -146,7 +131,22 @@
         "name": "SKEENEE"
       }
     },
-    "avgOrderDate": "2020-12-20",
+    "avgOrderDate": "2021-01-03",
+    "avgRobotPrice": 0
+  },
+  "4549226889262": {
+    "title": "MF MASK - SPACED PAINTER",
+    "id": "4549226889262",
+    "shopify_id": "4549226889262",
+    "designers": {
+      "0x986ccf030a018f8190e7cf488ba9fec8df058199": {
+        "eth_address": "0x986ccf030a018f8190e7cf488ba9fec8df058199",
+        "contribution_share": 1,
+        "robot_reward": 18.858900000000002,
+        "name": "SPACED PAINTER"
+      }
+    },
+    "avgOrderDate": "2020-12-27",
     "avgRobotPrice": 0
   },
   "4546137358382": {
@@ -229,8 +229,8 @@
     "id": "",
     "shopify_id": "",
     "designers": {},
-    "avgOrderDate": "2021-08-20",
-    "avgRobotPrice": 48.932450388162955
+    "avgOrderDate": "2021-06-22",
+    "avgRobotPrice": 47.4495899239572
   },
   "4634655359022": {
     "title": "YAM JAMS",
@@ -259,7 +259,7 @@
         "name": "METADREAMER"
       }
     },
-    "avgOrderDate": "2020-12-26",
+    "avgOrderDate": "2020-12-28",
     "avgRobotPrice": 0
   },
   "4597786378286": {
@@ -326,14 +326,6 @@
       }
     },
     "avgOrderDate": "2020-12-30",
-    "avgRobotPrice": 0
-  },
-  "4649562570798": {
-    "title": "MF BOMBER REDEMPTION",
-    "id": "4649562570798",
-    "shopify_id": "4649562570798",
-    "designers": {},
-    "avgOrderDate": "2020-10-06",
     "avgRobotPrice": 0
   },
   "4649782378542": {
@@ -456,8 +448,8 @@
         "name": "Mike Purvis"
       }
     },
-    "avgOrderDate": "2021-01-20",
-    "avgRobotPrice": 5.651334648470396
+    "avgOrderDate": "2021-01-23",
+    "avgRobotPrice": 5.419148649467231
   },
   "4691851673646": {
     "title": "Sky Custom Mask",
@@ -576,14 +568,6 @@
     },
     "avgOrderDate": "2021-01-24",
     "avgRobotPrice": 5.323097838825419
-  },
-  "4711785103406": {
-    "title": "WickedSundayClub Genesis Care Package",
-    "id": "4711785103406",
-    "shopify_id": "4711785103406",
-    "designers": {},
-    "avgOrderDate": "2021-03-18",
-    "avgRobotPrice": 66.57722142252517
   },
   "4716042879022": {
     "title": "'This is the GWEI' T-Shirt & Spork Package",
@@ -1047,8 +1031,8 @@
         "name": "Bankless DAO"
       }
     },
-    "avgOrderDate": "2021-06-03",
-    "avgRobotPrice": 57.10347970070468
+    "avgOrderDate": "2021-05-30",
+    "avgRobotPrice": 67.15146246059182
   },
   "6564355670062": {
     "title": "Forefront Genesis Drop - Long sleeve",
@@ -1185,8 +1169,8 @@
         "name": "Maple Finance"
       }
     },
-    "avgOrderDate": "2021-07-18",
-    "avgRobotPrice": 36.407402250389644
+    "avgOrderDate": "2021-07-14",
+    "avgRobotPrice": 37.005689324887605
   },
   "6573296812078": {
     "title": "MoonWalkers\" Hoodie",
@@ -1206,8 +1190,8 @@
         "name": "weseeclearly"
       }
     },
-    "avgOrderDate": "2021-06-18",
-    "avgRobotPrice": 53.629593887650984
+    "avgOrderDate": "2021-06-19",
+    "avgRobotPrice": 52.14148958102778
   },
   "6585295274030": {
     "title": "Pink SporkΞ Coin\" Tee",
@@ -1578,37 +1562,8 @@
         "name": "AA8"
       }
     },
-    "avgOrderDate": "2021-07-20",
-    "avgRobotPrice": 35.06198020407425
-  },
-  "6632743567406": {
-    "title": "SWAPS by Coldie\" Tee SAMPLE FOR COLDIE",
-    "id": "6632743567406",
-    "shopify_id": "6632743567406",
-    "designers": {},
-    "avgOrderDate": "2021-07-15",
-    "avgRobotPrice": 37.01986186961535
-  },
-  "6635422416942": {
-    "title": "MF Logo Snapback Hats - SAMPLE ONLY",
-    "id": "6635422416942",
-    "shopify_id": "6635422416942",
-    "designers": {
-      "0xeab5ecc6a488fc6896c5a9b45c5b6a1cdb3aff70": {
-        "eth_address": "0xeab5ecc6a488fc6896c5a9b45c5b6a1cdb3aff70",
-        "contribution_share": 0.3,
-        "robot_reward": 0.1875,
-        "name": "weseeclearly"
-      },
-      "0x3cc1a943b27c2af7c6dcf3be0137f66c2f22e712": {
-        "eth_address": "0x3cc1a943b27c2af7c6dcf3be0137f66c2f22e712",
-        "contribution_share": 0.7,
-        "robot_reward": 0.4375,
-        "name": "Sergio"
-      }
-    },
-    "avgOrderDate": "2021-08-09",
-    "avgRobotPrice": 41.214804631194134
+    "avgOrderDate": "2021-07-21",
+    "avgRobotPrice": 33.823938958647716
   },
   "6652989046830": {
     "title": "Ultra Sound Summer\" Swim Trunks",
@@ -1688,16 +1643,8 @@
         "name": "Bankless DAO"
       }
     },
-    "avgOrderDate": "2021-08-01",
-    "avgRobotPrice": 32.88962903186147
-  },
-  "6657939865646": {
-    "title": "Locksmith Test Product",
-    "id": "6657939865646",
-    "shopify_id": "6657939865646",
-    "designers": {},
-    "avgOrderDate": "2021-09-05",
-    "avgRobotPrice": 67.34304294571145
+    "avgOrderDate": "2021-07-31",
+    "avgRobotPrice": 32.45328267651602
   },
   "6658230288430": {
     "title": "NTFA Piggy Banksy Shirt",
@@ -1779,6 +1726,27 @@
     },
     "avgOrderDate": "2021-08-05",
     "avgRobotPrice": 36.77361554913998
+  },
+  "6635422416942": {
+    "title": "MetaFactory Snapback Cap",
+    "id": "6635422416942",
+    "shopify_id": "6635422416942",
+    "designers": {
+      "0xeab5ecc6a488fc6896c5a9b45c5b6a1cdb3aff70": {
+        "eth_address": "0xeab5ecc6a488fc6896c5a9b45c5b6a1cdb3aff70",
+        "contribution_share": 0.3,
+        "robot_reward": 0.1875,
+        "name": "weseeclearly"
+      },
+      "0x3cc1a943b27c2af7c6dcf3be0137f66c2f22e712": {
+        "eth_address": "0x3cc1a943b27c2af7c6dcf3be0137f66c2f22e712",
+        "contribution_share": 0.7,
+        "robot_reward": 0.4375,
+        "name": "Sergio"
+      }
+    },
+    "avgOrderDate": "2021-08-13",
+    "avgRobotPrice": 45.2684034830854
   },
   "6678973874222": {
     "title": "Tribes: Cheetah Gang\" Hoodie",
@@ -1863,14 +1831,6 @@
     },
     "avgOrderDate": "2021-08-26",
     "avgRobotPrice": 53.13766903649183
-  },
-  "6689088503854": {
-    "title": "Loot Bag\" Long Sleeve Shirt",
-    "id": "6689088503854",
-    "shopify_id": "6689088503854",
-    "designers": {},
-    "avgOrderDate": "2021-09-03",
-    "avgRobotPrice": 64.86420977396318
   },
   "6690032320558": {
     "title": "Fill 'em All\" Hoodie",
@@ -2055,8 +2015,8 @@
         "name": "caf"
       }
     },
-    "avgOrderDate": "2021-09-30",
-    "avgRobotPrice": 70.50097166136221
+    "avgOrderDate": "2021-09-28",
+    "avgRobotPrice": 68.21486270172981
   },
   "6664927412270": {
     "title": "Phuture Finance - Tee",
@@ -2271,8 +2231,8 @@
         "name": "CryptoAccord"
       }
     },
-    "avgOrderDate": "2021-10-30",
-    "avgRobotPrice": 66.8818141167008
+    "avgOrderDate": "2021-10-31",
+    "avgRobotPrice": 67.33724419652945
   },
   "6691908878382": {
     "title": "Skaternonymous\" Tee",
@@ -2304,8 +2264,8 @@
         "name": "CryptoAccord"
       }
     },
-    "avgOrderDate": "2021-11-06",
-    "avgRobotPrice": 77.4707491909637
+    "avgOrderDate": "2021-11-08",
+    "avgRobotPrice": 82.89155792972323
   },
   "6705158979630": {
     "title": "GasNow \"I have known\" L/S Tee",
@@ -2667,8 +2627,8 @@
         "name": "weseeclearly"
       }
     },
-    "avgOrderDate": "2021-12-15",
-    "avgRobotPrice": 103.87059677372204
+    "avgOrderDate": "2021-12-16",
+    "avgRobotPrice": 102.73957424016147
   },
   "6711649108014": {
     "title": "NFT.NYC \"Neo\" Vaunker Hoodie",
@@ -2688,8 +2648,8 @@
         "name": "Van"
       }
     },
-    "avgOrderDate": "2021-12-04",
-    "avgRobotPrice": 111.2083201837022
+    "avgOrderDate": "2021-12-09",
+    "avgRobotPrice": 107.65584489669143
   },
   "6711703568430": {
     "title": "NFT.NYC - MF Snapback Cap",
@@ -2771,38 +2731,6 @@
     },
     "avgOrderDate": "2021-11-08",
     "avgRobotPrice": 82.89155792972323
-  },
-  "6707335397422": {
-    "title": "Axie Navy 9 Face Tee",
-    "id": "6707335397422",
-    "shopify_id": "6707335397422",
-    "designers": {},
-    "avgOrderDate": "2021-11-13",
-    "avgRobotPrice": 103.50263830713354
-  },
-  "6707335233582": {
-    "title": "Axie Red Embroidered Tee",
-    "id": "6707335233582",
-    "shopify_id": "6707335233582",
-    "designers": {},
-    "avgOrderDate": "2021-11-13",
-    "avgRobotPrice": 103.50263830713354
-  },
-  "6707335790638": {
-    "title": "Axie Peek-a-boo Tee",
-    "id": "6707335790638",
-    "shopify_id": "6707335790638",
-    "designers": {},
-    "avgOrderDate": "2021-11-13",
-    "avgRobotPrice": 103.50263830713354
-  },
-  "6707336118318": {
-    "title": "Axie Hoodie",
-    "id": "6707336118318",
-    "shopify_id": "6707336118318",
-    "designers": {},
-    "avgOrderDate": "2021-11-13",
-    "avgRobotPrice": 103.50263830713354
   },
   "6719045009454": {
     "title": "Bor3D\" Tee",
@@ -2888,8 +2816,8 @@
         "name": "AlexTretiak"
       }
     },
-    "avgOrderDate": "2021-11-25",
-    "avgRobotPrice": 116.75719475198402
+    "avgOrderDate": "2021-11-24",
+    "avgRobotPrice": 116.6454285766354
   },
   "6720895942702": {
     "title": "Balancer VIP\" - Hoodie (Locked)",
@@ -2948,24 +2876,8 @@
         "name": "Franchesko"
       }
     },
-    "avgOrderDate": "2021-12-13",
-    "avgRobotPrice": 106.05829803387891
-  },
-  "6718589272110": {
-    "title": "The Defiant Friend\" - Mug",
-    "id": "6718589272110",
-    "shopify_id": "6718589272110",
-    "designers": {},
-    "avgOrderDate": "2021-12-25",
-    "avgRobotPrice": 92.8263564930957
-  },
-  "6718589698094": {
-    "title": "The Defiant Ambassador\" Copper - Hat",
-    "id": "6718589698094",
-    "shopify_id": "6718589698094",
-    "designers": {},
-    "avgOrderDate": "2021-12-29",
-    "avgRobotPrice": 95.33708665110304
+    "avgOrderDate": "2021-12-18",
+    "avgRobotPrice": 99.35520251000116
   },
   "6711699636270": {
     "title": "MetaGEAR\" Jacket + Box Set",
@@ -3116,14 +3028,6 @@
     },
     "avgOrderDate": "2022-01-02",
     "avgRobotPrice": 96.10863504878066
-  },
-  "6742360293422": {
-    "title": "RoyalT\" Crew Tee",
-    "id": "6742360293422",
-    "shopify_id": "6742360293422",
-    "designers": {},
-    "avgOrderDate": "2022-01-24",
-    "avgRobotPrice": 58.392251144863124
   },
   "6744153751598": {
     "title": "RoyalT Long Sleeve + NFT (Limited)",
@@ -3506,8 +3410,8 @@
         "name": "SporkDAO"
       }
     },
-    "avgOrderDate": "2022-02-19",
-    "avgRobotPrice": 47.25512514097354
+    "avgOrderDate": "2022-02-18",
+    "avgRobotPrice": 47.014658059793966
   },
   "6749360259118": {
     "title": "The BDAO Beanie (Pickup ONLY)",
@@ -3578,8 +3482,8 @@
         "name": "SporkDAO"
       }
     },
-    "avgOrderDate": "2022-02-19",
-    "avgRobotPrice": 47.25512514097354
+    "avgOrderDate": "2022-02-18",
+    "avgRobotPrice": 47.014658059793966
   },
   "6749360455726": {
     "title": "Colorado Jam Logo Shirt [2021] (Pickup ONLY)",
@@ -3823,8 +3727,8 @@
         "name": "SporkDAO"
       }
     },
-    "avgOrderDate": "2022-02-19",
-    "avgRobotPrice": 47.25512514097354
+    "avgOrderDate": "2022-02-18",
+    "avgRobotPrice": 47.014658059793966
   },
   "6749360488494": {
     "title": "Spork Marmot Virtual Castle Sublimated Shirt (Pickup ONLY)",
@@ -4108,8 +4012,8 @@
         "name": "Gitcoin DAO"
       }
     },
-    "avgOrderDate": "2022-03-16",
-    "avgRobotPrice": 38.60994843287051
+    "avgOrderDate": "2022-03-15",
+    "avgRobotPrice": 39.260344042772026
   },
   "6736425975854": {
     "title": "Woofy Tracksuit",

@@ -83,6 +83,5 @@ export type OrderRewardAllocation = {
   buyer: number;
   designers: DesignerAllocation[];
   buyerSpent: number;
-  designerEarned: number;
   season: number;
 };
