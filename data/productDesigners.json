@@ -2045,26 +2045,6 @@
       }
     ]
   },
-  "6707335397422": {
-    "productId": 6707335397422,
-    "title": "Axie Navy 9 Face Tee",
-    "designers": []
-  },
-  "6707335233582": {
-    "productId": 6707335233582,
-    "title": "Axie Red Embroidered Tee",
-    "designers": []
-  },
-  "6707335790638": {
-    "productId": 6707335790638,
-    "title": "Axie Peek-a-boo Tee",
-    "designers": []
-  },
-  "6707336118318": {
-    "productId": 6707336118318,
-    "title": "Axie Hoodie",
-    "designers": []
-  },
   "6719045009454": {
     "productId": 6719045009454,
     "title": "Bor3D\" Tee",
@@ -2290,6 +2270,1033 @@
         "name": "FWG Vault",
         "contributionShare": 0.05,
         "ethAddress": "0x9768c71eAD3aa2C23ee0B53830161F4016bDc21C"
+      }
+    ]
+  },
+  "6719723995182": {
+    "productId": 6719723995182,
+    "title": "Gear Oil",
+    "designers": [
+      {
+        "name": "Esteve",
+        "ethAddress": "0x02233A254A2093dC81270B76096e4767146981e0",
+        "contributionShare": 0.15
+      },
+      {
+        "name": "Sergio",
+        "ethAddress": "0x3Cc1A943B27c2AF7c6dcF3Be0137f66c2f22E712",
+        "contributionShare": 0.15
+      },
+      {
+        "name": "Rachel",
+        "ethAddress": "0x58315fB2b6E94371679fFb4b3322ab32f3dc7311",
+        "contributionShare": 0.7
+      }
+    ]
+  },
+  "6726996787246": {
+    "productId": 6726996787246,
+    "title": "Choose Your Own Adventure\" Sweatshirt",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "6734741864494": {
+    "productId": 6734741864494,
+    "title": "Choose Your Own Adventure\" Sweatshirt",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "6734963703854": {
+    "productId": 6734963703854,
+    "title": "The BED Index Constellation Blanket",
+    "designers": [
+      {
+        "name": "CPTNskeletor",
+        "ethAddress": "0x9bcDc7db2f57B0f960A737ccC29373a9bc760134",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "Bankless DAO",
+        "ethAddress": "0xf26d1Bb347a59F6C283C53156519cC1B1ABacA51",
+        "contributionShare": 0.7
+      },
+      {
+        "name": "Crypt0xwife",
+        "contributionShare": 0.2,
+        "ethAddress": "0x0F963c3f8cF8Fe3bd448571928D5D2519bbEc6c8"
+      }
+    ]
+  },
+  "6734968750126": {
+    "productId": 6734968750126,
+    "title": "The BED Index Constellation Socks",
+    "designers": [
+      {
+        "name": "CPTNskeletor",
+        "ethAddress": "0x9bcDc7db2f57B0f960A737ccC29373a9bc760134",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "Bankless DAO",
+        "ethAddress": "0xf26d1Bb347a59F6C283C53156519cC1B1ABacA51",
+        "contributionShare": 0.7
+      },
+      {
+        "name": "Crypt0xwife",
+        "contributionShare": 0.2,
+        "ethAddress": "0x0F963c3f8cF8Fe3bd448571928D5D2519bbEc6c8"
+      }
+    ]
+  },
+  "6742360293422": {
+    "productId": 6742360293422,
+    "title": "RoyalT\" Crew Tee",
+    "designers": [
+      {
+        "name": "wero",
+        "ethAddress": "0x1A3C469A422EcfEEc7258C701cd5cdDe9b5e9322",
+        "contributionShare": 0.05
+      },
+      {
+        "name": "CryptoAccord",
+        "ethAddress": "0x4cCa9821c246acd39a42F34e6ae4E520A8224565",
+        "contributionShare": 0.15
+      },
+      {
+        "name": "fraemwerk",
+        "ethAddress": "0xBED32b83dd0851E655ADcEf79105Ca7a469cf9F0",
+        "contributionShare": 0.05
+      },
+      {
+        "name": "Apesthetics",
+        "ethAddress": "0x76f91DCf2aA8F542A5Baf8AC9B06B074d80D4015",
+        "contributionShare": 0.75
+      }
+    ]
+  },
+  "6744153751598": {
+    "productId": 6744153751598,
+    "title": "RoyalT Long Sleeve + NFT (Limited)",
+    "designers": [
+      {
+        "name": "wero",
+        "ethAddress": "0x1A3C469A422EcfEEc7258C701cd5cdDe9b5e9322",
+        "contributionShare": 0.05
+      },
+      {
+        "name": "CryptoAccord",
+        "ethAddress": "0x4cCa9821c246acd39a42F34e6ae4E520A8224565",
+        "contributionShare": 0.15
+      },
+      {
+        "name": "fraemwerk",
+        "ethAddress": "0xBED32b83dd0851E655ADcEf79105Ca7a469cf9F0",
+        "contributionShare": 0.05
+      },
+      {
+        "name": "Apesthetics",
+        "ethAddress": "0x76f91DCf2aA8F542A5Baf8AC9B06B074d80D4015",
+        "contributionShare": 0.75
+      }
+    ]
+  },
+  "6744154177582": {
+    "productId": 6744154177582,
+    "title": "RoyalT Short Sleeve",
+    "designers": [
+      {
+        "name": "wero",
+        "ethAddress": "0x1A3C469A422EcfEEc7258C701cd5cdDe9b5e9322",
+        "contributionShare": 0.05
+      },
+      {
+        "name": "CryptoAccord",
+        "ethAddress": "0x4cCa9821c246acd39a42F34e6ae4E520A8224565",
+        "contributionShare": 0.15
+      },
+      {
+        "name": "fraemwerk",
+        "ethAddress": "0xBED32b83dd0851E655ADcEf79105Ca7a469cf9F0",
+        "contributionShare": 0.05
+      },
+      {
+        "name": "Apesthetics",
+        "ethAddress": "0x76f91DCf2aA8F542A5Baf8AC9B06B074d80D4015",
+        "contributionShare": 0.75
+      }
+    ]
+  },
+  "6744987566126": {
+    "productId": 6744987566126,
+    "title": "0xmon Octopus Hat",
+    "designers": [
+      {
+        "name": "wero",
+        "ethAddress": "0x1A3C469A422EcfEEc7258C701cd5cdDe9b5e9322",
+        "contributionShare": 0.15
+      },
+      {
+        "name": "0xmons",
+        "ethAddress": "0x75d4bdBf6593ed463e9625694272a0FF9a6D346F",
+        "contributionShare": 0.85
+      }
+    ]
+  },
+  "6745333104686": {
+    "productId": 6745333104686,
+    "title": "Ape Together Strong\" Hoodie",
+    "designers": [
+      {
+        "name": "wero",
+        "ethAddress": "0x1A3C469A422EcfEEc7258C701cd5cdDe9b5e9322",
+        "contributionShare": 0.15
+      },
+      {
+        "name": "Lexpunk DAO",
+        "ethAddress": "0xBe9aAF4113B5a4aFCdb7E20c21eAa53C6EE20b10",
+        "contributionShare": 0.85
+      }
+    ]
+  },
+  "6745387008046": {
+    "productId": 6745387008046,
+    "title": "The BDAO Beanie",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "contributionShare": 0.2,
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70"
+      },
+      {
+        "name": "Bankless DAO",
+        "ethAddress": "0xf26d1Bb347a59F6C283C53156519cC1B1ABacA51",
+        "contributionShare": 0.7
+      },
+      {
+        "name": "Crypt0xwife",
+        "contributionShare": 0.1,
+        "ethAddress": "0x0F963c3f8cF8Fe3bd448571928D5D2519bbEc6c8"
+      }
+    ]
+  },
+  "6741325447214": {
+    "productId": 6741325447214,
+    "title": "MF Drip Socks (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "contributionShare": 1,
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70"
+      }
+    ]
+  },
+  "6749858955310": {
+    "productId": 6749858955310,
+    "title": "Zero Waste BUIDL-A-TEE (Pickup Only)",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "contributionShare": 1,
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70"
+      }
+    ]
+  },
+  "6749361045550": {
+    "productId": 6749361045550,
+    "title": "Gitcoin \"Windbreaker\" Jacket (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "Gitcoin DAO",
+        "ethAddress": "0x57a8865cfb1ecef7253c27da6b4bc3daee5be518",
+        "contributionShare": 0.7
+      },
+      {
+        "name": "Sergio",
+        "ethAddress": "0x3Cc1A943B27c2AF7c6dcF3Be0137f66c2f22E712",
+        "contributionShare": 0.3
+      }
+    ]
+  },
+  "6749361012782": {
+    "productId": 6749361012782,
+    "title": "ETHDenver Baseball Cap (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "SporkDAO",
+        "ethAddress": "0x73275915Dc3df6d24812F6E8815d83FfECf69643",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "6749360980014": {
+    "productId": 6749360980014,
+    "title": "Bufficorn Plushie (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "SporkDAO",
+        "ethAddress": "0x73275915Dc3df6d24812F6E8815d83FfECf69643",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "6749361209390": {
+    "productId": 6749361209390,
+    "title": "Toca Faraday Bags",
+    "designers": [
+      {
+        "name": "TOCA",
+        "ethAddress": "0x26955F0D8C809C9a2209d2a5679358D97B157FFf",
+        "contributionShare": 0.8
+      },
+      {
+        "name": "Paula",
+        "ethAddress": "0x9e476f951Dc5aF8E4f7fD02C78f0CD765A25C8C0",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "Franchesko",
+        "ethAddress": "0xB6734B4E01D1cD9A626efD6c86F031cBbF9B4936",
+        "contributionShare": 0.1
+      }
+    ]
+  },
+  "6749360914478": {
+    "productId": 6749360914478,
+    "title": "Coloring Book Hoodies (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.3
+      },
+      {
+        "name": "SporkDAO",
+        "ethAddress": "0x73275915Dc3df6d24812F6E8815d83FfECf69643",
+        "contributionShare": 0.7
+      }
+    ]
+  },
+  "6749361078318": {
+    "productId": 6749361078318,
+    "title": "Gitcoin Beanies (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.05
+      },
+      {
+        "name": "Sinjun",
+        "ethAddress": "0x6F3924E9158c74D344BF578a251Bcc2ef41F8F50",
+        "contributionShare": 0.2
+      },
+      {
+        "name": "Yalor",
+        "ethAddress": "0x66b1De0f14a0ce971F7f248415063D44CAF19398",
+        "contributionShare": 0.05
+      },
+      {
+        "name": "Gitcoin DAO",
+        "ethAddress": "0x57a8865cfb1ecef7253c27da6b4bc3daee5be518",
+        "contributionShare": 0.7
+      }
+    ]
+  },
+  "6749361438766": {
+    "productId": 6749361438766,
+    "title": "Anti Meta Meta Factory Hoodie",
+    "designers": [
+      {
+        "name": "Sergio",
+        "ethAddress": "0x3Cc1A943B27c2AF7c6dcF3Be0137f66c2f22E712",
+        "contributionShare": 0.25
+      },
+      {
+        "name": "milfdad",
+        "ethAddress": "0x58E2B4d76F66F2e71D1Db865c4F4C8e9ADCC13C0",
+        "contributionShare": 0.25
+      },
+      {
+        "name": "NiftyFifty",
+        "ethAddress": "0xE75304fE5bb590B6deA3CA13A8aBAb257c12E753",
+        "contributionShare": 0.15
+      },
+      {
+        "name": "DAOFREN",
+        "ethAddress": "0x4cCa9821c246acd39a42F34e6ae4E520A8224565",
+        "contributionShare": 0.15
+      },
+      {
+        "name": "CPTNskeletor",
+        "ethAddress": "0x9bcDc7db2f57B0f960A737ccC29373a9bc760134",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "wero",
+        "ethAddress": "0x1A3C469A422EcfEEc7258C701cd5cdDe9b5e9322",
+        "contributionShare": 0.05
+      },
+      {
+        "name": "METADREAMER",
+        "ethAddress": "0x8F942ECED007bD3976927B7958B50Df126FEeCb5",
+        "contributionShare": 0.05
+      }
+    ]
+  },
+  "6749361307694": {
+    "productId": 6749361307694,
+    "title": "MF Robot Beanies",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.9
+      },
+      {
+        "name": "DAOFren",
+        "ethAddress": "0x4cCa9821c246acd39a42F34e6ae4E520A8224565",
+        "contributionShare": 0.1
+      }
+    ]
+  },
+  "6749360619566": {
+    "productId": 6749360619566,
+    "title": "ETHDenver Black Logo Shirt - Men's Cut (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "SporkDAO",
+        "ethAddress": "0x73275915Dc3df6d24812F6E8815d83FfECf69643",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "6749360259118": {
+    "productId": 6749360259118,
+    "title": "The BDAO Beanie (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "contributionShare": 0.2,
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70"
+      },
+      {
+        "name": "Bankless DAO",
+        "ethAddress": "0xf26d1Bb347a59F6C283C53156519cC1B1ABacA51",
+        "contributionShare": 0.7
+      },
+      {
+        "name": "Crypt0xwife",
+        "contributionShare": 0.1,
+        "ethAddress": "0x0F963c3f8cF8Fe3bd448571928D5D2519bbEc6c8"
+      }
+    ]
+  },
+  "6741325381678": {
+    "productId": 6741325381678,
+    "title": "MF Robo Dance Socks (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "contributionShare": 1,
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70"
+      }
+    ]
+  },
+  "6749360816174": {
+    "productId": 6749360816174,
+    "title": "ETHDenver Leather Electronics/Cord Holder (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "SporkDAO",
+        "ethAddress": "0x73275915Dc3df6d24812F6E8815d83FfECf69643",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "6749360685102": {
+    "productId": 6749360685102,
+    "title": "ETHDenver Grey Bufficorn Shadow Shirt (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "SporkDAO",
+        "ethAddress": "0x73275915Dc3df6d24812F6E8815d83FfECf69643",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "6749360455726": {
+    "productId": 6749360455726,
+    "title": "Colorado Jam Logo Shirt (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "SporkDAO",
+        "ethAddress": "0x73275915Dc3df6d24812F6E8815d83FfECf69643",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "6749361930286": {
+    "productId": 6749361930286,
+    "title": "GodComplex VOX Gear Set - Arm Jacket + Mask (Pickup ONLY)",
+    "designers": []
+  },
+  "6749360586798": {
+    "productId": 6749360586798,
+    "title": "PegaBufficorn PJ Pants (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "SporkDAO",
+        "ethAddress": "0x73275915Dc3df6d24812F6E8815d83FfECf69643",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "6749360848942": {
+    "productId": 6749360848942,
+    "title": "ETHDenver Beanies (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "contributionShare": 0.2,
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70"
+      },
+      {
+        "name": "SporkDAO",
+        "ethAddress": "0x73275915Dc3df6d24812F6E8815d83FfECf69643",
+        "contributionShare": 0.8
+      }
+    ]
+  },
+  "6749360324654": {
+    "productId": 6749360324654,
+    "title": "Bankless Box Logo T-Shirt (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "Bankless DAO",
+        "ethAddress": "0xf26d1Bb347a59F6C283C53156519cC1B1ABacA51",
+        "contributionShare": 0.9
+      }
+    ]
+  },
+  "6749361176622": {
+    "productId": 6749361176622,
+    "title": "Woofy Tracksuit (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "METADREAMER",
+        "ethAddress": "0x8F942ECED007bD3976927B7958B50Df126FEeCb5",
+        "contributionShare": 0.3
+      },
+      {
+        "name": "loldefi",
+        "ethAddress": "0x3680eaf1f85bec9f120bcaaa9ef469fb849e1781",
+        "contributionShare": 0.7
+      }
+    ]
+  },
+  "6749360881710": {
+    "productId": 6749360881710,
+    "title": "Boy Shorts (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.2
+      },
+      {
+        "name": "SporkDAO",
+        "ethAddress": "0x73275915Dc3df6d24812F6E8815d83FfECf69643",
+        "contributionShare": 0.8
+      }
+    ]
+  },
+  "6749360390190": {
+    "productId": 6749360390190,
+    "title": "B is for Bufficorn Children's Book (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "SporkDAO",
+        "ethAddress": "0x73275915Dc3df6d24812F6E8815d83FfECf69643",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "6749361143854": {
+    "productId": 6749361143854,
+    "title": "Milfdad Stock Ticker Shoulder Bag (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "milfdad",
+        "ethAddress": "0x58E2B4d76F66F2e71D1Db865c4F4C8e9ADCC13C0",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "6749361602606": {
+    "productId": 6749361602606,
+    "title": "RIP Mt Gox Longsleeve (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "milfdad",
+        "ethAddress": "0x58E2B4d76F66F2e71D1Db865c4F4C8e9ADCC13C0",
+        "contributionShare": 0.3
+      },
+      {
+        "name": "algoriddims",
+        "ethAddress": "0x731C9C9Dd1864f724f83fd384ACf23ED240A06a6",
+        "contributionShare": 0.7
+      }
+    ]
+  },
+  "6749360947246": {
+    "productId": 6749360947246,
+    "title": "ETHDenver Boxer Shorts (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.2
+      },
+      {
+        "name": "SporkDAO",
+        "ethAddress": "0x73275915Dc3df6d24812F6E8815d83FfECf69643",
+        "contributionShare": 0.8
+      }
+    ]
+  },
+  "6749360521262": {
+    "productId": 6749360521262,
+    "title": "PegaBufficorn Socks (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "SporkDAO",
+        "ethAddress": "0x73275915Dc3df6d24812F6E8815d83FfECf69643",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "6749361635374": {
+    "productId": 6749361635374,
+    "title": "RIP Etherdelta Longsleeve (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "milfdad",
+        "ethAddress": "0x58E2B4d76F66F2e71D1Db865c4F4C8e9ADCC13C0",
+        "contributionShare": 0.3
+      },
+      {
+        "name": "algoriddims",
+        "ethAddress": "0x731C9C9Dd1864f724f83fd384ACf23ED240A06a6",
+        "contributionShare": 0.7
+      }
+    ]
+  },
+  "6749360554030": {
+    "productId": 6749360554030,
+    "title": "PegaBufficorn & Marmot Clouds Shirt (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "SporkDAO",
+        "ethAddress": "0x73275915Dc3df6d24812F6E8815d83FfECf69643",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "6749360488494": {
+    "productId": 6749360488494,
+    "title": "Spork Marmot Virtual Castle Sublimated Shirt (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "SporkDAO",
+        "ethAddress": "0x73275915Dc3df6d24812F6E8815d83FfECf69643",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "6749361111086": {
+    "productId": 6749361111086,
+    "title": "Milfdad Stock Ticker Beanie (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "milfdad",
+        "ethAddress": "0x58E2B4d76F66F2e71D1Db865c4F4C8e9ADCC13C0",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "6749360652334": {
+    "productId": 6749360652334,
+    "title": "ETHDenver Black Logo Shirt - Women's Cut (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "SporkDAO",
+        "ethAddress": "0x73275915Dc3df6d24812F6E8815d83FfECf69643",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "6749360750638": {
+    "productId": 6749360750638,
+    "title": "PegaBufficorn Yogi Red Shirt - Men's Cut (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "SporkDAO",
+        "ethAddress": "0x73275915Dc3df6d24812F6E8815d83FfECf69643",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "6749361569838": {
+    "productId": 6749361569838,
+    "title": "MetaGEAR Jacket + Box Set (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "contributionShare": 0.3,
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70"
+      },
+      {
+        "name": "Danielle",
+        "contributionShare": 0.3,
+        "ethAddress": "0x77a78FE8C1a045a3DD148931D7FC40410302e32c"
+      },
+      {
+        "name": "Franchesko",
+        "contributionShare": 0.25,
+        "ethAddress": "0xB6734B4E01D1cD9A626efD6c86F031cBbF9B4936"
+      },
+      {
+        "name": "Max Ernst",
+        "contributionShare": 0.1,
+        "ethAddress": "0x4c1ef370CB28b24961E061efA742f934cbbd71aF"
+      },
+      {
+        "name": "FWG Vault",
+        "contributionShare": 0.05,
+        "ethAddress": "0x9768c71eAD3aa2C23ee0B53830161F4016bDc21C"
+      }
+    ]
+  },
+  "6750173560878": {
+    "productId": 6750173560878,
+    "title": "Meta Diagram Button Shirt (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "milfdad",
+        "ethAddress": "0x58E2B4d76F66F2e71D1Db865c4F4C8e9ADCC13C0",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "6749360783406": {
+    "productId": 6749360783406,
+    "title": "ETHDenver Teal Bufficorn Shadow Shirt (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "SporkDAO",
+        "ethAddress": "0x73275915Dc3df6d24812F6E8815d83FfECf69643",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "6749360717870": {
+    "productId": 6749360717870,
+    "title": "PegaBufficorn Yogi Red Shirt - Women's Cut (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "SporkDAO",
+        "ethAddress": "0x73275915Dc3df6d24812F6E8815d83FfECf69643",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "6750907203630": {
+    "productId": 6750907203630,
+    "title": "SadBirdsClub x ETHDenver Earrings (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "Penguin",
+        "ethAddress": "0xfaCEf700458D4Fc9746F7f3e0d37B462711fF09e",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "6749361471534": {
+    "productId": 6749361471534,
+    "title": "Beard \"Gear\" Oil (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "Esteve",
+        "ethAddress": "0x02233A254A2093dC81270B76096e4767146981e0",
+        "contributionShare": 0.15
+      },
+      {
+        "name": "Sergio",
+        "ethAddress": "0x3Cc1A943B27c2AF7c6dcF3Be0137f66c2f22E712",
+        "contributionShare": 0.15
+      },
+      {
+        "name": "Rachel",
+        "ethAddress": "0x58315fB2b6E94371679fFb4b3322ab32f3dc7311",
+        "contributionShare": 0.7
+      }
+    ]
+  },
+  "6750922342446": {
+    "productId": 6750922342446,
+    "title": "Tears of Moloch\" Hot Sauce (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "METADREAMER",
+        "ethAddress": "0x8F942ECED007bD3976927B7958B50Df126FEeCb5",
+        "contributionShare": 0.7
+      },
+      {
+        "name": "Sergio",
+        "ethAddress": "0x3Cc1A943B27c2AF7c6dcF3Be0137f66c2f22E712",
+        "contributionShare": 0.3
+      }
+    ]
+  },
+  "6749360357422": {
+    "productId": 6749360357422,
+    "title": "ETHDenver Year of the Spork Marmot Shirt (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "SporkDAO",
+        "ethAddress": "0x73275915Dc3df6d24812F6E8815d83FfECf69643",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "6750485905454": {
+    "productId": 6750485905454,
+    "title": "The 0x Spork Beanie",
+    "designers": [
+      {
+        "name": "SporkDAO",
+        "ethAddress": "0x73275915Dc3df6d24812F6E8815d83FfECf69643",
+        "contributionShare": 1
+      }
+    ]
+  },
+  "6749361242158": {
+    "productId": 6749361242158,
+    "title": "Tie Dye Robo Patch 1/1s (Pickup ONLY)",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "contributionShare": 1,
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70"
+      }
+    ]
+  },
+  "6745260752942": {
+    "productId": 6745260752942,
+    "title": "The Gitcoin Beanie",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70",
+        "contributionShare": 0.05
+      },
+      {
+        "name": "Sinjun",
+        "ethAddress": "0x6F3924E9158c74D344BF578a251Bcc2ef41F8F50",
+        "contributionShare": 0.2
+      },
+      {
+        "name": "Yalor",
+        "ethAddress": "0x66b1De0f14a0ce971F7f248415063D44CAF19398",
+        "contributionShare": 0.05
+      },
+      {
+        "name": "Gitcoin DAO",
+        "ethAddress": "0x57a8865cfb1ecef7253c27da6b4bc3daee5be518",
+        "contributionShare": 0.7
+      }
+    ]
+  },
+  "6736425975854": {
+    "productId": 6736425975854,
+    "title": "Woofy Tracksuit",
+    "designers": [
+      {
+        "name": "METADREAMER",
+        "ethAddress": "0x8F942ECED007bD3976927B7958B50Df126FEeCb5",
+        "contributionShare": 0.3
+      },
+      {
+        "name": "loldefi",
+        "ethAddress": "0x3680eaf1f85bec9f120bcaaa9ef469fb849e1781",
+        "contributionShare": 0.7
+      }
+    ]
+  },
+  "6754883633198": {
+    "productId": 6754883633198,
+    "title": "Bankless \"Diamond Hands\" Tee",
+    "designers": [
+      {
+        "name": "weseeclearly",
+        "contributionShare": 0.1,
+        "ethAddress": "0xeab5ecC6A488fC6896c5a9b45C5b6A1CdB3aFf70"
+      },
+      {
+        "name": "Bankless DAO",
+        "ethAddress": "0xf26d1Bb347a59F6C283C53156519cC1B1ABacA51",
+        "contributionShare": 0.7
+      },
+      {
+        "name": "Crypt0xwife",
+        "contributionShare": 0.2,
+        "ethAddress": "0x0F963c3f8cF8Fe3bd448571928D5D2519bbEc6c8"
+      }
+    ]
+  },
+  "6753329086510": {
+    "productId": 6753329086510,
+    "title": "Haus Builder Hoodie",
+    "designers": [
+      {
+        "name": "DAOHaus",
+        "contributionShare": 0.7,
+        "ethAddress": "0x3Be7264F5b60635F434559Ab4abc839958768cF2"
+      },
+      {
+        "name": "vengist",
+        "contributionShare": 0.2,
+        "ethAddress": "0xd26a3F686D43f2A62BA9eaE2ff77e9f516d945B9"
+      },
+      {
+        "name": "CPTNskeletor",
+        "ethAddress": "0x9bcDc7db2f57B0f960A737ccC29373a9bc760134",
+        "contributionShare": 0.1
+      }
+    ]
+  },
+  "6757816565806": {
+    "productId": 6757816565806,
+    "title": "D_D Genesis\" Hoodie",
+    "designers": [
+      {
+        "name": "DeveloperDAO",
+        "contributionShare": 0.7,
+        "ethAddress": "0x7128f5ff32eD07Ce12E6a9deBE32BB40F9884b3C"
+      },
+      {
+        "name": "Nader",
+        "contributionShare": 0.2,
+        "ethAddress": "0xB2Ebc9b3a788aFB1E942eD65B59E9E49A1eE500D"
+      },
+      {
+        "name": "CPTNskeletor",
+        "ethAddress": "0x9bcDc7db2f57B0f960A737ccC29373a9bc760134",
+        "contributionShare": 0.05
+      },
+      {
+        "name": "Zico",
+        "ethAddress": "0x26439aEB008d63B6686798b5F08a84C7AbeFbd80",
+        "contributionShare": 0.05
+      }
+    ]
+  },
+  "6759069614126": {
+    "productId": 6759069614126,
+    "title": "Bankless\" Crocheted Bucket Hat",
+    "designers": [
+      {
+        "name": "Cory",
+        "ethAddress": "0x82b38800fAE96dB7B7eB88A6C80A38E49Dd81Bcd",
+        "contributionShare": 0.3
+      },
+      {
+        "name": "Bankless DAO",
+        "ethAddress": "0xf26d1Bb347a59F6C283C53156519cC1B1ABacA51",
+        "contributionShare": 0.7
+      }
+    ]
+  },
+  "6761315237934": {
+    "productId": 6761315237934,
+    "title": "v1 Mutant Tee + NFT (Limited)",
+    "designers": [
+      {
+        "name": "Milfdad",
+        "ethAddress": "0x58E2B4d76F66F2e71D1Db865c4F4C8e9ADCC13C0",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "CryptoAccord",
+        "ethAddress": "0x4cCa9821c246acd39a42F34e6ae4E520A8224565",
+        "contributionShare": 0.1
+      },
+      {
+        "name": "fraemwerk",
+        "ethAddress": "0xBED32b83dd0851E655ADcEf79105Ca7a469cf9F0",
+        "contributionShare": 0.05
+      },
+      {
+        "name": "Apesthetics",
+        "ethAddress": "0x76f91DCf2aA8F542A5Baf8AC9B06B074d80D4015",
+        "contributionShare": 0.75
+      }
+    ]
+  },
+  "6761319530542": {
+    "productId": 6761319530542,
+    "title": "v2 Mutant Tee",
+    "designers": [
+      {
+        "name": "CryptoAccord",
+        "ethAddress": "0x4cCa9821c246acd39a42F34e6ae4E520A8224565",
+        "contributionShare": 0.2
+      },
+      {
+        "name": "fraemwerk",
+        "ethAddress": "0xBED32b83dd0851E655ADcEf79105Ca7a469cf9F0",
+        "contributionShare": 0.05
+      },
+      {
+        "name": "Apesthetics",
+        "ethAddress": "0x76f91DCf2aA8F542A5Baf8AC9B06B074d80D4015",
+        "contributionShare": 0.75
+      }
+    ]
+  },
+  "6761789161518": {
+    "productId": 6761789161518,
+    "title": "Probably Nothing\" 3D Embossed Polo Sweatshirt",
+    "designers": [
+      {
+        "name": "Cory",
+        "ethAddress": "0x82b38800fAE96dB7B7eB88A6C80A38E49Dd81Bcd",
+        "contributionShare": 0.25
+      },
+      {
+        "name": "Bankless DAO",
+        "ethAddress": "0xf26d1Bb347a59F6C283C53156519cC1B1ABacA51",
+        "contributionShare": 0.6
+      },
+      {
+        "name": "Crypt0xwife",
+        "contributionShare": 0.15,
+        "ethAddress": "0x0F963c3f8cF8Fe3bd448571928D5D2519bbEc6c8"
       }
     ]
   }

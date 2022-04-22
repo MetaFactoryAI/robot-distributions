@@ -45,7 +45,7 @@ export const upsertRewardData = async () => {
 
   console.log('Finished inserting orders: ', insert_robot_order);
 
-  const designerData = Object.values(DESIGNER_REWARD_DATA).filter((p) => !_.isEmpty(p.designers));
+  const productDesignerData = Object.values(DESIGNER_REWARD_DATA).filter((p) => !_.isEmpty(p.designers));
 
   const designerNames: Record<string, string> = {};
   for (const p of Object.values(PRODUCT_DESIGNERS)) {
@@ -53,17 +53,18 @@ export const upsertRewardData = async () => {
       designerNames[d.ethAddress.toLowerCase()] = d.name;
     }
   }
-
-  for (const p of designerData) {
-    for (const address in p.designers) {
-    }
-  }
+  //
+  // for (const p of productDesignerData) {
+  //   for (const address in p.designers) {
+  //   }
+  // }
 
   const { insert_robot_product } = await chain('mutation')({
     insert_robot_product: [
       {
-        objects: designerData.map((p) => ({
+        objects: productDesignerData.map((p, i) => ({
           ...p,
+          nft_token_id: 1000 + i,
           designers: {
             data: Object.values(p.designers).map((d) => ({
               ...d,
@@ -81,7 +82,7 @@ export const upsertRewardData = async () => {
         })),
         on_conflict: {
           constraint: robot_product_constraint.product_pkey,
-          update_columns: [robot_product_update_column.title],
+          update_columns: [robot_product_update_column.shopify_id, robot_product_update_column.nft_token_id],
         },
       },
       {
@@ -93,4 +94,4 @@ export const upsertRewardData = async () => {
   console.log('Finished inserting products: ', insert_robot_product);
 };
 
-upsertRewardData();
+upsertRewardData().catch(e => console.error(e));
