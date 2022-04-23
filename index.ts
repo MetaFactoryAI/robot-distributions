@@ -5,8 +5,8 @@ import { DesignerContribution, Order, OrderRewardAllocation } from './lib/types'
 
 import PRODUCT_DESIGNERS from './data/productDesigners.json';
 import ROBOT_MA from './data/robotMovingAverage.json';
-import BUYER_REWARDS_BY_ORDER from './oct2021/buyerRewardsByOrder.json';
-import DESIGNER_REWARDS_BY_ORDER from './oct2021/designerRewardsByOrder.json';
+import BUYER_REWARDS_BY_ORDER from './dec2021/buyerRewardsByOrder.json';
+import DESIGNER_REWARDS_BY_ORDER from './dec2021/designerRewardsByOrder.json';
 
 import { ALL_ORDERS } from './data';
 import {
@@ -38,21 +38,46 @@ const VAUNKER_SALE_ROBOT_PER_ETH = 42;
 // min # of ROBOT needed to be included in distro
 const REWARD_DISTRO_THRESHOLD = 1e-8;
 
-const CURRENT_DISTRO_MONTH = 'dec2021';
+const CURRENT_DISTRO_MONTH = 'april2022';
 
-export const productDesignerMap: Record<
-  string,
+export const productDesignerMap: Record<string,
   {
     productId: number | string;
     title: string;
     designers: DesignerContribution[];
-  }
-> = PRODUCT_DESIGNERS;
+  }> = PRODUCT_DESIGNERS;
 
-const customRewardHandlers: Record<
-  string,
-  (order: Order, milestoneIndex: number) => OrderRewardAllocation
-> = {
+const customRewardHandlers: Record<string,
+  (order: Order, milestoneIndex: number) => OrderRewardAllocation> = {
+  // NFTNYC
+  'NFT-NYC-MISSING': (order, milestoneIndex) => {
+    if (isShopOrder(order) || !order.alt_product_id) throw new Error('Invalid Order');
+
+    const designers = productDesignerMap[order.alt_product_id]?.designers || [];
+    const buyerSpent = getBuyerDollarsSpent(order);
+
+    const designerRatio = DESIGNER_ROBOT_PER_DOLLAR[milestoneIndex];
+    if (typeof designerRatio !== 'number') {
+      throw new Error('Invalid designer reward amount for NFTNYC');
+    }
+
+    const designerAllocation = order.net_sales * designerRatio;
+    const buyerAllocation = calculateRobotToReward(
+      BUYER_ROBOT_PER_DOLLAR[milestoneIndex],
+      order,
+      buyerSpent,
+    );
+
+    return {
+      season: milestoneIndex,
+      buyerSpent,
+      buyer: buyerAllocation * 2,
+      designers: designers.map((d) => ({
+        ethAddress: d.ethAddress,
+        allocation: designerAllocation * d.contributionShare,
+      })),
+    };
+  },
   // MetaLoot
   '6690001944622': (order, milestoneIndex) => {
     if (!isShopOrder(order)) throw new Error('Invalid Order');
@@ -61,7 +86,6 @@ const customRewardHandlers: Record<
       return {
         season: milestoneIndex,
         buyerSpent: 0,
-        designerEarned: 0,
         buyer: 0,
         designers: [],
       };
@@ -77,7 +101,6 @@ const customRewardHandlers: Record<
     return {
       season: milestoneIndex,
       buyerSpent: 0,
-      designerEarned: 0,
       buyer: 6.9,
       designers: designers.map((d) => ({
         ethAddress: d.ethAddress,
@@ -100,7 +123,6 @@ const customRewardHandlers: Record<
     return {
       season: milestoneIndex,
       buyerSpent: netSales,
-      designerEarned: netSales,
       buyer: 0,
       designers: designers.map((d) => ({
         ethAddress: d.ethAddress,
@@ -125,7 +147,6 @@ const customRewardHandlers: Record<
     return {
       season: milestoneIndex,
       buyerSpent: order.net_sales,
-      designerEarned: order.net_sales,
       buyer: buyerAllocation,
       designers: designers.map((d) => ({
         ethAddress: d.ethAddress,
@@ -176,7 +197,6 @@ const getTokenReward = (currentRevenue: number, order: Order): OrderRewardAlloca
   if (!buyerSpent && !designerEarned) {
     return {
       buyerSpent: 0,
-      designerEarned: 0,
       buyer: 0,
       designers: [],
       season: milestoneIndex,
@@ -191,15 +211,15 @@ const getTokenReward = (currentRevenue: number, order: Order): OrderRewardAlloca
   }
 
   const designers = productDesignerMap[order.product_id]?.designers || [];
-  if (!designers.length) {
-    console.log('product has no designers', {
-      id: order.product_id,
-      title: order.product_title,
-      sale: order.net_sales,
-      orderName: 'order_name' in order ? order.order_name : order.product_title,
-      milestoneIndex,
-    });
-  }
+  // if (!designers.length) {
+  //   console.log('product has no designers', {
+  //     id: order.product_id,
+  //     title: order.product_title,
+  //     sale: order.net_sales,
+  //     orderName: 'order_name' in order ? order.order_name : order.product_title,
+  //     milestoneIndex,
+  //   });
+  // }
 
   // Simple case where we havent hit the next milestone yet
   if (nextRevenue <= SALES_MILESTONES[milestoneIndex]) {
@@ -217,7 +237,6 @@ const getTokenReward = (currentRevenue: number, order: Order): OrderRewardAlloca
     return {
       season: milestoneIndex,
       buyerSpent,
-      designerEarned,
       buyer: buyerAllocation,
       designers: designers.map((d) => ({
         ethAddress: d.ethAddress,
@@ -261,7 +280,6 @@ const getTokenReward = (currentRevenue: number, order: Order): OrderRewardAlloca
   return {
     season: milestoneIndex,
     buyerSpent,
-    designerEarned,
     buyer: buyerSpent ? buyerAllocation : 0,
     designers: designers.map((d) => ({
       ethAddress: d.ethAddress,
@@ -270,61 +288,105 @@ const getTokenReward = (currentRevenue: number, order: Order): OrderRewardAlloca
   };
 };
 
-const getBuyerRewardsAlreadyDistributedForOrders = (): Record<
-  string,
-  { address: string; amount: number }
-> => {
+const getBuyerRewardsAlreadyDistributedForOrders = (): Record<string,
+  { address: string; amount: number }> => {
   return _(BUYER_REWARDS_BY_ORDER)
     .mapValues((v) => ({ ...v, amount: -v.amount }))
     .value();
 };
 
-const getDesignerRewardsAlreadyDistributedForOrders = (): Record<
-  string,
-  Record<string, number>
-> => {
+const getDesignerRewardsAlreadyDistributedForOrders = (): Record<string,
+  Record<string, number>> => {
   return _(DESIGNER_REWARDS_BY_ORDER)
     .mapValues((d) => _.mapValues(d, (v) => -v))
     .value();
 };
 
-const generateMonthlyAllocation = async () => {
+type OrderData = {
+  buyer_address: string;
+  order_id: string;
+  order_number: string | null;
+  buyer_reward: number;
+  dollars_spent: number;
+  season: number;
+  date: string;
+};
+
+type DesignerData = {
+  eth_address: string;
+  contribution_share: number;
+  robot_reward: number;
+  name: string | undefined;
+};
+
+type ProductData = {
+  shopify_id: string | null;
+  id: string;
+  title: string;
+  designers: Record<string, DesignerData>;
+  orderDates?: number[];
+  avgOrderDate: string;
+  avgRobotPrice: number;
+};
+
+const generateRewardDistribution = async () => {
   let totalRevenue = INITIAL_REVENUE;
 
-  // start with negative balances for order rewards that were already distributed
-  const buyerDistributed = getBuyerRewardsAlreadyDistributedForOrders();
-  const designerDistributed = getDesignerRewardsAlreadyDistributedForOrders();
+  const sortedOrders: Order[] = _(ALL_ORDERS).sortBy(['day', 'order_name', 'time']).value();
 
-  const sortedOrders = _(ALL_ORDERS).sortBy(['day', 'order_name', 'time']).value();
+  // const buyerOrdersDistributed: Record<string, { address: string; amount: number }> = [];
+  const designerOrdersDistributed: Record<string, Record<string, number>> = {};
+
+  const orderData: Record<string, OrderData> = {};
+  const productData: Record<string, ProductData> = {};
 
   for (const order of sortedOrders) {
-    const reward = getTokenReward(totalRevenue, order);
+    const orderId = `${order.order_id}`;
+    const productId = `${order.product_id}`;
+
+    const { season, buyer, buyerSpent, designers } = getTokenReward(totalRevenue, order);
 
     // Nothing to distribute
-    if (!reward.buyerSpent && (!reward.designers.length || !reward.designerEarned)) continue;
+    if (!buyerSpent && !buyer && !designers.length) continue;
 
-    const orderId = `${order.order_id}`;
-    if (!designerDistributed[orderId]) {
-      designerDistributed[orderId] = {};
-    }
-    if (!buyerDistributed[orderId]) {
-      buyerDistributed[orderId] = { amount: 0, address: '' };
+    if (!designerOrdersDistributed[orderId]) {
+      designerOrdersDistributed[orderId] = {};
     }
 
-    if (typeof reward.buyerSpent === 'string') {
-      throw new Error(`Buyer order string: ${JSON.stringify(order, null, 2)}`);
+    if (!productData[productId]) {
+      productData[productId] = {
+        title: order.product_title,
+        id: productId,
+        shopify_id: isShopOrder(order) ? productId : null,
+        designers: {},
+        orderDates: [],
+        avgOrderDate: '',
+        avgRobotPrice: 0,
+      };
     }
 
-    totalRevenue += reward.buyerSpent;
+    totalRevenue += buyerSpent;
+    const orderTimestamp = new Date(order.day).getTime();
+    productData[productId].orderDates?.push(orderTimestamp);
 
-    for (const designer of reward.designers) {
+    for (const designer of designers) {
       const address = designer.ethAddress.toLowerCase();
-      designerDistributed[orderId][address] =
-        (designerDistributed[orderId][address] || 0) + designer.allocation;
+      designerOrdersDistributed[orderId][address] =
+        (designerOrdersDistributed[orderId][address] || 0) + designer.allocation;
+
+      const designerConfig = productDesignerMap[productId]?.designers.find(
+        (d) => d.ethAddress.toLowerCase() === address,
+      );
+      const currentReward = productData[productId].designers[address]?.robot_reward || 0;
+      productData[productId].designers[address] = {
+        eth_address: address,
+        contribution_share: designerConfig?.contributionShare || 0,
+        robot_reward: currentReward + designer.allocation,
+        name: designerConfig?.name,
+      };
     }
 
     const buyerEthAddress = getEthAddress(order);
-
     if (!buyerEthAddress) {
       // console.log(
       //   `No Eth Address for order ${
@@ -334,18 +396,49 @@ const generateMonthlyAllocation = async () => {
       continue;
     }
 
-    buyerDistributed[orderId] = {
-      address: buyerEthAddress,
-      amount: (buyerDistributed[orderId]?.amount || 0) + reward.buyer,
+    const buyerReward = (orderData[orderId]?.buyer_reward || 0) + buyer;
+    const dollarsSpent = (orderData[orderId]?.dollars_spent || 0) + buyerSpent;
+
+    orderData[orderId] = {
+      order_id: orderId,
+      buyer_address: buyerEthAddress,
+      date: order.day,
+      order_number: 'order_name' in order ? order.order_name : null,
+      dollars_spent: dollarsSpent,
+      buyer_reward: buyerReward,
+      season,
     };
   }
+
+  const buyerOrdersDistributed = _.mapValues(orderData, (o: OrderData) => ({
+    amount: o.buyer_reward,
+    address: o.buyer_address,
+  }));
+
+  const buyerAlreadyDistributed = getBuyerRewardsAlreadyDistributedForOrders();
+  const designerAlreadyDistributed = getDesignerRewardsAlreadyDistributedForOrders();
+
+  const newBuyerRewards = _.mapValues(buyerOrdersDistributed, (order, orderId) => ({
+    ...order,
+    amount: order.amount + (buyerAlreadyDistributed[orderId]?.amount || 0),
+  }));
+
+  const newDesignerRewards = _.mapValues(
+    designerOrdersDistributed,
+    (order, orderId) =>
+      _.mapValues(
+        order,
+        (amount, address) => amount + (designerAlreadyDistributed[orderId]?.[address] || 0)
+      ),
+  );
+
+  const buyerRewards = _.values(newBuyerRewards);
+  const designerRewards = _.values(newDesignerRewards);
+
 
   const airdropAmounts: Record<string, number> = {};
   const buyerAirdropAmounts: Record<string, number> = {};
   const designerAirdropAmounts: Record<string, number> = {};
-
-  const buyerRewards = _.values<{ address: string; amount: number }>(buyerDistributed);
-  const designerRewards = _.values<Record<string, number>>(designerDistributed);
 
   for (const reward of buyerRewards) {
     if (reward.amount > REWARD_DISTRO_THRESHOLD) {
@@ -415,6 +508,7 @@ const generateMonthlyAllocation = async () => {
     (total, amount) => (total += amount),
     0,
   );
+
   console.log({
     totalBuyerTokens,
     totalDesignerTokens,
@@ -424,113 +518,6 @@ const generateMonthlyAllocation = async () => {
   });
 
   fs.writeFileSync(`./${CURRENT_DISTRO_MONTH}/airdrop.json`, JSON.stringify(airdropOutput));
-  fs.writeFileSync(
-    `./${CURRENT_DISTRO_MONTH}/airdrop.csv`,
-    `address,amount\n${Object.entries(airdropOutput)
-      .map((e) => e.join(','))
-      .join('\n')}`,
-  );
-};
-
-type OrderData = {
-  buyer_address: string;
-  order_id: string;
-  order_number: string | null;
-  buyer_reward: number;
-  dollars_spent: number;
-  season: number;
-  date: string;
-};
-
-type DesignerData = {
-  eth_address: string;
-  contribution_share: number;
-  robot_reward: number;
-  name: string | undefined;
-};
-
-type ProductData = {
-  shopify_id: string | null;
-  id: string;
-  title: string;
-  designers: Record<string, DesignerData>;
-  orderDates?: number[];
-  avgOrderDate: string;
-  avgRobotPrice: number;
-};
-
-const generateDistributedOrders = async () => {
-  let totalRevenue = INITIAL_REVENUE;
-
-  const sortedOrders: Order[] = _(ALL_ORDERS).sortBy(['day', 'order_name', 'time']).value();
-
-  // const buyerOrdersDistributed: Record<string, { address: string; amount: number }> = [];
-  const designerOrdersDistributed: Record<string, Record<string, number>> = {};
-
-  const orderData: Record<string, OrderData> = {};
-  const productData: Record<string, ProductData> = {};
-
-  for (const order of sortedOrders) {
-    const orderId = `${order.order_id}`;
-    const productId = `${order.product_id}`;
-
-    const { season, buyer, buyerSpent, designers } = getTokenReward(totalRevenue, order);
-
-    if (!designerOrdersDistributed[orderId]) {
-      designerOrdersDistributed[orderId] = {};
-    }
-
-    if (!productData[productId]) {
-      productData[productId] = {
-        title: order.product_title,
-        id: productId,
-        shopify_id: isShopOrder(order) ? productId : null,
-        designers: {},
-        orderDates: [],
-        avgOrderDate: '',
-        avgRobotPrice: 0,
-      };
-    }
-
-    totalRevenue += buyerSpent;
-    const orderTimestamp = new Date(order.day).getTime();
-    productData[productId].orderDates?.push(orderTimestamp);
-
-    for (const designer of designers) {
-      const address = designer.ethAddress.toLowerCase();
-      designerOrdersDistributed[orderId][address] =
-        (designerOrdersDistributed[orderId][address] || 0) + designer.allocation;
-
-      const designerConfig = productDesignerMap[productId]?.designers.find(
-        (d) => d.ethAddress.toLowerCase() === address,
-      );
-      const currentReward = productData[productId].designers[address]?.robot_reward || 0;
-      productData[productId].designers[address] = {
-        eth_address: address,
-        contribution_share: designerConfig?.contributionShare || 0,
-        robot_reward: currentReward + designer.allocation,
-        name: designerConfig?.name,
-      };
-    }
-
-    const buyerEthAddress = getEthAddress(order);
-    if (!buyerEthAddress) {
-      continue;
-    }
-
-    const buyerReward = (orderData[orderId]?.buyer_reward || 0) + buyer;
-    const dollarsSpent = (orderData[orderId]?.dollars_spent || 0) + buyerSpent;
-
-    orderData[orderId] = {
-      order_id: orderId,
-      buyer_address: buyerEthAddress,
-      date: order.day,
-      order_number: 'order_name' in order ? order.order_name : null,
-      dollars_spent: dollarsSpent,
-      buyer_reward: buyerReward,
-      season,
-    };
-  }
 
   const totalMconReward =
     productData['mcon-sale'].designers['mcon-distributor-placeholder-address'].robot_reward;
@@ -563,10 +550,7 @@ const generateDistributedOrders = async () => {
   fs.writeFileSync(
     `./${CURRENT_DISTRO_MONTH}/buyerRewardsByOrder.json`,
     JSON.stringify(
-      _.mapValues(orderData, (o: OrderData) => ({
-        amount: o.buyer_reward,
-        address: o.buyer_address,
-      })),
+      buyerOrdersDistributed,
     ),
   );
   fs.writeFileSync(
@@ -575,8 +559,20 @@ const generateDistributedOrders = async () => {
   );
 };
 
-generateMonthlyAllocation().then(() => {
-  generateDistributedOrders().then(() => {
-    console.log('Done!');
-  });
+generateRewardDistribution().then(() => {
+  console.log('Done!');
 });
+
+
+// {
+//   totalBuyerTokens: 930.7788939634573,
+//     totalDesignerTokens: 2793.382000000002,
+//   total: 3724.1608939634593,
+//   totalTokens: 3724.1608939634566,
+// {
+//   totalBuyerTokens: 1092.7354944650617,
+//     totalDesignerTokens: 2980.771867500001,
+//   total: 4073.507361965063,
+//   totalTokens: 4073.5073619650607,
+//   totalRevenue: 1473466.5807693296
+// }

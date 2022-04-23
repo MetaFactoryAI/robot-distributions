@@ -70,6 +70,7 @@ export type ShopOrder = typeof shopOrder1 | typeof shopOrder2 | typeof shopOrder
 export type ExternalSale = {
   ethAddress: string;
   product_id: string;
+  alt_product_id?: string;
   order_id: string;
   product_title: string;
   product_vendor: string;

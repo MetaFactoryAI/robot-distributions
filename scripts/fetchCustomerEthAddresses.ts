@@ -15,7 +15,7 @@ const fetchCustomerEthAddresses = async () => {
   const customers = [];
   for (const id of customerIds) {
     if (existingAddresses[id]) {
-      console.log('customer has address: ', id);
+      // console.log('customer has address: ', id);
       customers.push(existingAddresses[id]);
       continue;
     }

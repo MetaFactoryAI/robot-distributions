@@ -2672,6 +2672,54 @@
     "avgOrderDate": "2022-01-13",
     "avgRobotPrice": 79.77074627048457
   },
+  "NFT-NYC-MISSING": {
+    "id": "NFT-NYC-MISSING",
+    "shopify_id": null,
+    "designers": {
+      "0x3cc1a943b27c2af7c6dcf3be0137f66c2f22e712": {
+        "eth_address": "0x3cc1a943b27c2af7c6dcf3be0137f66c2f22e712",
+        "contribution_share": 0,
+        "robot_reward": 0.6857375
+      },
+      "0xeab5ecc6a488fc6896c5a9b45c5b6a1cdb3aff70": {
+        "eth_address": "0xeab5ecc6a488fc6896c5a9b45c5b6a1cdb3aff70",
+        "contribution_share": 0,
+        "robot_reward": 56.21696025
+      },
+      "0xf91569595bcdaf780c3f1662f204e157949af8b2": {
+        "eth_address": "0xf91569595bcdaf780c3f1662f204e157949af8b2",
+        "contribution_share": 0,
+        "robot_reward": 29.22724875
+      },
+      "0x77a78fe8c1a045a3dd148931d7fc40410302e32c": {
+        "eth_address": "0x77a78fe8c1a045a3dd148931d7fc40410302e32c",
+        "contribution_share": 0,
+        "robot_reward": 42.92291250000001
+      },
+      "0xb6734b4e01d1cd9a626efd6c86f031cbbf9b4936": {
+        "eth_address": "0xb6734b4e01d1cd9a626efd6c86f031cbbf9b4936",
+        "contribution_share": 0,
+        "robot_reward": 35.76909375
+      },
+      "0x4c1ef370cb28b24961e061efa742f934cbbd71af": {
+        "eth_address": "0x4c1ef370cb28b24961e061efa742f934cbbd71af",
+        "contribution_share": 0,
+        "robot_reward": 14.307637500000002
+      },
+      "0x9768c71ead3aa2c23ee0b53830161f4016bdc21c": {
+        "eth_address": "0x9768c71ead3aa2c23ee0b53830161f4016bdc21c",
+        "contribution_share": 0,
+        "robot_reward": 7.153818750000001
+      },
+      "0x35764fd659509f60c9531f27fdb5305f85a1398b": {
+        "eth_address": "0x35764fd659509f60c9531f27fdb5305f85a1398b",
+        "contribution_share": 0,
+        "robot_reward": 1.1064585
+      }
+    },
+    "avgOrderDate": "2021-11-08",
+    "avgRobotPrice": 82.89155792972323
+  },
   "6713199984686": {
     "title": "Bankless \"WGMI\" Hoodie",
     "id": "6713199984686",

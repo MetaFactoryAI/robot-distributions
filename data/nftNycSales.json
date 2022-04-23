@@ -1,0 +1,74 @@
+[
+  {
+    "ethAddress": "0xf2e3600da00f63167d9c2659a725f0b876d944e0",
+    "order_id": "NFT-NYC-0x00c8cd44e2d273090727707bcded998acb32d676cec5d8adfb31c0b632213229",
+    "product_id": "NFT-NYC-MISSING",
+    "alt_product_id": 6711703568430,
+    "net_sales": 78.37,
+    "day": "2021-11-02"
+  },
+  {
+    "ethAddress": "0x603fa9bab1877241d5e5632f946cc9ffe90a377c",
+    "order_id": "NFT-NYC-0xd777c546832080d3f2ec3e797f07de21370cd2971b5fd323596ac9f8c0b68f5a",
+    "product_id": "NFT-NYC-MISSING",
+    "alt_product_id": 6711649108014,
+    "net_sales": 1908.72,
+    "day": "2021-11-03"
+  },
+  {
+    "ethAddress": "0x9BaE308C601feD591F363A3EF7D6e28534E303e3",
+    "order_id": "NFT-NYC-0x3ab76db7b2f62858ade4c6c32e49fca82968e73e97dbb6eb51bb527b1e6147d8",
+    "product_id": "NFT-NYC-MISSING",
+    "alt_product_id": 6711699636270,
+    "net_sales": 2510.2,
+    "day": "2021-11-03"
+  },
+  {
+    "ethAddress": "0xcf1f993add8c0f080e340d8df277b508351de5d8",
+    "order_id": "NFT-NYC-0x622c7232173649860a9402e28ca25fa6afa34f56716f4a0073cbc6e0a1d80ee4",
+    "product_id": "NFT-NYC-MISSING",
+    "alt_product_id": 6711699636270,
+    "net_sales": 2385.90,
+    "day": "2021-11-03"
+  },
+  {
+    "ethAddress": "0x77dd52c08f4aaa9da42ed1bf2e738b8969ab980f",
+    "order_id": "NFT-NYC-0xc3fb957e5ee81a5efad21155d8b350c9e3d12d5d8dbd9ffecd8305ac8671e440",
+    "product_id": "NFT-NYC-MISSING",
+    "alt_product_id": 6711699636270,
+    "net_sales": 2385.90,
+    "day": "2021-11-03"
+  },
+  {
+    "ethAddress": "0x1fd2978ac57fb2f459ef1ab7812b58f29ab437ba",
+    "order_id": "NFT-NYC-0xe2125877717aa70a93dce55d5c503470cea0f392d7ea132daa64032820be4bda",
+    "product_id": "NFT-NYC-MISSING",
+    "alt_product_id": 6711649108014,
+    "net_sales": 1431.537,
+    "day": "2021-11-04"
+  },
+  {
+    "ethAddress": "0xc836bc72d4069d2fb8d477586b5914b49c71648c",
+    "order_id": "NFT-NYC-0x572bea4158efdff623e3079339710c3bd1381835bc420b918a1a021fa96056b4",
+    "product_id": "NFT-NYC-MISSING",
+    "alt_product_id": 6711706255406,
+    "net_sales": 126.4524,
+    "day": "2021-11-04"
+  },
+  {
+    "ethAddress": "0xe8d1f8c4325cbc81f02db7b5ef208a65493d8166",
+    "order_id": "NFT-NYC-0xc9b1703b764b53fc4f3dd0b2637bc85ca7dc5f5e3b3f0b2e77ae0de6fbc5ae94 ",
+    "product_id": "NFT-NYC-MISSING",
+    "alt_product_id": 6711699636270,
+    "net_sales": 2313.75,
+    "day": "2021-11-14"
+  },
+  {
+    "ethAddress": "0x3cc1a943b27c2af7c6dcf3be0137f66c2f22e712",
+    "order_id": "NFT-NYC-0xb3be564a276d8bf98f9055f355a1657869f87961b53e650b24d47a31d85201f5 ",
+    "product_id": "NFT-NYC-MISSING",
+    "alt_product_id": 6711699636270,
+    "net_sales": 1850.36,
+    "day": "2021-12-09"
+  }
+]
