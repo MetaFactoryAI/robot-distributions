@@ -64,7 +64,7 @@ export const upsertRewardData = async () => {
       {
         objects: productDesignerData.map((p, i) => ({
           ...p,
-          nft_token_id: 1000 + i,
+          // nft_token_id: 1000 + i,
           designers: {
             data: Object.values(p.designers).map((d) => ({
               ...d,
@@ -82,7 +82,10 @@ export const upsertRewardData = async () => {
         })),
         on_conflict: {
           constraint: robot_product_constraint.product_pkey,
-          update_columns: [robot_product_update_column.shopify_id, robot_product_update_column.nft_token_id],
+          update_columns: [
+            robot_product_update_column.shopify_id,
+            // robot_product_update_column.nft_token_id
+          ],
         },
       },
       {

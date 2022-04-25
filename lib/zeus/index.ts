@@ -629,8 +629,12 @@ count?: [{	columns?:ValueTypes["contributors_select_column"][],	distinct?:boolea
 	_nin?:ValueTypes["date"][]
 };
 	["jsonb"]:unknown;
+	["jsonb_cast_exp"]: {
+	String?:ValueTypes["String_comparison_exp"] | null
+};
 	/** Boolean expression to compare columns of type "jsonb". All fields are combined with logical 'AND'. */
 ["jsonb_comparison_exp"]: {
+	_cast?:ValueTypes["jsonb_cast_exp"] | null,
 	/** is the column contained in the given json value */
 	_contained_in?:ValueTypes["jsonb"] | null,
 	/** does the column contain the given json value at the top level */
@@ -764,8 +768,7 @@ update_robot_product?: [{	/** append existing jsonb value of filtered columns wi
 	_append?:ValueTypes["robot_product_append_input"] | null,	/** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
 	_delete_at_path?:ValueTypes["robot_product_delete_at_path_input"] | null,	/** delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array */
 	_delete_elem?:ValueTypes["robot_product_delete_elem_input"] | null,	/** delete key/value pair or string element. key/value pairs are matched based on their key value */
-	_delete_key?:ValueTypes["robot_product_delete_key_input"] | null,	/** increments the numeric columns with given value of the filtered values */
-	_inc?:ValueTypes["robot_product_inc_input"] | null,	/** prepend existing jsonb value of filtered columns with new jsonb value */
+	_delete_key?:ValueTypes["robot_product_delete_key_input"] | null,	/** prepend existing jsonb value of filtered columns with new jsonb value */
 	_prepend?:ValueTypes["robot_product_prepend_input"] | null,	/** sets the columns of the filtered rows to the given values */
 	_set?:ValueTypes["robot_product_set_input"] | null,	/** filter the rows which have to be updated */
 	where:ValueTypes["robot_product_bool_exp"]},ValueTypes["robot_product_mutation_response"]],
@@ -773,8 +776,7 @@ update_robot_product_by_pk?: [{	/** append existing jsonb value of filtered colu
 	_append?:ValueTypes["robot_product_append_input"] | null,	/** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
 	_delete_at_path?:ValueTypes["robot_product_delete_at_path_input"] | null,	/** delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array */
 	_delete_elem?:ValueTypes["robot_product_delete_elem_input"] | null,	/** delete key/value pair or string element. key/value pairs are matched based on their key value */
-	_delete_key?:ValueTypes["robot_product_delete_key_input"] | null,	/** increments the numeric columns with given value of the filtered values */
-	_inc?:ValueTypes["robot_product_inc_input"] | null,	/** prepend existing jsonb value of filtered columns with new jsonb value */
+	_delete_key?:ValueTypes["robot_product_delete_key_input"] | null,	/** prepend existing jsonb value of filtered columns with new jsonb value */
 	_prepend?:ValueTypes["robot_product_prepend_input"] | null,	/** sets the columns of the filtered rows to the given values */
 	_set?:ValueTypes["robot_product_set_input"] | null,	pk_columns:ValueTypes["robot_product_pk_columns_input"]},ValueTypes["robot_product"]],
 update_robot_product_designer?: [{	/** increments the numeric columns with given value of the filtered values */
@@ -936,10 +938,7 @@ users_aggregate?: [{	/** distinct select on columns */
 users_by_pk?: [{	id:ValueTypes["uuid"]},ValueTypes["users"]],
 		__typename?: boolean
 }>;
-	/** Orders for ROBOT rewards
-
-
-columns and relationships of "robot.order" */
+	/** Orders for ROBOT rewards */
 ["robot_order"]: AliasType<{
 	buyer_address?:boolean,
 	buyer_reward?:boolean,
@@ -1122,10 +1121,7 @@ count?: [{	columns?:ValueTypes["robot_order_select_column"][],	distinct?:boolean
 	season?:boolean,
 		__typename?: boolean
 }>;
-	/** Products for ROBOT designer rewards
-
-
-columns and relationships of "robot.product" */
+	/** Products for ROBOT designer rewards */
 ["robot_product"]: AliasType<{
 designers?: [{	/** distinct select on columns */
 	distinct_on?:ValueTypes["robot_product_designer_select_column"][],	/** limit the number of rows returned */
@@ -1142,8 +1138,6 @@ designers_aggregate?: [{	/** distinct select on columns */
 	id?:boolean,
 nft_metadata?: [{	/** JSON select path */
 	path?:string | null},boolean],
-	nft_token_id?:boolean,
-	notion_id?:boolean,
 	shopify_id?:boolean,
 	title?:boolean,
 		__typename?: boolean
@@ -1156,28 +1150,15 @@ nft_metadata?: [{	/** JSON select path */
 }>;
 	/** aggregate fields of "robot.product" */
 ["robot_product_aggregate_fields"]: AliasType<{
-	avg?:ValueTypes["robot_product_avg_fields"],
 count?: [{	columns?:ValueTypes["robot_product_select_column"][],	distinct?:boolean | null},boolean],
 	max?:ValueTypes["robot_product_max_fields"],
 	min?:ValueTypes["robot_product_min_fields"],
-	stddev?:ValueTypes["robot_product_stddev_fields"],
-	stddev_pop?:ValueTypes["robot_product_stddev_pop_fields"],
-	stddev_samp?:ValueTypes["robot_product_stddev_samp_fields"],
-	sum?:ValueTypes["robot_product_sum_fields"],
-	var_pop?:ValueTypes["robot_product_var_pop_fields"],
-	var_samp?:ValueTypes["robot_product_var_samp_fields"],
-	variance?:ValueTypes["robot_product_variance_fields"],
 		__typename?: boolean
 }>;
 	/** append existing jsonb value of filtered columns with new jsonb value */
 ["robot_product_append_input"]: {
 	nft_metadata?:ValueTypes["jsonb"] | null
 };
-	/** aggregate avg on columns */
-["robot_product_avg_fields"]: AliasType<{
-	nft_token_id?:boolean,
-		__typename?: boolean
-}>;
 	/** Boolean expression to filter rows from the table "robot.product". All fields are combined with a logical 'AND'. */
 ["robot_product_bool_exp"]: {
 	_and?:ValueTypes["robot_product_bool_exp"][],
@@ -1186,8 +1167,6 @@ count?: [{	columns?:ValueTypes["robot_product_select_column"][],	distinct?:boole
 	designers?:ValueTypes["robot_product_designer_bool_exp"] | null,
 	id?:ValueTypes["String_comparison_exp"] | null,
 	nft_metadata?:ValueTypes["jsonb_comparison_exp"] | null,
-	nft_token_id?:ValueTypes["Int_comparison_exp"] | null,
-	notion_id?:ValueTypes["String_comparison_exp"] | null,
 	shopify_id?:ValueTypes["String_comparison_exp"] | null,
 	title?:ValueTypes["String_comparison_exp"] | null
 };
@@ -1205,10 +1184,7 @@ count?: [{	columns?:ValueTypes["robot_product_select_column"][],	distinct?:boole
 ["robot_product_delete_key_input"]: {
 	nft_metadata?:string | null
 };
-	/** Designer receiving ROBOT rewards
-
-
-columns and relationships of "robot.product_designer" */
+	/** Designer receiving ROBOT rewards */
 ["robot_product_designer"]: AliasType<{
 	contribution_share?:boolean,
 	designer_name?:boolean,
@@ -1450,25 +1426,17 @@ count?: [{	columns?:ValueTypes["robot_product_designer_select_column"][],	distin
 	contribution_share?:ValueTypes["order_by"] | null,
 	robot_reward?:ValueTypes["order_by"] | null
 };
-	/** input type for incrementing numeric columns in table "robot.product" */
-["robot_product_inc_input"]: {
-	nft_token_id?:number | null
-};
 	/** input type for inserting data into table "robot.product" */
 ["robot_product_insert_input"]: {
 	designers?:ValueTypes["robot_product_designer_arr_rel_insert_input"] | null,
 	id?:string | null,
 	nft_metadata?:ValueTypes["jsonb"] | null,
-	nft_token_id?:number | null,
-	notion_id?:string | null,
 	shopify_id?:string | null,
 	title?:string | null
 };
 	/** aggregate max on columns */
 ["robot_product_max_fields"]: AliasType<{
 	id?:boolean,
-	nft_token_id?:boolean,
-	notion_id?:boolean,
 	shopify_id?:boolean,
 	title?:boolean,
 		__typename?: boolean
@@ -1476,8 +1444,6 @@ count?: [{	columns?:ValueTypes["robot_product_designer_select_column"][],	distin
 	/** aggregate min on columns */
 ["robot_product_min_fields"]: AliasType<{
 	id?:boolean,
-	nft_token_id?:boolean,
-	notion_id?:boolean,
 	shopify_id?:boolean,
 	title?:boolean,
 		__typename?: boolean
@@ -1507,8 +1473,6 @@ count?: [{	columns?:ValueTypes["robot_product_designer_select_column"][],	distin
 	designers_aggregate?:ValueTypes["robot_product_designer_aggregate_order_by"] | null,
 	id?:ValueTypes["order_by"] | null,
 	nft_metadata?:ValueTypes["order_by"] | null,
-	nft_token_id?:ValueTypes["order_by"] | null,
-	notion_id?:ValueTypes["order_by"] | null,
 	shopify_id?:ValueTypes["order_by"] | null,
 	title?:ValueTypes["order_by"] | null
 };
@@ -1526,48 +1490,11 @@ count?: [{	columns?:ValueTypes["robot_product_designer_select_column"][],	distin
 ["robot_product_set_input"]: {
 	id?:string | null,
 	nft_metadata?:ValueTypes["jsonb"] | null,
-	nft_token_id?:number | null,
-	notion_id?:string | null,
 	shopify_id?:string | null,
 	title?:string | null
 };
-	/** aggregate stddev on columns */
-["robot_product_stddev_fields"]: AliasType<{
-	nft_token_id?:boolean,
-		__typename?: boolean
-}>;
-	/** aggregate stddev_pop on columns */
-["robot_product_stddev_pop_fields"]: AliasType<{
-	nft_token_id?:boolean,
-		__typename?: boolean
-}>;
-	/** aggregate stddev_samp on columns */
-["robot_product_stddev_samp_fields"]: AliasType<{
-	nft_token_id?:boolean,
-		__typename?: boolean
-}>;
-	/** aggregate sum on columns */
-["robot_product_sum_fields"]: AliasType<{
-	nft_token_id?:boolean,
-		__typename?: boolean
-}>;
 	/** update columns of table "robot.product" */
 ["robot_product_update_column"]:robot_product_update_column;
-	/** aggregate var_pop on columns */
-["robot_product_var_pop_fields"]: AliasType<{
-	nft_token_id?:boolean,
-		__typename?: boolean
-}>;
-	/** aggregate var_samp on columns */
-["robot_product_var_samp_fields"]: AliasType<{
-	nft_token_id?:boolean,
-		__typename?: boolean
-}>;
-	/** aggregate variance on columns */
-["robot_product_variance_fields"]: AliasType<{
-	nft_token_id?:boolean,
-		__typename?: boolean
-}>;
 	/** columns and relationships of "shop.api_users" */
 ["shop_api_users"]: AliasType<{
 	password_hash?:boolean,
@@ -2055,7 +1982,7 @@ export type ModelTypes = {
 	/** An object relationship */
 	author:ModelTypes["users"],
 	category?:string,
-	/** fetch data from the table: "contributors" */
+	/** An array relationship */
 	contributors:ModelTypes["contributors"][],
 	/** An aggregate relationship */
 	contributors_aggregate:ModelTypes["contributors_aggregate"],
@@ -2309,6 +2236,7 @@ export type ModelTypes = {
 	/** Boolean expression to compare columns of type "date". All fields are combined with logical 'AND'. */
 ["date_comparison_exp"]: GraphQLTypes["date_comparison_exp"];
 	["jsonb"]:any;
+	["jsonb_cast_exp"]: GraphQLTypes["jsonb_cast_exp"];
 	/** Boolean expression to compare columns of type "jsonb". All fields are combined with logical 'AND'. */
 ["jsonb_comparison_exp"]: GraphQLTypes["jsonb_comparison_exp"];
 	/** mutation root */
@@ -2440,7 +2368,7 @@ export type ModelTypes = {
 	contributions_aggregate:ModelTypes["contributions_aggregate"],
 	/** fetch data from the table: "contributions" using primary key columns */
 	contributions_by_pk?:ModelTypes["contributions"],
-	/** fetch data from the table: "contributors" */
+	/** An array relationship */
 	contributors:ModelTypes["contributors"][],
 	/** An aggregate relationship */
 	contributors_aggregate:ModelTypes["contributors_aggregate"],
@@ -2483,10 +2411,7 @@ export type ModelTypes = {
 	/** fetch data from the table: "users" using primary key columns */
 	users_by_pk?:ModelTypes["users"]
 };
-	/** Orders for ROBOT rewards
-
-
-columns and relationships of "robot.order" */
+	/** Orders for ROBOT rewards */
 ["robot_order"]: {
 		buyer_address:string,
 	buyer_reward:ModelTypes["numeric"],
@@ -2610,10 +2535,7 @@ columns and relationships of "robot.order" */
 	dollars_spent?:number,
 	season?:number
 };
-	/** Products for ROBOT designer rewards
-
-
-columns and relationships of "robot.product" */
+	/** Products for ROBOT designer rewards */
 ["robot_product"]: {
 		/** An array relationship */
 	designers:ModelTypes["robot_product_designer"][],
@@ -2621,8 +2543,6 @@ columns and relationships of "robot.product" */
 	designers_aggregate:ModelTypes["robot_product_designer_aggregate"],
 	id:string,
 	nft_metadata?:ModelTypes["jsonb"],
-	nft_token_id?:number,
-	notion_id?:string,
 	shopify_id?:string,
 	title:string
 };
@@ -2633,24 +2553,12 @@ columns and relationships of "robot.product" */
 };
 	/** aggregate fields of "robot.product" */
 ["robot_product_aggregate_fields"]: {
-		avg?:ModelTypes["robot_product_avg_fields"],
-	count:number,
+		count:number,
 	max?:ModelTypes["robot_product_max_fields"],
-	min?:ModelTypes["robot_product_min_fields"],
-	stddev?:ModelTypes["robot_product_stddev_fields"],
-	stddev_pop?:ModelTypes["robot_product_stddev_pop_fields"],
-	stddev_samp?:ModelTypes["robot_product_stddev_samp_fields"],
-	sum?:ModelTypes["robot_product_sum_fields"],
-	var_pop?:ModelTypes["robot_product_var_pop_fields"],
-	var_samp?:ModelTypes["robot_product_var_samp_fields"],
-	variance?:ModelTypes["robot_product_variance_fields"]
+	min?:ModelTypes["robot_product_min_fields"]
 };
 	/** append existing jsonb value of filtered columns with new jsonb value */
 ["robot_product_append_input"]: GraphQLTypes["robot_product_append_input"];
-	/** aggregate avg on columns */
-["robot_product_avg_fields"]: {
-		nft_token_id?:number
-};
 	/** Boolean expression to filter rows from the table "robot.product". All fields are combined with a logical 'AND'. */
 ["robot_product_bool_exp"]: GraphQLTypes["robot_product_bool_exp"];
 	/** unique or primary key constraints on table "robot.product" */
@@ -2661,10 +2569,7 @@ columns and relationships of "robot.product" */
 ["robot_product_delete_elem_input"]: GraphQLTypes["robot_product_delete_elem_input"];
 	/** delete key/value pair or string element. key/value pairs are matched based on their key value */
 ["robot_product_delete_key_input"]: GraphQLTypes["robot_product_delete_key_input"];
-	/** Designer receiving ROBOT rewards
-
-
-columns and relationships of "robot.product_designer" */
+	/** Designer receiving ROBOT rewards */
 ["robot_product_designer"]: {
 		contribution_share:ModelTypes["numeric"],
 	designer_name?:string,
@@ -2800,23 +2705,17 @@ columns and relationships of "robot.product_designer" */
 };
 	/** order by variance() on columns of table "robot.product_designer" */
 ["robot_product_designer_variance_order_by"]: GraphQLTypes["robot_product_designer_variance_order_by"];
-	/** input type for incrementing numeric columns in table "robot.product" */
-["robot_product_inc_input"]: GraphQLTypes["robot_product_inc_input"];
 	/** input type for inserting data into table "robot.product" */
 ["robot_product_insert_input"]: GraphQLTypes["robot_product_insert_input"];
 	/** aggregate max on columns */
 ["robot_product_max_fields"]: {
 		id?:string,
-	nft_token_id?:number,
-	notion_id?:string,
 	shopify_id?:string,
 	title?:string
 };
 	/** aggregate min on columns */
 ["robot_product_min_fields"]: {
 		id?:string,
-	nft_token_id?:number,
-	notion_id?:string,
 	shopify_id?:string,
 	title?:string
 };
@@ -2841,36 +2740,8 @@ columns and relationships of "robot.product_designer" */
 ["robot_product_select_column"]: GraphQLTypes["robot_product_select_column"];
 	/** input type for updating data in table "robot.product" */
 ["robot_product_set_input"]: GraphQLTypes["robot_product_set_input"];
-	/** aggregate stddev on columns */
-["robot_product_stddev_fields"]: {
-		nft_token_id?:number
-};
-	/** aggregate stddev_pop on columns */
-["robot_product_stddev_pop_fields"]: {
-		nft_token_id?:number
-};
-	/** aggregate stddev_samp on columns */
-["robot_product_stddev_samp_fields"]: {
-		nft_token_id?:number
-};
-	/** aggregate sum on columns */
-["robot_product_sum_fields"]: {
-		nft_token_id?:number
-};
 	/** update columns of table "robot.product" */
 ["robot_product_update_column"]: GraphQLTypes["robot_product_update_column"];
-	/** aggregate var_pop on columns */
-["robot_product_var_pop_fields"]: {
-		nft_token_id?:number
-};
-	/** aggregate var_samp on columns */
-["robot_product_var_samp_fields"]: {
-		nft_token_id?:number
-};
-	/** aggregate variance on columns */
-["robot_product_variance_fields"]: {
-		nft_token_id?:number
-};
 	/** columns and relationships of "shop.api_users" */
 ["shop_api_users"]: {
 		password_hash:string,
@@ -2992,7 +2863,7 @@ columns and relationships of "robot.product_designer" */
 	contributions_aggregate:ModelTypes["contributions_aggregate"],
 	/** fetch data from the table: "contributions" using primary key columns */
 	contributions_by_pk?:ModelTypes["contributions"],
-	/** fetch data from the table: "contributors" */
+	/** An array relationship */
 	contributors:ModelTypes["contributors"][],
 	/** An aggregate relationship */
 	contributors_aggregate:ModelTypes["contributors_aggregate"],
@@ -3271,7 +3142,7 @@ export type GraphQLTypes = {
 	/** An object relationship */
 	author: GraphQLTypes["users"],
 	category?: string,
-	/** fetch data from the table: "contributors" */
+	/** An array relationship */
 	contributors: Array<GraphQLTypes["contributors"]>,
 	/** An aggregate relationship */
 	contributors_aggregate: GraphQLTypes["contributors_aggregate"],
@@ -3708,9 +3579,13 @@ export type GraphQLTypes = {
 	_nin?: Array<GraphQLTypes["date"]>
 };
 	["jsonb"]:any;
+	["jsonb_cast_exp"]: {
+		String?: GraphQLTypes["String_comparison_exp"]
+};
 	/** Boolean expression to compare columns of type "jsonb". All fields are combined with logical 'AND'. */
 ["jsonb_comparison_exp"]: {
-		/** is the column contained in the given json value */
+		_cast?: GraphQLTypes["jsonb_cast_exp"],
+	/** is the column contained in the given json value */
 	_contained_in?: GraphQLTypes["jsonb"],
 	/** does the column contain the given json value at the top level */
 	_contains?: GraphQLTypes["jsonb"],
@@ -3871,7 +3746,7 @@ export type GraphQLTypes = {
 	contributions_aggregate: GraphQLTypes["contributions_aggregate"],
 	/** fetch data from the table: "contributions" using primary key columns */
 	contributions_by_pk?: GraphQLTypes["contributions"],
-	/** fetch data from the table: "contributors" */
+	/** An array relationship */
 	contributors: Array<GraphQLTypes["contributors"]>,
 	/** An aggregate relationship */
 	contributors_aggregate: GraphQLTypes["contributors_aggregate"],
@@ -3914,10 +3789,7 @@ export type GraphQLTypes = {
 	/** fetch data from the table: "users" using primary key columns */
 	users_by_pk?: GraphQLTypes["users"]
 };
-	/** Orders for ROBOT rewards
-
-
-columns and relationships of "robot.order" */
+	/** Orders for ROBOT rewards */
 ["robot_order"]: {
 	__typename: "robot_order",
 	buyer_address: string,
@@ -4100,10 +3972,7 @@ columns and relationships of "robot.order" */
 	dollars_spent?: number,
 	season?: number
 };
-	/** Products for ROBOT designer rewards
-
-
-columns and relationships of "robot.product" */
+	/** Products for ROBOT designer rewards */
 ["robot_product"]: {
 	__typename: "robot_product",
 	/** An array relationship */
@@ -4112,8 +3981,6 @@ columns and relationships of "robot.product" */
 	designers_aggregate: GraphQLTypes["robot_product_designer_aggregate"],
 	id: string,
 	nft_metadata?: GraphQLTypes["jsonb"],
-	nft_token_id?: number,
-	notion_id?: string,
 	shopify_id?: string,
 	title: string
 };
@@ -4126,26 +3993,13 @@ columns and relationships of "robot.product" */
 	/** aggregate fields of "robot.product" */
 ["robot_product_aggregate_fields"]: {
 	__typename: "robot_product_aggregate_fields",
-	avg?: GraphQLTypes["robot_product_avg_fields"],
 	count: number,
 	max?: GraphQLTypes["robot_product_max_fields"],
-	min?: GraphQLTypes["robot_product_min_fields"],
-	stddev?: GraphQLTypes["robot_product_stddev_fields"],
-	stddev_pop?: GraphQLTypes["robot_product_stddev_pop_fields"],
-	stddev_samp?: GraphQLTypes["robot_product_stddev_samp_fields"],
-	sum?: GraphQLTypes["robot_product_sum_fields"],
-	var_pop?: GraphQLTypes["robot_product_var_pop_fields"],
-	var_samp?: GraphQLTypes["robot_product_var_samp_fields"],
-	variance?: GraphQLTypes["robot_product_variance_fields"]
+	min?: GraphQLTypes["robot_product_min_fields"]
 };
 	/** append existing jsonb value of filtered columns with new jsonb value */
 ["robot_product_append_input"]: {
 		nft_metadata?: GraphQLTypes["jsonb"]
-};
-	/** aggregate avg on columns */
-["robot_product_avg_fields"]: {
-	__typename: "robot_product_avg_fields",
-	nft_token_id?: number
 };
 	/** Boolean expression to filter rows from the table "robot.product". All fields are combined with a logical 'AND'. */
 ["robot_product_bool_exp"]: {
@@ -4155,8 +4009,6 @@ columns and relationships of "robot.product" */
 	designers?: GraphQLTypes["robot_product_designer_bool_exp"],
 	id?: GraphQLTypes["String_comparison_exp"],
 	nft_metadata?: GraphQLTypes["jsonb_comparison_exp"],
-	nft_token_id?: GraphQLTypes["Int_comparison_exp"],
-	notion_id?: GraphQLTypes["String_comparison_exp"],
 	shopify_id?: GraphQLTypes["String_comparison_exp"],
 	title?: GraphQLTypes["String_comparison_exp"]
 };
@@ -4174,10 +4026,7 @@ columns and relationships of "robot.product" */
 ["robot_product_delete_key_input"]: {
 		nft_metadata?: string
 };
-	/** Designer receiving ROBOT rewards
-
-
-columns and relationships of "robot.product_designer" */
+	/** Designer receiving ROBOT rewards */
 ["robot_product_designer"]: {
 	__typename: "robot_product_designer",
 	contribution_share: GraphQLTypes["numeric"],
@@ -4419,17 +4268,11 @@ columns and relationships of "robot.product_designer" */
 		contribution_share?: GraphQLTypes["order_by"],
 	robot_reward?: GraphQLTypes["order_by"]
 };
-	/** input type for incrementing numeric columns in table "robot.product" */
-["robot_product_inc_input"]: {
-		nft_token_id?: number
-};
 	/** input type for inserting data into table "robot.product" */
 ["robot_product_insert_input"]: {
 		designers?: GraphQLTypes["robot_product_designer_arr_rel_insert_input"],
 	id?: string,
 	nft_metadata?: GraphQLTypes["jsonb"],
-	nft_token_id?: number,
-	notion_id?: string,
 	shopify_id?: string,
 	title?: string
 };
@@ -4437,8 +4280,6 @@ columns and relationships of "robot.product_designer" */
 ["robot_product_max_fields"]: {
 	__typename: "robot_product_max_fields",
 	id?: string,
-	nft_token_id?: number,
-	notion_id?: string,
 	shopify_id?: string,
 	title?: string
 };
@@ -4446,8 +4287,6 @@ columns and relationships of "robot.product_designer" */
 ["robot_product_min_fields"]: {
 	__typename: "robot_product_min_fields",
 	id?: string,
-	nft_token_id?: number,
-	notion_id?: string,
 	shopify_id?: string,
 	title?: string
 };
@@ -4476,8 +4315,6 @@ columns and relationships of "robot.product_designer" */
 		designers_aggregate?: GraphQLTypes["robot_product_designer_aggregate_order_by"],
 	id?: GraphQLTypes["order_by"],
 	nft_metadata?: GraphQLTypes["order_by"],
-	nft_token_id?: GraphQLTypes["order_by"],
-	notion_id?: GraphQLTypes["order_by"],
 	shopify_id?: GraphQLTypes["order_by"],
 	title?: GraphQLTypes["order_by"]
 };
@@ -4495,48 +4332,11 @@ columns and relationships of "robot.product_designer" */
 ["robot_product_set_input"]: {
 		id?: string,
 	nft_metadata?: GraphQLTypes["jsonb"],
-	nft_token_id?: number,
-	notion_id?: string,
 	shopify_id?: string,
 	title?: string
 };
-	/** aggregate stddev on columns */
-["robot_product_stddev_fields"]: {
-	__typename: "robot_product_stddev_fields",
-	nft_token_id?: number
-};
-	/** aggregate stddev_pop on columns */
-["robot_product_stddev_pop_fields"]: {
-	__typename: "robot_product_stddev_pop_fields",
-	nft_token_id?: number
-};
-	/** aggregate stddev_samp on columns */
-["robot_product_stddev_samp_fields"]: {
-	__typename: "robot_product_stddev_samp_fields",
-	nft_token_id?: number
-};
-	/** aggregate sum on columns */
-["robot_product_sum_fields"]: {
-	__typename: "robot_product_sum_fields",
-	nft_token_id?: number
-};
 	/** update columns of table "robot.product" */
 ["robot_product_update_column"]: robot_product_update_column;
-	/** aggregate var_pop on columns */
-["robot_product_var_pop_fields"]: {
-	__typename: "robot_product_var_pop_fields",
-	nft_token_id?: number
-};
-	/** aggregate var_samp on columns */
-["robot_product_var_samp_fields"]: {
-	__typename: "robot_product_var_samp_fields",
-	nft_token_id?: number
-};
-	/** aggregate variance on columns */
-["robot_product_variance_fields"]: {
-	__typename: "robot_product_variance_fields",
-	nft_token_id?: number
-};
 	/** columns and relationships of "shop.api_users" */
 ["shop_api_users"]: {
 	__typename: "shop_api_users",
@@ -4722,7 +4522,7 @@ columns and relationships of "robot.product_designer" */
 	contributions_aggregate: GraphQLTypes["contributions_aggregate"],
 	/** fetch data from the table: "contributions" using primary key columns */
 	contributions_by_pk?: GraphQLTypes["contributions"],
-	/** fetch data from the table: "contributors" */
+	/** An array relationship */
 	contributors: Array<GraphQLTypes["contributors"]>,
 	/** An aggregate relationship */
 	contributors_aggregate: GraphQLTypes["contributors_aggregate"],
@@ -4982,10 +4782,7 @@ export const enum robot_order_update_column {
 }
 /** unique or primary key constraints on table "robot.product" */
 export const enum robot_product_constraint {
-	product_nft_token_id_key = "product_nft_token_id_key",
-	product_notion_id_shopify_id_key = "product_notion_id_shopify_id_key",
-	product_pkey = "product_pkey",
-	product_shopify_id_key = "product_shopify_id_key"
+	product_pkey = "product_pkey"
 }
 /** unique or primary key constraints on table "robot.product_designer" */
 export const enum robot_product_designer_constraint {
@@ -5011,8 +4808,6 @@ export const enum robot_product_designer_update_column {
 export const enum robot_product_select_column {
 	id = "id",
 	nft_metadata = "nft_metadata",
-	nft_token_id = "nft_token_id",
-	notion_id = "notion_id",
 	shopify_id = "shopify_id",
 	title = "title"
 }
@@ -5020,8 +4815,6 @@ export const enum robot_product_select_column {
 export const enum robot_product_update_column {
 	id = "id",
 	nft_metadata = "nft_metadata",
-	nft_token_id = "nft_token_id",
-	notion_id = "notion_id",
 	shopify_id = "shopify_id",
 	title = "title"
 }
@@ -5602,4 +5395,4 @@ export const Zeus = <
 export const Selector = <T extends keyof ValueTypes>(key: T) => ZeusSelect<ValueTypes[T]>();
   
 
-export const Gql = Chain('http://localhost:8080/v1/graphql')
+export const Gql = Chain('https://metafactory.hasura.app/v1/graphql')
