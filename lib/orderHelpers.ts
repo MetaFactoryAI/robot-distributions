@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import CUSTOMER_ETH_ADDRESSES from '../data/customerEthAddresses.json';
-import { Order, ShopOrder } from './types';
+import { ExternalSale, Order, ShopOrder } from './types';
 
 const customerEthAddressMap = _(CUSTOMER_ETH_ADDRESSES)
   .keyBy('customerId')
@@ -50,3 +50,4 @@ export const getEthAddress = (order: Order) => {
   if ('ethAddress' in order) return order.ethAddress;
   return customerEthAddressMap[order.customer_id.toString()]?.toLowerCase();
 };
+

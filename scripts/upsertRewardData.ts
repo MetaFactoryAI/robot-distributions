@@ -70,7 +70,7 @@ export const upsertRewardData = async () => {
           }
           return ({
             ...p,
-            nft_token_id: 1000 + i,
+            // nft_token_id: i,
             designers: {
               data: Object.values(p.designers).map((d) => ({
                 ...d,

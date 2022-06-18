@@ -79,7 +79,8 @@ const getEthAddressFromCustomAttributes = (attributes: CustomAttribute[]) => {
   return attributes.find((a: CustomAttribute) => a.key === 'Ethereum Address')?.value;
 };
 
-export const getEthAddressForCustomer = async (customerId: number): Promise<string | null> => {
+export const getEthAddressForCustomer = async (customerId: number | string | null): Promise<string | null> => {
+  if (!customerId) return null
   const data = await client.request(CUSTOMER_QUERY, { id: customerIdToNodeId(customerId) });
 
   // Check if address is already set in metafield
@@ -101,7 +102,7 @@ export const getEthAddressForCustomer = async (customerId: number): Promise<stri
   return null;
 };
 
-export const getAllAddressesForCustomer = async (customerId: number): Promise<string[]> => {
+export const getAllAddressesForCustomer = async (customerId: number | string): Promise<string[]> => {
   const data = await client.request(CUSTOMER_QUERY, { id: customerIdToNodeId(customerId) });
 
   const addresses = new Set<string>();
