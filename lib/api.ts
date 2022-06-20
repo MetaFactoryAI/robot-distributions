@@ -81,6 +81,8 @@ const getEthAddressFromCustomAttributes = (attributes: CustomAttribute[]) => {
 
 export const getEthAddressForCustomer = async (customerId: number | string | null): Promise<string | null> => {
   if (!customerId) return null
+  console.log('fetching remote address ');
+
   const data = await client.request(CUSTOMER_QUERY, { id: customerIdToNodeId(customerId) });
 
   // Check if address is already set in metafield
