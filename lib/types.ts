@@ -86,3 +86,9 @@ export type OrderRewardAllocation = {
   buyerSpent: number;
   season: number;
 };
+
+export type OrderEthAddressData = {
+  id: string,
+  customAttributes: Array<{ key: string, value: string }>,
+  note: string
+}

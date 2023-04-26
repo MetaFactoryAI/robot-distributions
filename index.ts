@@ -5,14 +5,14 @@ import { DesignerContribution, Order, OrderRewardAllocation } from './lib/types'
 
 import PRODUCT_DESIGNERS from './data/productDesigners.json';
 import ROBOT_MA from './data/robotMovingAverage.json';
-import BUYER_REWARDS_BY_ORDER from './dec2021/buyerRewardsByOrder.json';
-import DESIGNER_REWARDS_BY_ORDER from './dec2021/designerRewardsByOrder.json';
+import BUYER_REWARDS_BY_ORDER from './april2022/buyerRewardsByOrder.json';
+import DESIGNER_REWARDS_BY_ORDER from './april2022/designerRewardsByOrder.json';
 
 import { ALL_ORDERS } from './data';
 import {
   getBuyerDollarsSpent,
   getDesignerDollarsEarned,
-  getEthAddress,
+  getEthAddressForOrder,
   isShopOrder,
 } from './lib/orderHelpers';
 import { getMconDesignerRewards } from './lib/formatMconSalesData';
@@ -23,13 +23,14 @@ const SALES_MILESTONES = [
   200_000,
   400_000,
   800_000,
+  1_473_466,
   1_600_000,
   3_200_000,
   6_400_000,
 ];
 
-const BUYER_ROBOT_PER_DOLLAR = [0.4, 0.2, 0.05, 0.025, '42%', '42%', '42%', '42%'];
-const DESIGNER_ROBOT_PER_DOLLAR = [0.16, 0.12, 0.05, 0.025, 0.0125, 0.0125, 0.00625, '42%'];
+const BUYER_ROBOT_PER_DOLLAR = [0.4, 0.2, 0.05, 0.025, '42%', '20%', '20%', '20%', '20%'];
+const DESIGNER_ROBOT_PER_DOLLAR = [0.16, 0.12, 0.05, 0.025, 0.0125, 0.0125, 0.0125, 0.00625, 0.00625];
 
 const INITIAL_REVENUE = 50_000;
 
@@ -38,7 +39,7 @@ const VAUNKER_SALE_ROBOT_PER_ETH = 42;
 // min # of ROBOT needed to be included in distro
 const REWARD_DISTRO_THRESHOLD = 1e-8;
 
-const CURRENT_DISTRO_MONTH = 'april2022';
+const CURRENT_DISTRO_MONTH = 'april2023';
 
 export const productDesignerMap: Record<string,
   {
@@ -102,6 +103,29 @@ const customRewardHandlers: Record<string,
       season: milestoneIndex,
       buyerSpent: 0,
       buyer: 6.9,
+      designers: designers.map((d) => ({
+        ethAddress: d.ethAddress,
+        allocation: designerAllocation * d.contributionShare,
+      })),
+    };
+  },
+  // Connext Hoodie
+  '6740222672942': (order, milestoneIndex) => {
+    if (!isShopOrder(order)) throw new Error('Invalid Order');
+
+    const designers = productDesignerMap[order.product_id]?.designers || [];
+    const designerRatio = DESIGNER_ROBOT_PER_DOLLAR[milestoneIndex];
+    if (typeof designerRatio !== 'number') {
+      throw new Error('Invalid designer reward amount for Balancer Hoodie');
+    }
+
+    const netSales = order.quantity * order.product_price;
+    const designerAllocation = netSales * designerRatio;
+
+    return {
+      season: milestoneIndex,
+      buyerSpent: netSales,
+      buyer: 0,
       designers: designers.map((d) => ({
         ethAddress: d.ethAddress,
         allocation: designerAllocation * d.contributionShare,
@@ -185,6 +209,7 @@ const getTokenReward = (currentRevenue: number, order: Order): OrderRewardAlloca
   if (currentRevenue > SALES_MILESTONES[3]) milestoneIndex = 4;
   if (currentRevenue > SALES_MILESTONES[4]) milestoneIndex = 5;
   if (currentRevenue > SALES_MILESTONES[5]) milestoneIndex = 6;
+  if (currentRevenue > SALES_MILESTONES[6]) milestoneIndex = 7;
 
   const customHandler = customRewardHandlers[order.product_id.toString()];
   if (customHandler) {
@@ -386,7 +411,7 @@ const generateRewardDistribution = async () => {
       };
     }
 
-    const buyerEthAddress = getEthAddress(order);
+    const buyerEthAddress = await getEthAddressForOrder(order);
     if (!buyerEthAddress) {
       // console.log(
       //   `No Eth Address for order ${
@@ -576,3 +601,14 @@ generateRewardDistribution().then(() => {
 //   totalTokens: 4073.5073619650607,
 //   totalRevenue: 1473466.5807693296
 // }
+
+// {
+//   totalBuyerTokens: 3929.910812346772,
+//     totalDesignerTokens: 2146.4265238166868,
+//   total: 6076.3373361634585,
+//   totalTokens: 6076.337336163455,
+//   totalRevenue: 1651188.650769331
+// }
+// 0x289eb03610a3cf17a884e104510e36a734660bf5d466559d3762a30809a6402d
+
+

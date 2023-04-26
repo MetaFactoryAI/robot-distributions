@@ -6,7 +6,7 @@ import ROBOT_MA from '../data/robotMovingAverage.json';
 const getMovingAverage = async () => {
   const data = await (
     await fetch(
-      'https://api.coingecko.com/api/v3/coins/robot/market_chart?vs_currency=usd&days=90&interval=daily',
+      'https://api.coingecko.com/api/v3/coins/robot/market_chart?vs_currency=usd&days=360&interval=daily',
     )
   ).json();
 

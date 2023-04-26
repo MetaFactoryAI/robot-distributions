@@ -5,7 +5,7 @@ import ShopOrders from '../data/all_orders.json';
 import { getEthAddressForCustomer } from '../lib/api';
 import assert from 'assert';
 import fs from 'fs';
-import { getEthAddress } from '../lib/orderHelpers';
+import { getEthAddressForOrder } from '../lib/orderHelpers';
 
 type GiveawayItem = {
   'to': string,
@@ -30,7 +30,7 @@ const generateGiveawayData = async () => {
   const ordersByAddress: Record<string, ShopOrder[]> = {};
 
   for (const order of eligibleOrders) {
-    let ethAddress = getEthAddress(order);
+    let ethAddress = await getEthAddressForOrder(order);
     if (ethAddress) {
       if (!ordersByAddress[ethAddress]) ordersByAddress[ethAddress] = [];
       ordersByAddress[ethAddress].push(order)
@@ -40,7 +40,6 @@ const generateGiveawayData = async () => {
   const wearablesByShopifyId = _.keyBy(eligibleWearables, 'shopify_id');
 
   const giveawayData: GiveawayItem[] = [];
-  const giveawaysByAddress: Record<string, GiveawayItem> = {};
   for (const ethAddress of ethAddresses) {
     console.log(`got ${giveawayData.length} items from ${ethAddresses.length} customers`);
 

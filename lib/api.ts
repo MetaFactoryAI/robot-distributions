@@ -1,6 +1,7 @@
-import _ from 'lodash';
+import _, { add } from 'lodash';
 import { gql, GraphQLClient } from 'graphql-request';
 import { web3 } from './ethHelpers';
+import { OrderEthAddressData } from './types';
 
 const ENDPOINT = process.env.GRAPHQL_ENDPOINT;
 const TOKEN = process.env.ACCESS_TOKEN;
@@ -39,18 +40,34 @@ const CUSTOMER_QUERY = gql`
   }
 `;
 
+const ORDER_ETHADDRESS_QUERY = gql`
+  query getEthFieldForOrder($id: ID!) {
+    order(id: $id) {
+      id
+      email
+      customAttributes {
+        key
+        value
+      }
+      note
+    }
+  }
+`;
+
 const MISSING_ETH_ADDRESS_TAG = 'missing_eth_address';
 
 const CUSTOMER_ID_PREFIX = 'gid://shopify/Customer/';
+const ORDER_ID_PREFIX = 'gid://shopify/Order/';
 const ETH_REGEX = /0x[a-fA-F0-9]{40}/;
-const ENS_REGEX = /\w+\.eth/;
+const ENS_REGEX = /(?=.{3,255}$)[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)*\.(eth|test|xyz|ETH)/;
 
 type CustomAttribute = { key: string; value: string };
 
 const nodeIdToCustomerId = (nodeId: string) => nodeId.split(CUSTOMER_ID_PREFIX)[1];
 const customerIdToNodeId = (id: string | number) => `${CUSTOMER_ID_PREFIX}${id}`;
+const orderIdToNodeId = (id: string | number) => `${ORDER_ID_PREFIX}${id}`;
 
-const extractEthAddress = (s: string | null | undefined) =>
+const extractEthAddressFromNote = (s: string | null | undefined) =>
   s && (s.match(ETH_REGEX)?.[0] || s.match(ENS_REGEX)?.[0]);
 
 export const resolveEnsToAddress = async (addressOrEnsName: string): Promise<string | null> => {
@@ -80,13 +97,13 @@ const getEthAddressFromCustomAttributes = (attributes: CustomAttribute[]) => {
 };
 
 export const getEthAddressForCustomer = async (customerId: number | string | null): Promise<string | null> => {
-  if (!customerId) return null
+  if (!customerId) return null;
   console.log('fetching remote address ');
 
   const data = await client.request(CUSTOMER_QUERY, { id: customerIdToNodeId(customerId) });
 
   // Check if address is already set in metafield
-  let address = extractEthAddress(data.customer.metafield?.value);
+  let address = extractEthAddressFromNote(data.customer.metafield?.value);
   if (address) return resolveEnsToAddress(address);
 
   // Otherwise check if the user gave the ETH address at checkout
@@ -104,6 +121,21 @@ export const getEthAddressForCustomer = async (customerId: number | string | nul
   return null;
 };
 
+export const getEthAddressFromOrder = async (orderId: string): Promise<string | null> => {
+  const data = await client.request(ORDER_ETHADDRESS_QUERY, { id: orderIdToNodeId(orderId) });
+  if (!data.order) console.log({ data, orderId });
+  return data.order ? parseEthAddressFromOrder(data.order) : null;
+  // return addressOrENS && resolveEnsToAddress(addressOrENS);
+};
+
+export const parseEthAddressFromOrder = (order: OrderEthAddressData): string | null => {
+  return (
+    getEthAddressFromCustomAttributes(order.customAttributes)
+    || extractEthAddressFromNote(order.note)
+    || null
+  );
+};
+
 export const getAllAddressesForCustomer = async (customerId: number | string): Promise<string[]> => {
   const data = await client.request(CUSTOMER_QUERY, { id: customerIdToNodeId(customerId) });
 
@@ -113,13 +145,9 @@ export const getAllAddressesForCustomer = async (customerId: number | string): P
   const ethAddressFields = _.reduce(
     data.customer.orders.edges,
     (ethAddresses, order) => {
-      const address = getEthAddressFromCustomAttributes(order.node.customAttributes);
+      const address = parseEthAddressFromOrder(order.node);
       if (address) {
         ethAddresses.push(address);
-      }
-      const notesAddress = extractEthAddress(order.node.note);
-      if (notesAddress) {
-        ethAddresses.push(notesAddress);
       }
       return ethAddresses;
     },
@@ -127,7 +155,7 @@ export const getAllAddressesForCustomer = async (customerId: number | string): P
   );
 
   for (const address of ethAddressFields) {
-    const extracted = extractEthAddress(address);
+    const extracted = extractEthAddressFromNote(address);
     const resolved = extracted && (await resolveEnsToAddress(extracted));
     if (resolved) {
       addresses.add(resolved);

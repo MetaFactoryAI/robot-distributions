@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import CUSTOMER_ETH_ADDRESSES from '../data/customerEthAddresses.json';
 import { ExternalSale, Order, ShopOrder } from './types';
+import { getEthAddressForCustomer, getEthAddressFromOrder, resolveEnsToAddress } from './api';
 
 const customerEthAddressMap = _(CUSTOMER_ETH_ADDRESSES)
   .keyBy('customerId')
@@ -41,13 +42,36 @@ export const getDesignerDollarsEarned = (order: Order): number => {
     ) {
       return 0;
     }
+
+    // Free products shouldn't deduct shipping from net_sales
+    if (
+      typeof order.total_refunded === 'number' &&
+      order.net_quantity > 0 &&
+      order.net_sales < 0
+    ) {
+      return 0;
+    }
   }
 
   return order.net_sales;
 };
 
-export const getEthAddress = (order: Order) => {
-  if ('ethAddress' in order) return order.ethAddress;
-  return customerEthAddressMap[order.customer_id.toString()]?.toLowerCase();
+export const getEthAddressForOrder = async (order: Order): Promise<string | null> => {
+  let addressOrEns: string | null = null;
+  const customerId = 'customer_id' in order ? order.customer_id?.toString() : null;
+
+  if ('ethAddress' in order && order.ethAddress) {
+    addressOrEns = order.ethAddress.toLowerCase();
+  } else if (customerId) {
+    addressOrEns = customerEthAddressMap[customerId]?.toLowerCase();
+  }
+
+  if (!addressOrEns) {
+    addressOrEns = await getEthAddressFromOrder(order.order_id.toString());
+  }
+
+  const address = addressOrEns && await resolveEnsToAddress(addressOrEns);
+
+  return address // || (await getEthAddressForCustomer(customerId));
 };
 
